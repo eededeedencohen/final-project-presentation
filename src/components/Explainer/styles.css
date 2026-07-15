@@ -1,0 +1,472 @@
+/* ============================================================
+   Explainer — ערכת שקפי "מאחורי הקלעים" המונפשים
+   ============================================================ */
+
+.xp-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--c-dark-text);
+  background:
+    radial-gradient(1400px 800px at 75% -15%, rgba(20, 58, 102, 0.75), transparent 60%),
+    radial-gradient(1100px 700px at 8% 115%, rgba(15, 163, 184, 0.22), transparent 55%),
+    var(--grad-deep);
+}
+
+/* --- כותרת --- */
+
+.xp-head {
+  position: absolute;
+  top: 44px;
+  inset-inline: 70px;
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+}
+
+.xp-kicker {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(127, 231, 242, 0.7);
+  white-space: nowrap;
+}
+
+.xp-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.05;
+  background: var(--grad-text-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(43, 199, 220, 0.25));
+}
+
+/* --- סצנה --- */
+
+.xp-scene {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  height: 700px;
+  z-index: 2;
+}
+
+/* --- תחנות משושה --- */
+
+.xp-hex {
+  position: absolute;
+  z-index: 4;
+  transition: transform 0.5s cubic-bezier(0.22, 0.9, 0.3, 1), filter 0.5s ease;
+  filter: saturate(0.55) brightness(0.82);
+}
+
+/* תחנה עגולה: טבעת גרדיאנט מסתובבת סביב פאה לבנה רכה */
+.xp-hex-ring,
+.xp-hex-face {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.xp-hex-ring {
+  inset: 0;
+  background: conic-gradient(from 0deg, var(--c-teal), var(--c-cyan), var(--c-aqua), var(--c-teal));
+  transition: filter 0.5s ease;
+}
+
+.xp-hex-face {
+  inset: 6px;
+  background: radial-gradient(circle at 32% 28%, #ffffff, #e9f4f9 75%);
+  box-shadow: inset 0 -8px 18px rgba(11, 37, 69, 0.12);
+  display: grid;
+  place-items: center;
+  padding: 20%;
+}
+
+.xp-hex-face img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.xp-hex-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline: -40px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  color: #eaf6fa;
+}
+
+.xp-hex-sub {
+  position: absolute;
+  top: calc(100% + 42px);
+  inset-inline: -60px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--c-dark-muted);
+}
+
+/* מצבי תחנה */
+.xp-hex.xp-active {
+  filter: none;
+  transform: scale(1.12);
+  z-index: 6;
+}
+
+.xp-hex.xp-active .xp-hex-ring {
+  animation: xpRingSpin 2.6s linear infinite, xpRingPulse 1.6s ease-in-out infinite;
+}
+
+.xp-hex.xp-done {
+  filter: none;
+}
+
+@keyframes xpRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes xpRingPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(43, 199, 220, 0.7)); }
+  50% { filter: drop-shadow(0 0 30px rgba(127, 231, 242, 1)); }
+}
+
+/* --- כרטיס מידע אנושי (בלי קוד) --- */
+
+.xp-info {
+  position: absolute;
+  z-index: 7;
+  direction: rtl;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #f2fbfd;
+  background: linear-gradient(160deg, rgba(20, 58, 102, 0.92), rgba(6, 24, 43, 0.94));
+  border: 1px solid rgba(127, 231, 242, 0.4);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+.xp-info.show { opacity: 1; transform: none; }
+
+.xp-info-title {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--c-aqua);
+  margin-bottom: 8px;
+}
+
+.xp-info-line {
+  padding: 3px 0;
+  opacity: 0;
+}
+
+.xp-info.show .xp-info-line {
+  animation: xpCheckIn 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 0.35s + 0.25s);
+}
+
+/* רשימת בדיקה עם וי-ים שנחתמים אחד-אחד */
+.xp-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  opacity: 0;
+}
+
+.xp-info.show .xp-check {
+  animation: xpCheckIn 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 0.5s + 0.3s);
+}
+
+.xp-check::before {
+  content: '✓';
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-teal);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  transform: scale(0);
+}
+
+.xp-info.show .xp-check::before {
+  animation: xpStamp 0.45s cubic-bezier(0.2, 2.2, 0.4, 1) forwards;
+  animation-delay: calc(var(--i) * 0.5s + 0.45s);
+}
+
+@keyframes xpCheckIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* חותמת: נוחתת מגדול לקטן עם נקישה */
+@keyframes xpStamp {
+  0% { transform: scale(2.6) rotate(-14deg); opacity: 0; }
+  60% { transform: scale(0.9) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* קרן סריקה שחולפת על כרטיס */
+.xp-scan {
+  position: relative;
+  overflow: hidden;
+}
+
+.xp-scan::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 34%;
+  background: linear-gradient(100deg, transparent, rgba(127, 231, 242, 0.35), transparent);
+  animation: xpScanSweep 1.6s ease-in-out infinite;
+}
+
+@keyframes xpScanSweep {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(340%); }
+}
+
+/* התפרצות ניצוצות לשלב הסיום */
+.xp-spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-aqua);
+  opacity: 0;
+  z-index: 6;
+}
+
+.xp-burst .xp-spark {
+  animation: xpSparkFly 1s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+@keyframes xpSparkFly {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.1); opacity: 0; }
+}
+
+/* --- צינורות וחבילות --- */
+
+.xp-pipe-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.xp-pipe {
+  fill: none;
+  stroke: rgba(127, 231, 242, 0.18);
+  stroke-width: 3;
+  stroke-dasharray: 10 12;
+  transition: stroke 0.5s ease;
+}
+
+.xp-pipe.lit {
+  stroke: rgba(127, 231, 242, 0.75);
+  filter: drop-shadow(0 0 8px rgba(43, 199, 220, 0.7));
+  animation: xpDashFlow 1.2s linear infinite;
+}
+
+@keyframes xpDashFlow {
+  to { stroke-dashoffset: -44; }
+}
+
+/* חבילת מידע שנוסעת לאורך הצינור */
+.xp-packet {
+  position: absolute;
+  top: 0; /* offset-path ממקם לאורך הנתיב בקואורדינטות הסצנה */
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--pk, var(--c-aqua));
+  box-shadow: 0 0 18px var(--pk, var(--c-aqua)), 0 0 40px rgba(43, 199, 220, 0.5);
+  z-index: 5;
+  offset-rotate: 0deg;
+  animation: xpTravel 1.4s cubic-bezier(0.45, 0, 0.3, 1) forwards;
+}
+
+@keyframes xpTravel {
+  from { offset-distance: 0%; opacity: 0; }
+  12% { opacity: 1; }
+  to { offset-distance: 100%; opacity: 1; }
+}
+
+.xp-packet-label {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: #dffbff;
+  background: rgba(6, 24, 43, 0.85);
+  border: 1px solid rgba(127, 231, 242, 0.4);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+/* --- כרטיסי קוד/טרמינל --- */
+
+.xp-code {
+  position: absolute;
+  z-index: 7;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 15.5px;
+  line-height: 1.55;
+  background: rgba(5, 15, 30, 0.92);
+  border: 1px solid rgba(127, 231, 242, 0.35);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+.xp-code.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.xp-code-title {
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(127, 231, 242, 0.65);
+  border-bottom: 1px solid rgba(127, 231, 242, 0.18);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.xp-code-line {
+  color: #c9ecf4;
+  white-space: pre;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.xp-code.show .xp-code-line {
+  animation: xpLineIn 0.35s ease forwards;
+  animation-delay: calc(var(--i) * 0.28s + 0.2s);
+}
+
+@keyframes xpLineIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.xp-tone-terminal .xp-code-line { color: #9fe8b8; }
+.xp-tone-json .xp-code-line { color: #ffd98a; }
+
+/* --- תגי הסבר --- */
+
+.xp-callout {
+  position: absolute;
+  z-index: 7;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: #eaf6fa;
+  background: linear-gradient(150deg, rgba(15, 163, 184, 0.25), rgba(11, 37, 69, 0.75));
+  border: 1px solid rgba(127, 231, 242, 0.45);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow-glow);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease 0.15s, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1) 0.15s;
+  pointer-events: none;
+}
+
+.xp-callout.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.xp-callout strong { color: var(--c-aqua); }
+
+/* --- פוטר: נקודות + קריינות --- */
+
+.xp-footer {
+  position: absolute;
+  bottom: 34px;
+  inset-inline: 70px;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.xp-dots {
+  display: flex;
+  gap: 9px;
+}
+
+.xp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(127, 231, 242, 0.18);
+  border: 1px solid rgba(127, 231, 242, 0.3);
+  transition: all 0.3s ease;
+}
+
+.xp-dot.past { background: rgba(15, 163, 184, 0.65); }
+
+.xp-dot.on {
+  background: var(--c-aqua);
+  box-shadow: 0 0 12px rgba(127, 231, 242, 0.9);
+  transform: scale(1.25);
+}
+
+.xp-narration {
+  font-family: var(--font-hebrew);
+  font-size: 24px;
+  font-weight: 600;
+  color: #f2fbfd;
+  text-align: center;
+  max-width: 1450px;
+  animation: xpNarrIn 0.45s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+
+.xp-narration em {
+  font-style: normal;
+  color: var(--c-aqua);
+}
+
+@keyframes xpNarrIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.xp-hint {
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  color: rgba(143, 169, 192, 0.75);
+}

@@ -19,6 +19,7 @@ function readHash(count) {
 export default function Deck({ slides }) {
   const count = slides.length
   const [index, setIndex] = useState(() => readHash(count))
+  const [step, setStep] = useState(0)
   const [overview, setOverview] = useState(false)
   const [help, setHelp] = useState(false)
   const [scale, setScale] = useState(1)
@@ -28,6 +29,21 @@ export default function Deck({ slides }) {
     (target) => setIndex((i) => clamp(typeof target === 'function' ? target(i) : target, 0, count - 1)),
     [count],
   )
+
+  /* שקף יכול להצהיר על שלבי אנימציה פנימיים דרך Component.steps —
+     לחיצה/חץ מקדמים שלב לפני שעוברים לשקף הבא */
+  const totalSteps = slides[index]?.Component?.steps || 0
+  useEffect(() => setStep(0), [index])
+
+  const next = useCallback(() => {
+    if (step < totalSteps) setStep(step + 1)
+    else go((i) => i + 1)
+  }, [step, totalSteps, go])
+
+  const prev = useCallback(() => {
+    if (step > 0) setStep(step - 1)
+    else go((i) => i - 1)
+  }, [step, go])
 
   /* --- התאמת קנה מידה של הבמה לחלון --- */
   useEffect(() => {
@@ -63,13 +79,13 @@ export default function Deck({ slides }) {
         case ' ':
         case 'Enter':
           if (overview && e.key === 'Enter') setOverview(false)
-          else go((i) => i + 1)
+          else next()
           break
         case 'ArrowLeft':
         case 'ArrowUp':
         case 'PageUp':
         case 'Backspace':
-          go((i) => i - 1)
+          prev()
           break
         case 'Home':
           go(0)
@@ -98,7 +114,7 @@ export default function Deck({ slides }) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [count, go, overview])
+  }, [count, go, next, prev, overview])
 
   /* --- החלקות מגע --- */
   const onTouchStart = (e) => {
@@ -109,7 +125,7 @@ export default function Deck({ slides }) {
     const dx = e.changedTouches[0].clientX - touchStart.current.x
     const dy = e.changedTouches[0].clientY - touchStart.current.y
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
-      dx < 0 ? go((i) => i + 1) : go((i) => i - 1)
+      dx < 0 ? next() : prev()
     }
     touchStart.current = null
   }
@@ -118,13 +134,13 @@ export default function Deck({ slides }) {
 
   return (
     <div className="deck" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <div className="deck-viewport">
+      <div className="deck-viewport" onClick={next}>
         <div
           className="deck-stage"
           style={{ width: STAGE_W, height: STAGE_H, transform: `scale(${scale})` }}
         >
           <div className="deck-slide-in" key={index}>
-            <Active />
+            <Active step={step} />
           </div>
         </div>
       </div>
@@ -141,10 +157,10 @@ export default function Deck({ slides }) {
       </div>
 
       <div className="deck-nav">
-        <button aria-label="השקף הקודם" onClick={() => go((i) => i - 1)} disabled={index === 0}>
+        <button aria-label="הקודם" onClick={prev} disabled={index === 0 && step === 0}>
           <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
-        <button aria-label="השקף הבא" onClick={() => go((i) => i + 1)} disabled={index === count - 1}>
+        <button aria-label="הבא" onClick={next} disabled={index === count - 1 && step >= totalSteps}>
           <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
       </div>
@@ -174,7 +190,7 @@ export default function Deck({ slides }) {
                   }}
                 >
                   <div className="deck-mini-stage">
-                    <Mini />
+                    <Mini step={s.Component.steps || 0} />
                   </div>
                   <span className="deck-mini-label" dir="rtl">
                     {i + 1} · {s.label}

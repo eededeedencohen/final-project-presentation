@@ -11,12 +11,12 @@ import Slide05 from './p05/Slide05.jsx'
 import Slide06 from './p06/Slide06.jsx'
 import Slide07 from './p07/Slide07.jsx'
 import Slide08 from './p08/Slide08.jsx'
-import Slide09 from './p09/Slide09.jsx'
+import DataFlowExplainer from './x09-data-flow/DataFlowExplainer.jsx'
 import Slide10 from './p10/Slide10.jsx'
-import Slide11 from './p11/Slide11.jsx'
+import ServerFlowExplainer from './x11-server-flow/ServerFlowExplainer.jsx'
 import Slide12 from './p12/Slide12.jsx'
 import Slide13 from './p13/Slide13.jsx'
-import Slide14 from './p14/Slide14.jsx'
+import ClientFlowExplainer from './x14-client-flow/ClientFlowExplainer.jsx'
 import Slide15 from './p15/Slide15.jsx'
 import Slide16 from './p16/Slide16.jsx'
 import Slide17 from './p17/Slide17.jsx'
@@ -33,12 +33,12 @@ export const SLIDES = [
   { id: 'p06', label: 'מטרות יעד', Component: Slide06 },
   { id: 'p07', label: 'טכנולוגיות', Component: Slide07 },
   { id: 'p08', label: 'שכבת ה-Data', Component: Slide08 },
-  { id: 'p09', label: 'Data Flow', Component: Slide09 },
+  { id: 'x09', label: 'Data Flow', Component: DataFlowExplainer },
   { id: 'p10', label: 'Server/API', Component: Slide10 },
-  { id: 'p11', label: 'Server Flow', Component: Slide11 },
+  { id: 'x11', label: 'Server Flow', Component: ServerFlowExplainer },
   { id: 'p12', label: 'AI Services', Component: Slide12 },
   { id: 'p13', label: 'Client/SPA', Component: Slide13 },
-  { id: 'p14', label: 'Client Flow', Component: Slide14 },
+  { id: 'x14', label: 'Client Flow', Component: ClientFlowExplainer },
   { id: 'p15', label: 'פיצ׳רים — תפעול קנייה', Component: Slide15 },
   { id: 'p16', label: 'פיצ׳רים — AI', Component: Slide16 },
   { id: 'p17', label: 'אתגרים', Component: Slide17 },

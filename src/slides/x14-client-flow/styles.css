@@ -1,0 +1,229 @@
+/* ============================================================
+   x14 — מה קורה על המסך (מאחורי הקלעים של צד הלקוח)
+   ============================================================ */
+
+/* אייקונים בתוך התחנות */
+.x14-ic {
+  width: 64px;
+  height: 64px;
+  color: var(--c-navy);
+}
+
+.x14-ic-sm {
+  width: 44px;
+  height: 44px;
+  color: var(--c-navy);
+}
+
+/* --- תחנות המסך הקטנות: תוויות צמודות וקטנות יותר --- */
+
+.x14-tree {
+  position: absolute;
+  inset: 0;
+}
+
+.x14-tree .xp-hex-label {
+  font-size: 17px;
+  top: calc(100% + 6px);
+  inset-inline: -55px;
+}
+
+.x14-tree .xp-hex-sub {
+  font-size: 13.5px;
+  top: calc(100% + 30px);
+  inset-inline: -60px;
+}
+
+/* קווי השלד הסטטיים של המסך */
+.x14-treelines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.x14-treelines path {
+  fill: none;
+  stroke: rgba(127, 231, 242, 0.28);
+  stroke-width: 2;
+}
+
+/* --- שלט הדרך אל השרת (מחוץ למסך, משמאל) --- */
+
+.x14-offstage {
+  position: absolute;
+  left: 6px;
+  top: 230px;
+  width: 160px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--c-dark-muted);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --- תיבת החיפוש החיה (שלבים 0–1) --- */
+
+.x14-input {
+  position: absolute;
+  left: 1105px;
+  top: 318px;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--c-ink);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(43, 199, 220, 0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: none;
+  z-index: 7;
+}
+
+.x14-input.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.x14-input-ic {
+  width: 20px;
+  height: 20px;
+  color: var(--c-teal);
+  flex: none;
+}
+
+/* האותיות ״נכתבות״ אחת-אחת */
+.x14-ch {
+  opacity: 0;
+  margin-inline-end: -4px;
+}
+
+.x14-input.show .x14-ch {
+  animation: x14ChIn 0.25s ease forwards;
+  animation-delay: calc(var(--i) * 0.28s + 0.45s);
+}
+
+@keyframes x14ChIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.x14-caret {
+  width: 2px;
+  height: 21px;
+  background: var(--c-teal);
+  margin-inline-start: 4px;
+  animation: x14Blink 1s steps(2, start) infinite;
+}
+
+@keyframes x14Blink {
+  50% { opacity: 0; }
+}
+
+/* --- טבעות השידור של לוח המודעות (שלב 5) --- */
+
+.x14-ring {
+  position: absolute;
+  left: 1398px;
+  top: 223px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 217, 138, 0.85);
+  z-index: 3;
+  animation: x14Ripple 1.7s ease-out infinite;
+  pointer-events: none;
+}
+
+.x14-ring2 {
+  animation-delay: 0.85s;
+}
+
+@keyframes x14Ripple {
+  from { transform: scale(0.55); opacity: 0.95; }
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+/* --- כרטיס המחירים: רק הוא מתעדכן (שלב 6) --- */
+
+.x14-ui {
+  position: absolute;
+  left: 1560px;
+  top: 150px;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 30px rgba(43, 199, 220, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px) scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.9, 0.3, 1);
+  z-index: 7;
+  pointer-events: none;
+}
+
+.x14-ui.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.x14-ui-head {
+  background: var(--grad-brand);
+  color: #06283a;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 10px 16px;
+}
+
+.x14-ui-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  font-size: 15.5px;
+  color: var(--c-ink);
+  border-bottom: 1px solid var(--c-line);
+}
+
+/* הבהוב ״צויר מחדש״ — כל שורה נצבעת לרגע בענבר */
+.x14-ui.show .x14-ui-row {
+  animation: x14RowFlash 1.1s ease backwards;
+  animation-delay: calc(var(--i, 0) * 0.25s + 0.55s);
+}
+
+@keyframes x14RowFlash {
+  0% { background-color: rgba(255, 217, 138, 0); }
+  30% { background-color: rgba(255, 217, 138, 0.55); }
+  100% { background-color: rgba(255, 217, 138, 0); }
+}
+
+.x14-ui-row span { flex: 1; }
+
+.x14-ui-row b {
+  font-size: 17px;
+  color: var(--c-navy);
+}
+
+.x14-ui-row.best {
+  background: rgba(15, 163, 184, 0.1);
+}
+
+.x14-ui-row.best i {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--c-teal);
+  border-radius: 999px;
+  padding: 3px 10px;
+}

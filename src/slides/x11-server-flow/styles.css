@@ -1,0 +1,182 @@
+/* ============================================================
+   x11 — מהקליק ועד התשובה (צד השרת כסיפור אנושי)
+   ============================================================ */
+
+.x11-ic {
+  width: 64px;
+  height: 64px;
+  color: var(--c-navy);
+}
+
+/* --- שלב 0: כפתור "השוו לי את העגלה" עם אדוות ואצבע מקישה --- */
+
+.x11-btn {
+  position: absolute;
+  left: 50px;
+  top: 425px;
+  z-index: 7;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+.x11-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.x11-btn-pill {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 800;
+  color: #06283a;
+  background: var(--grad-brand);
+  border-radius: 999px;
+  padding: 15px 34px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 0 26px rgba(43, 199, 220, 0.45);
+}
+
+.x11-btn.show .x11-btn-pill {
+  animation: x11Press 1.7s ease-in-out infinite;
+}
+
+/* טבעת אדווה שמתפשטת מהכפתור בכל "לחיצה" */
+.x11-btn-pill::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  border: 2px solid rgba(127, 231, 242, 0.85);
+  opacity: 0;
+}
+
+.x11-btn.show .x11-btn-pill::after {
+  animation: x11Ripple 1.7s ease-out infinite;
+}
+
+.x11-btn-hand {
+  position: absolute;
+  right: -14px;
+  bottom: -30px;
+  font-size: 38px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+.x11-btn.show .x11-btn-hand {
+  animation: x11Tap 1.7s ease-in-out infinite;
+}
+
+@keyframes x11Press {
+  0%, 24%, 100% { transform: scale(1); }
+  12% { transform: scale(0.94); }
+}
+
+@keyframes x11Ripple {
+  0%, 10% { transform: scale(0.92); opacity: 0.9; }
+  60% { transform: scale(1.45); opacity: 0; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
+@keyframes x11Tap {
+  0%, 24%, 100% { transform: translate(0, 0) rotate(-8deg); }
+  12% { transform: translate(-5px, -10px) rotate(-8deg) scale(0.92); }
+}
+
+/* --- תגית קטנה מעל שומר הסף (שמות הכלים, בלי ז'רגון בקריינות) --- */
+
+.x11-mw-tag {
+  position: absolute;
+  left: 472px;
+  top: 98px;
+  z-index: 6;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #bfe9f2;
+  background: rgba(6, 24, 43, 0.72);
+  border: 1px solid rgba(127, 231, 242, 0.35);
+  border-radius: 999px;
+  padding: 5px 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+.x11-mw-tag.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.x11-mw-tag.hot {
+  animation: x11TagPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes x11TagPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(43, 199, 220, 0.5); border-color: rgba(127, 231, 242, 0.35); }
+  50% { box-shadow: 0 0 20px rgba(127, 231, 242, 0.9); border-color: rgba(127, 231, 242, 0.85); }
+}
+
+/* --- כרטיס התוצאה שמופיע אצל השליח בשלב האחרון --- */
+
+.x11-ui {
+  position: absolute;
+  left: 60px;
+  top: 372px;
+  width: 350px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), 0 0 30px rgba(43, 199, 220, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px) scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.9, 0.3, 1);
+  z-index: 7;
+}
+
+.x11-ui.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.x11-ui-head {
+  background: var(--grad-brand);
+  color: #06283a;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 10px 16px;
+}
+
+.x11-ui-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  font-size: 15.5px;
+  color: var(--c-ink);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.x11-ui-row span { flex: 1; }
+
+.x11-ui-row b {
+  font-size: 17px;
+  color: var(--c-navy);
+}
+
+.x11-ui-row.best {
+  background: rgba(15, 163, 184, 0.1);
+}
+
+.x11-ui-row.best i {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--c-teal);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
