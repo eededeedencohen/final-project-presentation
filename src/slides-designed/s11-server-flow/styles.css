@@ -1,0 +1,339 @@
+/* ============================================================
+   s11 — Server / API Flow: מסע הבקשה והתשובה בין תחנות השרת
+   ============================================================ */
+
+.sflow-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.sflow-flow {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- נתיבי בקשה / תשובה ---------- */
+
+.sflow-lane {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+  height: 32px;
+}
+
+.sflow-lane-label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.sflow-lane-req .sflow-lane-label {
+  background: var(--grad-brand);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(15, 163, 184, 0.35);
+}
+
+.sflow-lane-res .sflow-lane-label {
+  color: var(--c-teal);
+  background: rgba(127, 231, 242, 0.22);
+  border: 1px solid rgba(43, 199, 220, 0.5);
+}
+
+.sflow-track {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.sflow-lane-req .sflow-track {
+  background: linear-gradient(90deg, rgba(15, 163, 184, 0.12), var(--c-teal) 35%, var(--c-cyan));
+}
+
+.sflow-lane-res .sflow-track {
+  background: linear-gradient(270deg, rgba(43, 199, 220, 0.12), var(--c-cyan) 35%, var(--c-aqua));
+}
+
+/* ראשי חץ */
+.sflow-head {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  flex-shrink: 0;
+}
+
+.sflow-head-fwd {
+  border-inline-start: 10px solid var(--c-cyan);
+  margin-inline-start: -8px;
+}
+
+.sflow-head-back {
+  border-inline-end: 10px solid var(--c-cyan);
+  margin-inline-end: -8px;
+}
+
+/* נקודה נעה לאורך הנתיב */
+.sflow-dot {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sflow-lane-req .sflow-dot {
+  background: var(--c-cyan);
+  box-shadow: 0 0 12px rgba(43, 199, 220, 0.85), 0 0 3px rgba(43, 199, 220, 0.9);
+  animation: sflowTravelFwd 3.4s linear infinite;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+.sflow-lane-res .sflow-dot {
+  background: var(--c-aqua);
+  border: 1.5px solid var(--c-cyan);
+  box-shadow: 0 0 12px rgba(127, 231, 242, 0.9);
+  animation: sflowTravelBack 3.4s linear infinite;
+  animation-delay: 2.9s;
+  opacity: 0;
+}
+
+@keyframes sflowTravelFwd {
+  0% { left: 0%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes sflowTravelBack {
+  0% { left: 100%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { left: 0%; opacity: 0; }
+}
+
+/* ---------- שורת התחנות ---------- */
+
+.sflow-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.sflow-station {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 18px 14px 14px;
+  overflow: hidden;
+}
+
+/* מספר רפאים בפינת הכרטיס */
+.sflow-ghost {
+  position: absolute;
+  top: -10px;
+  left: 8px;
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(15, 163, 184, 0.18);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* פס גרדיאנט שנחשף בריחוף */
+.sflow-station::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.sflow-station:hover::after {
+  transform: scaleX(1);
+}
+
+.sflow-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, rgba(15, 163, 184, 0.1), rgba(43, 199, 220, 0.18));
+  border: 1px solid rgba(15, 163, 184, 0.26);
+  color: var(--c-teal);
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.sflow-logo img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.sflow-logo .icon {
+  width: 26px;
+  height: 26px;
+}
+
+.sflow-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--c-navy);
+  margin-bottom: 6px;
+  direction: ltr;
+}
+
+.sflow-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--c-steel);
+}
+
+/* --- צ'יפים של Middleware מתחת ל-Express --- */
+
+.sflow-mws-wrap {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.sflow-mw-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--c-muted);
+}
+
+.sflow-mws {
+  display: flex;
+  gap: 6px;
+}
+
+.sflow-mw {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--c-steel);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--c-line);
+  background: var(--c-bg);
+}
+
+.sflow-mw img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* --- תחנת קצה: MongoDB --- */
+
+.sflow-mongo {
+  flex: 0 0 106px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 10px;
+  border-radius: var(--radius-m);
+  background:
+    radial-gradient(120px 90px at 50% -20%, rgba(43, 199, 220, 0.25), transparent 70%),
+    var(--grad-deep);
+  border: 1px solid rgba(127, 231, 242, 0.28);
+  box-shadow: var(--shadow-2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sflow-mongo:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-3), var(--shadow-glow);
+}
+
+/* הלוגו כהה — יושב על ריבוע לבן גם בכרטיס הכהה */
+.sflow-mongo-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--c-paper);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 18px rgba(43, 199, 220, 0.3);
+}
+
+.sflow-mongo-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.sflow-mongo-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--c-aqua);
+}
+
+.sflow-mongo-sub {
+  font-size: 11px;
+  color: var(--c-dark-muted);
+}
+
+/* ---------- שורת סיכום ---------- */
+
+.sflow-note {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px;
+  border-radius: var(--radius-m);
+  background: linear-gradient(120deg, rgba(11, 37, 69, 0.05), rgba(15, 163, 184, 0.1));
+  border: 1px dashed rgba(15, 163, 184, 0.4);
+}
+
+.sflow-note .icon {
+  width: 26px;
+  height: 26px;
+  color: var(--c-teal);
+  flex-shrink: 0;
+}
+
+.sflow-note p {
+  font-size: 16px;
+  color: var(--c-navy);
+}
+
+.sflow-note strong {
+  color: var(--c-teal);
+  font-weight: 800;
+}

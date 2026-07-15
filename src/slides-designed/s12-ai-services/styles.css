@@ -1,0 +1,172 @@
+/* ============================================================
+   s12 — שירותי AI: ליבה זוהרת + שלושה כרטיסי שירות
+   ============================================================ */
+
+.ai-stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- הליבה הזוהרת --- */
+
+.ai-hub-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-hub {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  color: var(--c-aqua);
+  background: linear-gradient(150deg, rgba(43, 199, 220, 0.18), rgba(11, 37, 69, 0.5));
+  border: 1px solid var(--c-dark-line);
+  box-shadow: var(--shadow-glow), inset 0 0 26px rgba(43, 199, 220, 0.1);
+}
+
+.ai-hub::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 36px;
+  background: radial-gradient(circle, rgba(43, 199, 220, 0.35), transparent 68%);
+  animation: pulseGlow 3.2s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ai-hub .icon {
+  width: 44px;
+  height: 44px;
+}
+
+.ai-hub-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  color: rgba(127, 231, 242, 0.6);
+  direction: ltr;
+}
+
+/* --- קווי החיבור --- */
+
+.ai-wires {
+  width: 100%;
+  height: 58px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.ai-wire {
+  fill: none;
+  stroke: rgba(43, 199, 220, 0.55);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.ai-dot {
+  fill: var(--c-aqua);
+  animation: pulseGlow 2.6s ease-in-out infinite;
+}
+
+/* --- כרטיסי השירות --- */
+
+.ai-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.ai-card {
+  padding: 22px 24px 20px;
+}
+
+.ai-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.ai-logo-chip {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--c-paper);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-1);
+  display: grid;
+  place-items: center;
+  padding: 9px;
+}
+
+.ai-logo-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ai-card-head h3 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-navy);
+  line-height: 1.15;
+}
+
+.ai-mini {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--c-teal);
+  background: linear-gradient(140deg, rgba(15, 163, 184, 0.1), rgba(43, 199, 220, 0.2));
+  border: 1px solid rgba(15, 163, 184, 0.26);
+}
+
+.ai-mini .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-card p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--c-steel);
+}
+
+/* --- גלולות יכולת --- */
+
+.ai-pills {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.ai-pill {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  border-radius: 999px;
+  color: var(--c-aqua);
+  border: 1px solid var(--c-dark-line);
+  background: var(--c-dark-card);
+}

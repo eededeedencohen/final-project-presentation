@@ -1,0 +1,94 @@
+/* ============================================================
+   s06 — מטרות הפרויקט: רשת 3x2 של אריחים קומפקטיים
+   ============================================================ */
+
+.goal-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 22px;
+  align-content: stretch;
+}
+
+.goal-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 26px 20px;
+  overflow: hidden;
+}
+
+/* מספר רפאים בפינת האריח */
+.goal-ghost {
+  position: absolute;
+  top: -16px;
+  inset-inline-end: 12px;
+  font-family: var(--font-display);
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(15, 163, 184, 0.16);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* פס גרדיאנט שנחשף בריחוף */
+.goal-tile::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.goal-tile:hover::after {
+  transform: scaleX(1);
+}
+
+/* שורת כותרת: צ'יפ אייקון + כותרת זו לצד זו — שומר על אריח רדוד */
+.goal-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+/* גרסה מוקטנת של צ'יפ האייקון המשותף */
+.goal-chip {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.goal-chip svg {
+  width: 27px;
+  height: 27px;
+}
+
+.goal-tile:hover .goal-chip {
+  box-shadow: var(--shadow-glow);
+}
+
+.goal-tile h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--c-navy);
+  /* משאיר מקום למספר הרפאים בפינה */
+  padding-inline-end: 30px;
+}
+
+.goal-tile p {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--c-steel);
+}

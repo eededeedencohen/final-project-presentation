@@ -1,0 +1,666 @@
+/* ============================================================
+   p16 — פיצ׳רים — AI (נוצר אוטומטית משקף 16)
+   מיקומים וגדלים נאמנים למקור. עריכה ידנית: חופשי,
+   אבל הרצה חוזרת של המחולל תדרוס את הקובץ.
+   ============================================================ */
+
+.p16-e0 {
+  left: -108.99px;
+  top: 0px;
+  width: 461.26px;
+  height: 88.11px;
+}
+
+.p16-e1 {
+  left: -68.49px;
+  top: -15.19px;
+  width: 380.26px;
+  height: 103.3px;
+}
+
+.p16-e1-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e2 {
+  left: 1231.18px;
+  top: 991.89px;
+  width: 461.26px;
+  height: 88.11px;
+}
+
+.p16-e3 {
+  left: 1271.68px;
+  top: 976.7px;
+  width: 380.26px;
+  height: 103.3px;
+}
+
+.p16-e3-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e4 {
+  left: 260.27px;
+  top: -19.89px;
+  width: 279.73px;
+  height: 127.89px;
+}
+
+.p16-e5 {
+  left: 319.05px;
+  top: -41.94px;
+  width: 162.15px;
+  height: 149.94px;
+}
+
+.p16-e5-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e6 {
+  left: 1600.44px;
+  top: 972px;
+  width: 279.73px;
+  height: 127.89px;
+}
+
+.p16-e7 {
+  left: 1659.23px;
+  top: 949.95px;
+  width: 162.15px;
+  height: 149.94px;
+}
+
+.p16-e7-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e8 {
+  left: 429.34px;
+  top: -19.89px;
+  width: 279.73px;
+  height: 127.89px;
+}
+
+.p16-e9 {
+  left: 488.12px;
+  top: -41.94px;
+  width: 162.15px;
+  height: 149.94px;
+}
+
+.p16-e9-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e10 {
+  left: 1769.51px;
+  top: 972px;
+  width: 279.73px;
+  height: 127.89px;
+}
+
+.p16-e11 {
+  left: 1828.3px;
+  top: 949.95px;
+  width: 162.15px;
+  height: 149.94px;
+}
+
+.p16-e11-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e12 {
+  left: 1574.79px;
+  top: 550.29px;
+  width: 279.2px;
+  height: 145.53px;
+  object-fit: fill;
+}
+
+.p16-e13 {
+  left: 1151.51px;
+  top: 201.31px;
+  width: 677.17px;
+  height: 583.34px;
+  transform: rotate(-180deg);
+}
+
+.p16-e14 {
+  left: 0px;
+  top: 0px;
+  width: 677.17px;
+  height: 583.34px;
+}
+
+.p16-e15 {
+  left: 95.23px;
+  top: -31.74px;
+  width: 486.71px;
+  height: 615.09px;
+}
+
+.p16-e15-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e16 {
+  left: 1382.96px;
+  top: 250.14px;
+  width: 574.17px;
+  height: 484.27px;
+  transform: rotate(-180deg);
+}
+
+.p16-e17 {
+  left: 0px;
+  top: 0px;
+  width: 574.17px;
+  height: 484.27px;
+}
+
+.p16-e18 {
+  left: 0px;
+  top: -12.71px;
+  width: 574.17px;
+  height: 496.98px;
+}
+
+.p16-e18-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e19 {
+  left: 1195.33px;
+  top: 229.63px;
+  width: 589.52px;
+  height: 513.59px;
+  transform: rotate(-180deg);
+}
+
+.p16-e20 {
+  left: 0px;
+  top: 0px;
+  width: 589.52px;
+  height: 513.59px;
+}
+
+.p16-e21 {
+  left: 1752.79px;
+  top: 241.54px;
+  width: 145.27px;
+  height: 252.74px;
+  overflow: visible;
+}
+
+.p16-e22 {
+  left: 1752.78px;
+  top: 490.81px;
+  width: 145.84px;
+  height: 252.41px;
+  transform: scaleX(-1);
+  overflow: visible;
+}
+
+.p16-e23 {
+  left: 400.13px;
+  top: 201.31px;
+  width: 407.81px;
+  height: 350.46px;
+}
+
+.p16-e24 {
+  left: 457.48px;
+  top: 182.19px;
+  width: 293.11px;
+  height: 369.58px;
+}
+
+.p16-e24-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.33px 5.33px 5.33px 5.33px;
+}
+
+.p16-e25 {
+  left: 455.02px;
+  top: 453.23px;
+  width: 270.22px;
+  height: 79.85px;
+}
+
+.p16-e25-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t0 {
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 25.29px;
+  font-weight: 700;
+  letter-spacing: 1.57px;
+  color: #ffffff;
+}
+
+.p16-e26 {
+  left: 456.71px;
+  top: 213.36px;
+  width: 290.31px;
+  height: 290.31px;
+  object-fit: fill;
+}
+
+.p16-e27 {
+  left: 49.25px;
+  top: 381.41px;
+  width: 422.03px;
+  height: 362.68px;
+}
+
+.p16-e28 {
+  left: 108.6px;
+  top: 297.33px;
+  width: 303.33px;
+  height: 446.76px;
+}
+
+.p16-e28-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.93px 2.93px 2.93px 2.93px;
+}
+
+.p16-e29 {
+  left: 52.65px;
+  top: 384.33px;
+  width: 415.23px;
+  height: 356.84px;
+}
+
+.p16-e30 {
+  left: 111.04px;
+  top: 364.86px;
+  width: 298.45px;
+  height: 376.3px;
+}
+
+.p16-e30-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.58px 3.58px 3.58px 3.58px;
+}
+
+.p16-e31 {
+  left: 111.58px;
+  top: 639.48px;
+  width: 297.37px;
+  height: 79.52px;
+}
+
+.p16-e31-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t1 {
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 22.63px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.p16-e32 {
+  left: 722.74px;
+  top: 383.3px;
+  width: 428.77px;
+  height: 370.46px;
+}
+
+.p16-e33 {
+  left: 783.04px;
+  top: 363.21px;
+  width: 308.18px;
+  height: 390.56px;
+}
+
+.p16-e33-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.73px 1.73px 1.73px 1.73px;
+}
+
+.p16-e34 {
+  left: 724.81px;
+  top: 385.08px;
+  width: 424.64px;
+  height: 364.92px;
+}
+
+.p16-e35 {
+  left: 784.52px;
+  top: 365.17px;
+  width: 305.21px;
+  height: 384.83px;
+}
+
+.p16-e35-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.67px 3.67px 3.67px 3.67px;
+}
+
+.p16-e36 {
+  left: 975.17px;
+  top: 413.32px;
+  width: 92.94px;
+  height: 92.94px;
+  object-fit: fill;
+}
+
+.p16-e37 {
+  left: 782.65px;
+  top: 649.3px;
+  width: 308.96px;
+  height: 79.52px;
+}
+
+.p16-e37-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-e38 {
+  left: 806.45px;
+  top: 392.11px;
+  width: 248.34px;
+  height: 248.34px;
+  object-fit: fill;
+}
+
+.p16-e39 {
+  left: 107.74px;
+  top: 359.45px;
+  width: 291.86px;
+  height: 291.86px;
+  object-fit: fill;
+}
+
+.p16-e40 {
+  left: 1259.31px;
+  top: 314.68px;
+  width: 462.31px;
+  height: 179.6px;
+}
+
+.p16-e40-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t2 {
+  font-family: 'Inter', 'Heebo Variable', sans-serif;
+  font-size: 85.01px;
+  font-weight: 700;
+  color: #fdfbfb;
+}
+
+.p16-e41 {
+  left: 1256.96px;
+  top: 557.29px;
+  width: 464.66px;
+  height: 62.76px;
+}
+
+.p16-e41-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t3 {
+  font-family: 'Inter', 'Heebo Variable', sans-serif;
+  font-size: 58.68px;
+  font-weight: 700;
+  color: #fdfbfb;
+}
+
+.p16-e42 {
+  left: 397.79px;
+  top: 576.72px;
+  width: 407.81px;
+  height: 350.46px;
+}
+
+.p16-e43 {
+  left: 455.14px;
+  top: 557.61px;
+  width: 293.11px;
+  height: 369.58px;
+}
+
+.p16-e43-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.96px 3.96px 3.96px 3.96px;
+}
+
+.p16-e44 {
+  left: 473.61px;
+  top: 576.72px;
+  width: 256.18px;
+  height: 256.18px;
+  object-fit: fill;
+}
+
+.p16-e45 {
+  left: 486.52px;
+  top: 827.01px;
+  width: 230.34px;
+  height: 73.48px;
+}
+
+.p16-e45-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t4 {
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 24.27px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.p16-e46 {
+  left: 1533.36px;
+  top: 21.72px;
+  width: 200.79px;
+  height: 172.56px;
+}
+
+.p16-e47 {
+  left: 1561.59px;
+  top: 12.31px;
+  width: 144.32px;
+  height: 181.97px;
+}
+
+.p16-e47-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.72px 1.72px 1.72px 1.72px;
+}
+
+.p16-e48 {
+  left: 1654.27px;
+  top: 36.2px;
+  width: 269.79px;
+  height: 143.59px;
+}
+
+.p16-e49 {
+  left: 1654.27px;
+  top: 32.43px;
+  width: 269.79px;
+  height: 147.36px;
+}
+
+.p16-e49-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.72px 1.72px 1.72px 1.72px;
+}
+
+.p16-e50 {
+  left: 1546.35px;
+  top: 31.85px;
+  width: 174.8px;
+  height: 152.29px;
+}
+
+.p16-e51 {
+  left: 1554.83px;
+  top: 39.59px;
+  width: 157.85px;
+  height: 136.69px;
+  clip-path: path('M 118.39 0 L 39.46 0 L 0 68.35 L 39.46 136.69 L 118.39 136.69 L 157.85 68.35 Z');
+  overflow: hidden;
+}
+
+.p16-e51 img {
+  position: absolute;
+  left: -29.38%;
+  top: 0%;
+  width: 158.77%;
+  height: 100%;
+}
+
+.p16-e52 {
+  left: 1727.7px;
+  top: 106.98px;
+  width: 40.91px;
+  height: 76.15px;
+  transform: scaleY(-1);
+  overflow: visible;
+}
+
+.p16-e53 {
+  left: 1725.7px;
+  top: 32.91px;
+  width: 42.93px;
+  height: 75.03px;
+  transform: scaleX(-1) scaleY(-1);
+  overflow: visible;
+}
+
+.p16-e54 {
+  left: 1773.48px;
+  top: 54.24px;
+  width: 117.33px;
+  height: 103.77px;
+}
+
+.p16-e54-tx {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 0px;
+}
+
+.p16-t5 {
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 29.09px;
+  font-weight: 700;
+  color: #ffffff;
+}

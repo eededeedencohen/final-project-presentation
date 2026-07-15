@@ -1,0 +1,89 @@
+/* ============================================================
+   Smart Cart Deck — בסיס גלובלי: טוקנים של עיצוב, איפוס, פונטים
+   כל צבע/מרווח/צל שחוזר על עצמו מוגדר כאן פעם אחת.
+   ============================================================ */
+
+:root {
+  /* --- פלטת מותג --- */
+  --c-ink: #06182b;        /* טקסט כהה עמוק */
+  --c-navy: #0b2545;       /* נייבי ראשי (מהלוגו) */
+  --c-navy-2: #143a66;     /* נייבי בהיר יותר לכרטיסים כהים */
+  --c-steel: #33506b;      /* טקסט משני על רקע בהיר */
+  --c-muted: #5e7a93;      /* טקסט עדין */
+  --c-teal: #0fa3b8;       /* טורקיז ראשי */
+  --c-cyan: #2bc7dc;       /* ציאן זוהר */
+  --c-aqua: #7fe7f2;       /* אקווה בהיר להדגשות זוהר */
+  --c-magenta: #a3376b;    /* מג'נטה מהשברון — במשורה בלבד */
+  --c-bg: #f2f7fb;         /* רקע שקף בהיר */
+  --c-paper: #ffffff;      /* כרטיסים */
+  --c-line: #d9e6f0;       /* קווי הפרדה עדינים */
+
+  /* --- שקפים כהים --- */
+  --c-dark-bg: #050f1e;
+  --c-dark-bg-2: #0a1f3a;
+  --c-dark-card: rgba(127, 231, 242, 0.06);
+  --c-dark-line: rgba(127, 231, 242, 0.18);
+  --c-dark-text: #e8f4f8;
+  --c-dark-muted: #8fa9c0;
+
+  /* --- גרדיאנטים --- */
+  --grad-brand: linear-gradient(120deg, #0fa3b8 0%, #2bc7dc 55%, #7fe7f2 100%);
+  --grad-deep: linear-gradient(145deg, #0b2545 0%, #050f1e 100%);
+  --grad-text: linear-gradient(110deg, #0b2545 20%, #0fa3b8 80%);
+  --grad-text-dark: linear-gradient(110deg, #7fe7f2 0%, #2bc7dc 45%, #ffffff 100%);
+
+  /* --- צללים --- */
+  --shadow-1: 0 2px 10px rgba(11, 37, 69, 0.08);
+  --shadow-2: 0 10px 30px rgba(11, 37, 69, 0.12);
+  --shadow-3: 0 24px 60px rgba(11, 37, 69, 0.18);
+  --shadow-glow: 0 0 24px rgba(43, 199, 220, 0.35);
+
+  /* --- טיפוגרפיה --- */
+  --font-hebrew: 'Heebo Variable', 'Heebo', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Heebo Variable', sans-serif;
+
+  /* --- מידות במה --- */
+  --stage-w: 1280px;
+  --stage-h: 720px;
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-hebrew);
+  color: var(--c-ink);
+  background: var(--c-dark-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(43, 199, 220, 0.35);
+}

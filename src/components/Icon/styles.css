@@ -1,0 +1,7 @@
+/* Icon — ברירות מחדל לגודל; הצבע תמיד יורש מ-currentColor */
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}

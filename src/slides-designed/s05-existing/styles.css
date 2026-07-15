@@ -1,0 +1,244 @@
+/* ============================================================
+   s05 — מה קיים היום: קומפוזיציית Versus
+   ימין: הגישה הקיימת (מעומעמת) | אמצע: תג VS | שמאל: Smart Cart
+   ============================================================ */
+
+.exi-duel {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 92px 1.08fr;
+  gap: 18px;
+  align-items: center;
+}
+
+/* ---------- מבנה כרטיס משותף לשני הצדדים ---------- */
+
+.exi-col {
+  padding: 28px 30px 26px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+
+.exi-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.exi-head-text h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--c-navy);
+  line-height: 1.2;
+}
+
+.exi-sub {
+  font-size: 14px;
+  color: var(--c-muted);
+  margin-top: 3px;
+}
+
+.exi-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- צד ימין: הגישה הקיימת (מעומעם) ---------- */
+
+.exi-old {
+  background: linear-gradient(160deg, var(--c-paper) 30%, var(--c-bg) 100%);
+}
+
+.exi-old .exi-head-text h3 {
+  color: var(--c-steel);
+}
+
+/* לוגו CHP בתוך כרטיס לבן קטן */
+.exi-logo-card {
+  flex-shrink: 0;
+  background: var(--c-paper);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-s);
+  padding: 10px 16px;
+  box-shadow: var(--shadow-1);
+}
+
+.exi-logo-card img {
+  height: 34px;
+  width: auto;
+  filter: grayscale(0.35);
+}
+
+.exi-pain {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-s);
+  background: rgba(94, 122, 147, 0.07);
+  border: 1px solid var(--c-line);
+}
+
+.exi-pain p {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--c-steel);
+}
+
+/* צ'יפ אייקון אפרפר עם תג X קטן בפינה */
+.exi-pain-chip {
+  position: relative;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: rgba(94, 122, 147, 0.13);
+  border: 1px solid rgba(94, 122, 147, 0.22);
+  color: var(--c-muted);
+}
+
+.exi-pain-chip > .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.exi-pain-x {
+  position: absolute;
+  top: -7px;
+  inset-inline-end: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--c-magenta);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(163, 55, 107, 0.4);
+}
+
+.exi-pain-x .icon {
+  width: 11px;
+  height: 11px;
+  stroke-width: 3;
+}
+
+/* ---------- עמודת אמצע: תג VS ---------- */
+
+.exi-vs-col {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.exi-vs {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--grad-brand);
+  border: 4px solid var(--c-paper);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  animation: exiVsPulse 3.2s ease-in-out infinite;
+}
+
+@keyframes exiVsPulse {
+  0%, 100% {
+    box-shadow: 0 0 22px rgba(43, 199, 220, 0.35), 0 12px 28px rgba(11, 37, 69, 0.22);
+  }
+  50% {
+    box-shadow: 0 0 42px rgba(43, 199, 220, 0.65), 0 12px 28px rgba(11, 37, 69, 0.22);
+  }
+}
+
+.exi-vs-line {
+  width: 2px;
+  flex: 0 1 88px;
+  border-radius: 2px;
+}
+
+.exi-vs-line-top {
+  background: linear-gradient(to bottom, transparent, rgba(15, 163, 184, 0.45));
+}
+
+.exi-vs-line-bottom {
+  background: linear-gradient(to top, transparent, rgba(15, 163, 184, 0.45));
+}
+
+/* ---------- צד שמאל: הגישה של Smart Cart (המנצחת) ---------- */
+
+.exi-win-wrap {
+  min-width: 0;
+}
+
+.exi-win {
+  position: relative;
+  transform: scale(1.03);
+  border-color: rgba(15, 163, 184, 0.5);
+  box-shadow: 0 18px 44px rgba(15, 163, 184, 0.18), var(--shadow-2);
+}
+
+/* פס גרדיאנט עליון — סימן הניצחון */
+.exi-win::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 6px;
+  background: var(--grad-brand);
+}
+
+.exi-win:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(15, 163, 184, 0.65);
+  box-shadow: 0 24px 56px rgba(15, 163, 184, 0.26), var(--shadow-3);
+}
+
+.exi-pro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-s);
+  background: linear-gradient(120deg, rgba(15, 163, 184, 0.06), rgba(43, 199, 220, 0.13));
+  border: 1px solid rgba(15, 163, 184, 0.26);
+}
+
+.exi-pro p {
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--c-navy);
+}
+
+.exi-pro-check {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--grad-brand);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(15, 163, 184, 0.35);
+}
+
+.exi-pro-check .icon {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2.6;
+}

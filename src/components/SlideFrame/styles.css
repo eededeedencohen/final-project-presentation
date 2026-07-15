@@ -1,0 +1,47 @@
+/* ============================================================
+   SlideFrame — מבנה אחיד לשקף תוכן
+   ============================================================ */
+
+.slide-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 54px 68px 58px;
+  background:
+    radial-gradient(900px 500px at 12% -10%, rgba(43, 199, 220, 0.09), transparent 60%),
+    radial-gradient(700px 450px at 95% 110%, rgba(15, 163, 184, 0.08), transparent 55%),
+    var(--c-bg);
+  overflow: hidden;
+}
+
+.slide-frame.dark {
+  background:
+    radial-gradient(1000px 600px at 80% -20%, rgba(20, 58, 102, 0.65), transparent 60%),
+    radial-gradient(800px 500px at 5% 115%, rgba(15, 163, 184, 0.2), transparent 55%),
+    var(--grad-deep);
+  color: var(--c-dark-text);
+}
+
+.sf-head {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 34px;
+}
+
+.sf-head .kicker {
+  margin-bottom: 10px;
+}
+
+.sf-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sf-body.center {
+  justify-content: center;
+}

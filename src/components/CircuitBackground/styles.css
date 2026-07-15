@@ -1,0 +1,46 @@
+/* ============================================================
+   CircuitBackground — רקע מסילות מעגל חשמלי
+   ============================================================ */
+
+.circuit-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.circuit-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.circuit-trace {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.circuit-node {
+  animation: pulseGlow 3.2s ease-in-out infinite;
+}
+
+/* --- גוון בהיר: כמעט בלתי מורגש, מוסיף טקסטורה --- */
+
+.circuit-light .circuit-trace {
+  stroke: rgba(11, 37, 69, 0.07);
+}
+
+.circuit-light .circuit-node {
+  fill: rgba(15, 163, 184, 0.22);
+}
+
+/* --- גוון כהה: זוהר טכנולוגי --- */
+
+.circuit-dark .circuit-trace {
+  stroke: rgba(127, 231, 242, 0.13);
+}
+
+.circuit-dark .circuit-node {
+  fill: var(--c-cyan);
+}

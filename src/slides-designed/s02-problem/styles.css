@@ -1,0 +1,93 @@
+/* ============================================================
+   s02 — שקף הבעיה
+   ============================================================ */
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-content: start;
+}
+
+.problem-card {
+  position: relative;
+  padding: 30px 28px 26px;
+  overflow: hidden;
+}
+
+/* מספר רפאים בפינת הכרטיס */
+.problem-ghost {
+  position: absolute;
+  top: -18px;
+  inset-inline-start: 14px;
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(15, 163, 184, 0.16);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* פס גרדיאנט שנחשף בריחוף */
+.problem-card::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.problem-card:hover::after {
+  transform: scaleX(1);
+}
+
+.problem-card .icon-chip {
+  margin-bottom: 20px;
+}
+
+.problem-card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-navy);
+  margin-bottom: 10px;
+}
+
+.problem-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-steel);
+}
+
+/* --- שורת המחץ התחתונה --- */
+
+.problem-punch {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 26px;
+  border-radius: var(--radius-m);
+  background: linear-gradient(120deg, rgba(11, 37, 69, 0.05), rgba(15, 163, 184, 0.1));
+  border: 1px dashed rgba(15, 163, 184, 0.4);
+}
+
+.problem-punch .icon {
+  width: 30px;
+  height: 30px;
+  color: var(--c-teal);
+}
+
+.problem-punch p {
+  font-size: 19px;
+  color: var(--c-navy);
+}
+
+.problem-punch strong {
+  color: var(--c-teal);
+  font-weight: 800;
+}

@@ -1,0 +1,286 @@
+/* ============================================================
+   s04 — שקף הפתרון: יכולות + חלון אפליקציה מדומה
+   ============================================================ */
+
+.sol-layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* --- עמודת היכולות (ימין) --- */
+
+.sol-caps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sol-cap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+}
+
+.sol-cap .icon-chip {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+}
+
+.sol-cap .icon-chip svg {
+  width: 28px;
+  height: 28px;
+}
+
+.sol-cap-text h3 {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--c-navy);
+  margin-bottom: 5px;
+}
+
+.sol-cap-text p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--c-steel);
+}
+
+/* --- חלון אפליקציה מדומה (שמאל) --- */
+
+.sol-panel {
+  position: relative;
+}
+
+/* הילה רכה מרחפת מאחורי החלון */
+.sol-panel::before {
+  content: '';
+  position: absolute;
+  inset: -34px -44px;
+  background: radial-gradient(60% 60% at 50% 45%, rgba(43, 199, 220, 0.16), transparent 70%);
+  border-radius: 50%;
+  animation: floatSoft 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sol-window {
+  position: relative;
+  background: var(--c-paper);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+/* פס חלון עם נקודות chrome */
+.sol-chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: linear-gradient(120deg, rgba(11, 37, 69, 0.04), rgba(15, 163, 184, 0.08));
+  border-bottom: 1px solid var(--c-line);
+}
+
+.sol-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.sol-dot-a { background: rgba(11, 37, 69, 0.22); }
+.sol-dot-b { background: var(--c-teal); }
+.sol-dot-c { background: var(--c-cyan); }
+
+.sol-chrome-title {
+  margin-inline-start: auto;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.sol-window-body {
+  padding: 22px 24px 20px;
+}
+
+/* בועת קלט בשפה חופשית */
+.sol-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(15, 163, 184, 0.35);
+  background: linear-gradient(120deg, rgba(43, 199, 220, 0.06), rgba(15, 163, 184, 0.1));
+}
+
+.sol-input p {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--c-navy);
+}
+
+/* סמן הקלדה מהבהב */
+.sol-caret {
+  display: inline-block;
+  width: 2px;
+  height: 17px;
+  margin-inline-start: 4px;
+  vertical-align: -3px;
+  background: var(--c-teal);
+  animation: solBlink 1.1s step-end infinite;
+}
+
+@keyframes solBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.sol-input-spark {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--c-teal);
+  animation: pulseGlow 2.6s ease-in-out infinite;
+}
+
+/* תווית השוואה */
+.sol-compare-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 2px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+.sol-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-cyan);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* --- פסי השוואת מחירים --- */
+
+.sol-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sol-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sol-bar-name {
+  width: 58px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-steel);
+}
+
+.sol-bar-track {
+  position: relative;
+  flex: 1;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(11, 37, 69, 0.06);
+  overflow: hidden;
+}
+
+/* הפס נצמד לימין (תחילת קריאה) וגדל שמאלה */
+.sol-bar-fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  border-radius: 8px;
+  background: rgba(11, 37, 69, 0.2);
+  transform: scaleX(0);
+  transform-origin: right center;
+  animation: solBarGrow 0.65s cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
+  animation-delay: var(--bd, 800ms);
+}
+
+@keyframes solBarGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.sol-bar-row.best .sol-bar-fill {
+  background: var(--grad-brand);
+  box-shadow: var(--shadow-glow);
+}
+
+.sol-bar-price {
+  width: 50px;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--c-steel);
+}
+
+.sol-bar-row.best .sol-bar-price {
+  color: var(--c-teal);
+  font-weight: 800;
+}
+
+/* תגית "הכי משתלם" בקצה הפס הזוכה */
+.sol-best-badge {
+  position: absolute;
+  inset-inline-start: 8px;
+  top: 50%;
+  height: 20px;
+  margin-top: -10px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--c-navy);
+  color: var(--c-aqua);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* --- שורת חיסכון מסכמת --- */
+
+.sol-saving {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(15, 163, 184, 0.4);
+}
+
+.sol-saving .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--c-teal);
+}
+
+.sol-saving p {
+  font-size: 14.5px;
+  color: var(--c-navy);
+}
+
+.sol-saving strong {
+  color: var(--c-teal);
+  font-weight: 800;
+}

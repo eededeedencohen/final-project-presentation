@@ -1,0 +1,132 @@
+/* ============================================================
+   s18 — שקף סיום: תודה
+   ============================================================ */
+
+.thx-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1000px 600px at 50% -10%, rgba(20, 58, 102, 0.75), transparent 60%),
+    radial-gradient(800px 480px at 50% 115%, rgba(15, 163, 184, 0.24), transparent 60%),
+    var(--grad-deep);
+  color: var(--c-dark-text);
+  overflow: hidden;
+}
+
+/* --- נקודות זוהר מרחפות --- */
+
+.thx-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.thx-dot {
+  position: absolute;
+  width: var(--s, 5px);
+  height: var(--s, 5px);
+  border-radius: 50%;
+  background: var(--c-aqua);
+  animation:
+    pulseGlow var(--pd, 3s) ease-in-out infinite,
+    floatSoft var(--fd, 6s) ease-in-out infinite;
+  animation-delay: var(--dl, 0s);
+}
+
+/* --- העמודה הממורכזת --- */
+
+.thx-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.thx-icon {
+  width: 108px;
+  height: 108px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 26px;
+  color: var(--c-aqua);
+  background: linear-gradient(150deg, rgba(43, 199, 220, 0.16), rgba(11, 37, 69, 0.4));
+  border: 1px solid var(--c-dark-line);
+  box-shadow: var(--shadow-glow), inset 0 0 34px rgba(43, 199, 220, 0.1);
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+.thx-icon .icon {
+  width: 54px;
+  height: 54px;
+  filter: drop-shadow(0 0 12px rgba(43, 199, 220, 0.55));
+}
+
+.thx-title {
+  font-family: var(--font-hebrew);
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  background: var(--grad-text-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 34px rgba(43, 199, 220, 0.28));
+}
+
+.thx-sub {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--c-dark-muted);
+}
+
+.thx-line {
+  width: 130px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--grad-brand);
+  margin: 28px 0 0;
+  box-shadow: var(--shadow-glow);
+}
+
+/* --- שורת צ'יפים --- */
+
+.thx-chips {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.thx-chip {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--c-aqua);
+  padding: 11px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--c-dark-line);
+  background: var(--c-dark-card);
+  backdrop-filter: blur(4px);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.thx-chip:hover {
+  border-color: rgba(127, 231, 242, 0.5);
+  box-shadow: var(--shadow-glow);
+}
+
+.thx-chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-cyan);
+  box-shadow: var(--shadow-glow);
+}
