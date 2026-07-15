@@ -1,122 +1,126 @@
-import { ExplainerStage, HexStation, Pipe, InfoCard, SparkBurst, Callout } from '../../components/Explainer/Explainer.jsx'
+import { ExplainerStage, HexStation, Pipe, InfoCard, SparkBurst, Callout, LayerAnchor, LayerBracket } from '../../components/Explainer/Explainer.jsx'
 import Icon from '../../components/Icon/Icon.jsx'
-import axiosLogo from '../../assets/tech/axios.png'
 import expressLogo from '../../assets/tech/express.png'
-import mongodbLogo from '../../assets/tech/mongodb.png'
+import nodejsLogo from '../../assets/tech/nodejs.png'
 import './styles.css'
 
 /* ============================================================
-   שקף 11 — צד השרת כסיפור אנושי (לקהל לא-טכני):
-   השליח יוצא עם מעטפה, שומר הסף בודק בכניסה, המוקדן מפנה
-   לדלפק הנכון, המנהל מפעיל את הלוגיקה, המחסן מאתר —
-   והתשובה חוזרת בענבר עד המסך. כל לחיצה = שלב, ובכל שלב
-   משהו זז: חבילה נוסעת, וי נחתם, קרן סורקת או ניצוצות.
+   שקף 11 — שכבת השרת: מרכז התיאום בין שכבת הנתונים (עוגן
+   כללי משמאל) לשכבת הקליינט (עוגן כללי מימין). בקשה נכנסת
+   מהקליינט, עוברת מנוע → שומר סף → מוקדן → מנהל, המנהל
+   מתקשר לשכבת הנתונים — והתשובה חוזרת בשרשרת החוצה.
+   כל לחיצה = שלב.
    ============================================================ */
 
 const CAPTIONS = [
-  <>המשתמש לחץ על <em>"השוו לי את העגלה"</em> — ומאותו רגע מתחיל מסע קצר ומהיר. בואו נלווה אותו, תחנה אחרי תחנה.</>,
-  <><em>השליח</em> יוצא לדרך עם מעטפה מסודרת: בפנים רשימת הקניות — ושום דבר מיותר.</>,
-  <>בדלת השרת עומד <em>שומר הסף</em>: מוודא שהפנייה ממקור מוכר, רושם אותה ביומן ובודק שהתוכן קריא — ורק אז פותח את הדלת.</>,
-  <><em>המוקדן</em> מציץ במעטפה ומיד יודע לאן להפנות: לכל סוג פנייה יש דלפק משלה — והמעטפה שלנו עוברת ישר לדלפק ההשוואות.</>,
-  <><em>המנהל</em> יודע בדיוק מה לעשות: לחשב כמה עולה הסל בכל רשת ולסדר מהזול ליקר. בשביל זה הוא שולח שאלה אל <em>המחסן</em>.</>,
-  <>המחסן מאתר את כל המחירים <em>בן-רגע</em> — והתשובה יוצאת לדרך חזרה, תחנה אחרי תחנה, אל השליח.</>,
-  <>מהקליק ועד המסך — <em>פחות משנייה</em>: המשתמש רואה מיד באיזו רשת העגלה שלו הכי משתלמת.</>,
+  <>זו <em>שכבת השרת</em> — מרכז התיאום: משמאל שכבת הנתונים שכבר הכרנו, מימין שכבת הקליינט. השרת יושב באמצע ומתאם ביניהן.</>,
+  <>משכבת הקליינט נכנסת <em>בקשה</em>: ״השוו לי את העגלה״. ראשון מקבל אותה <em>המנוע</em> — הוא שמריץ את השרת כולו, וכל פנייה עוברת דרכו.</>,
+  <>בכניסה עומד <em>שומר הסף</em>: מוודא שהפנייה ממקור מוכר, רושם אותה ביומן ובודק שהתוכן קריא — ורק אז פותח את הדלת.</>,
+  <><em>המוקדן</em> מציץ בבקשה ומפנה אותה לדלפק הנכון: לכל סוג פנייה יש דלפק משלה — ושלנו הולכת לדלפק ההשוואות.</>,
+  <>וכאן <em>המנהל</em> — המקשר: כדי לענות, הוא שולח בקשה אל <em>שכבת הנתונים</em>. זה בדיוק המסע שראינו בשקף הקודם.</>,
+  <>ה<em>ממצאים</em> חוזרים מהנתונים, המנהל אורז אותם לתשובה מסודרת — והיא עוברת חזרה בשרשרת, תחנה אחרי תחנה.</>,
+  <>ה<em>תשובה</em> יוצאת אל שכבת הקליינט. מה המסך של המשתמש עושה איתה? <em>זה בדיוק השקף הבא</em>.</>,
 ]
 
-/* צירי התחנות בסצנה (1920x700), משמאל לימין */
+/* תחנות השרת בסצנה (1920x700), משמאל לימין */
 const ST = {
-  courier: { x: 100, y: 150 },
-  guard: { x: 460, y: 150 },
-  desk: { x: 820, y: 150 },
-  manager: { x: 1180, y: 150 },
-  store: { x: 1540, y: 150 },
+  manager: { x: 400, y: 130 },
+  desk: { x: 740, y: 130 },
+  guard: { x: 1080, y: 130 },
+  engine: { x: 1420, y: 130 },
 }
 
-/* צינורות: קשת עליונה = הבקשה (ימינה), קשת תחתונה = התשובה (שמאלה) */
+/* צינורות: קשת עליונה = הבקשה (ימין→שמאל), קשת תחתונה = התשובה (שמאל→ימין) */
 const P = {
-  reqCourierToGuard: 'M 255 210 C 320 160, 390 160, 455 210',
-  reqGuardToDesk: 'M 615 210 C 680 160, 750 160, 815 210',
-  reqDeskToManager: 'M 975 210 C 1040 160, 1110 160, 1175 210',
-  reqManagerToStore: 'M 1335 210 C 1400 160, 1470 160, 1535 210',
-  resStoreToManager: 'M 1535 300 C 1470 355, 1400 355, 1335 300',
-  resManagerToDesk: 'M 1175 300 C 1110 355, 1040 355, 975 300',
-  resDeskToGuard: 'M 815 300 C 750 355, 680 355, 615 300',
-  resGuardToCourier: 'M 455 300 C 390 355, 320 355, 255 300',
+  reqClientToEngine: 'M 1690 190 C 1648 148, 1600 148, 1558 192',
+  reqEngineToGuard: 'M 1414 194 C 1360 148, 1265 148, 1216 194',
+  reqGuardToDesk: 'M 1074 194 C 1020 148, 925 148, 876 194',
+  reqDeskToManager: 'M 734 194 C 680 148, 585 148, 536 194',
+  reqManagerToData: 'M 394 194 C 350 150, 272 150, 232 190',
+  resDataToManager: 'M 232 262 C 272 320, 350 322, 394 276',
+  resManagerToDesk: 'M 536 276 C 585 324, 680 324, 734 276',
+  resDeskToGuard: 'M 876 276 C 925 324, 1020 324, 1074 276',
+  resGuardToEngine: 'M 1216 276 C 1265 324, 1360 324, 1414 276',
+  resEngineToClient: 'M 1558 278 C 1602 326, 1652 316, 1692 262',
 }
 
 const stateOf = (step, activeAt) => (step === activeAt ? 'active' : step > activeAt ? 'done' : 'idle')
 
 export default function ServerFlowExplainer({ step = 0 }) {
   return (
-    <ExplainerStage kicker="BEHIND THE SCENES · 02" title="מהקליק ועד התשובה" step={step} captions={CAPTIONS}>
-      {/* קשת הבקשה (אקווה) — חבילה יוצאת מהתחנה הפעילה קדימה */}
-      <Pipe path={P.reqCourierToGuard} lit={step === 1} done={step > 1} packetLabel="הזמנה" />
-      <Pipe path={P.reqGuardToDesk} lit={step === 2} done={step > 2} packetLabel="אושר להיכנס" />
-      <Pipe path={P.reqDeskToManager} lit={step === 3} done={step > 3} packetLabel="אל המנהל" />
-      <Pipe path={P.reqManagerToStore} lit={step === 4} done={step > 4} packetLabel="שאילתה" />
+    <ExplainerStage kicker="BEHIND THE SCENES · 02" title="שכבת השרת — מרכז התיאום" step={step} captions={CAPTIONS}>
+      {/* קשת הבקשה (אקווה) — מהקליינט פנימה, תחנה אחרי תחנה */}
+      <Pipe path={P.reqClientToEngine} lit={step === 1} done={step > 1} packetLabel="בקשה" />
+      <Pipe path={P.reqEngineToGuard} lit={step === 2} done={step > 2} packetLabel="לבדיקה בכניסה" />
+      <Pipe path={P.reqGuardToDesk} lit={step === 3} done={step > 3} packetLabel="אושרה להיכנס" />
+      <Pipe path={P.reqDeskToManager} lit={step === 4} done={step > 4} packetLabel="אל דלפק ההשוואות" />
+      <Pipe path={P.reqManagerToData} lit={step === 4} done={step > 4} packetLabel="בקשה לנתונים" />
 
-      {/* קשת התשובה (ענבר) — חוזרת דרך כל התחנות */}
-      <Pipe path={P.resStoreToManager} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="ממצאים" />
-      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="תשובה" />
+      {/* קשת התשובה (ענבר) — מהנתונים חזרה החוצה */}
+      <Pipe path={P.resDataToManager} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="ממצאים" />
+      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="תשובה מוכנה" />
       <Pipe path={P.resDeskToGuard} lit={step === 5} done={step > 5} packetColor="#ffd98a" />
-      <Pipe path={P.resGuardToCourier} lit={step === 6} done={step > 6} packetColor="#ffd98a" packetLabel="אל המסך" />
+      <Pipe path={P.resGuardToEngine} lit={step === 5} done={step > 5} packetColor="#ffd98a" />
+      <Pipe path={P.resEngineToClient} lit={step === 6} done={step > 6} packetColor="#ffd98a" packetLabel="תשובה" />
 
-      {/* תחנות */}
-      <HexStation {...ST.courier} logo={axiosLogo} label="השליח" sub="Axios · מוסר בקשות ותשובות" state={step === 1 || step === 6 ? 'active' : step > 1 ? 'done' : 'idle'} />
-      <HexStation {...ST.guard} logo={expressLogo} label="שומר הסף" sub="Express · הדלת הראשית של השרת" state={stateOf(step, 2)} />
-      <HexStation {...ST.desk} icon={<Icon name="route" size={64} className="x11-ic" />} label="המוקדן" sub="Routes · מנתב כל פנייה לגורם הנכון" state={stateOf(step, 3)} />
-      <HexStation {...ST.manager} icon={<Icon name="user" size={64} className="x11-ic" />} label="המנהל" sub="Controller · הלוגיקה העסקית" state={stateOf(step, 4)} />
-      <HexStation {...ST.store} logo={mongodbLogo} label="המחסן" sub="MongoDB · כל המחירים של כל הרשתות" state={stateOf(step, 5)} />
+      {/* עוגני השכבות השכנות — כלליים, בלי פירוט פנימי */}
+      <LayerAnchor x={40} y={110} icon={<Icon name="database" />} label="שכבת הנתונים" sub="המחסן שראינו קודם" lit={step === 0 || step === 4 || step === 5} />
+      <LayerAnchor x={1680} y={110} icon={<Icon name="layout" />} label="שכבת הקליינט" sub="המסך של המשתמש" lit={step === 0 || step === 1 || step === 6} />
 
-      {/* שלב 0: הקליק שמתחיל הכול — כפתור עם אדוות ואצבע מקישה */}
-      <div className={`x11-btn ${step === 0 ? 'show' : ''}`} dir="rtl">
-        <div className="x11-btn-pill">
-          השוו לי את העגלה
-          <span className="x11-btn-hand">👆</span>
-        </div>
+      {/* תחנות שכבת השרת */}
+      <HexStation {...ST.manager} size={130} icon={<Icon name="user" size={56} className="x11-ic" />} label="המנהל" sub="Controller · המקשר לשכבת הנתונים" state={step === 4 || step === 5 ? 'active' : step > 5 ? 'done' : 'idle'} />
+      <HexStation {...ST.desk} size={130} icon={<Icon name="route" size={56} className="x11-ic" />} label="המוקדן" sub="Routes · מנתב כל פנייה" state={stateOf(step, 3)} />
+      <HexStation {...ST.guard} size={130} logo={expressLogo} label="שומר הסף" sub="Express · הדלת הראשית" state={stateOf(step, 2)} />
+      <HexStation {...ST.engine} size={130} logo={nodejsLogo} label="המנוע" sub="Node.js · מריץ את הכול" state={step === 1 || step === 6 ? 'active' : step > 1 ? 'done' : 'idle'} />
+
+      {/* סוגר: ארבע התחנות = שכבת השרת */}
+      <LayerBracket x={380} y={390} w={1190} label="שכבת השרת" />
+
+      {/* שלב 0: תג תיאום עם חצים לשני הכיוונים */}
+      <div className={`x11-coord ${step === 0 ? 'show' : ''}`} dir="rtl">
+        <span className="x11-coord-arrow x11-to-left">⟵</span>
+        מתאם בין השכבות: בקשות נכנסות, תשובות יוצאות
+        <span className="x11-coord-arrow x11-to-right">⟶</span>
       </div>
 
-      {/* שלב 1: מה יש במעטפה של השליח */}
-      <InfoCard x={40} y={385} w={350} title="מה יש במעטפה?" show={step === 1} items={[
-        '🛒 רשימת הקניות — 12 מוצרים',
-        '🏷️ זיהוי מדויק לכל מוצר',
-        '🚫 בלי פרטים מיותרים',
+      {/* שלב 1: מה המנוע עושה */}
+      <InfoCard x={1440} y={430} w={340} title="המנוע — Node.js" show={step === 1} items={[
+        '⚙️ מריץ את קוד השרת סביב השעון',
+        '📥 כל פנייה נכנסת דרכו',
+        '⚡ מהיר, ולא עוצר לרגע',
       ]} />
 
       {/* שלב 2: בדיקת שומר הסף — וי-ים נחתמים אחד-אחד */}
-      <InfoCard x={380} y={385} w={330} title="בדיקת הכניסה" show={step === 2} checklist items={[
+      <InfoCard x={1040} y={430} w={330} title="בדיקת הכניסה" show={step === 2} checklist items={[
         'הפנייה הגיעה ממקור מוכר',
         'נרשמה ביומן הכניסות',
         'התוכן קריא ומובן',
       ]} />
-      <div className={`x11-mw-tag ${step >= 2 ? 'show' : ''} ${step === 2 ? 'hot' : ''}`} dir="ltr">CORS · Morgan</div>
 
       {/* שלב 3: המוקדן מפנה לדלפק הנכון */}
-      <Callout x={755} y={390} w={310} show={step === 3} arrow="up">
-        לכל סוג פנייה יש <strong>דלפק ייעודי</strong> — השוואת עגלה, חיפוש מוצר, עדכון מחירים. אף מעטפה לא מסתובבת אבודה במסדרונות.
+      <Callout x={670} y={430} w={310} show={step === 3} arrow="up">
+        לכל סוג פנייה יש <strong>דלפק ייעודי</strong> — השוואת עגלה, חיפוש מוצר, עדכון מחירים. אף בקשה לא מסתובבת אבודה.
       </Callout>
 
-      {/* שלב 4: תוכנית העבודה של המנהל */}
-      <InfoCard x={1085} y={385} w={350} title="תוכנית העבודה" show={step === 4} items={[
-        '🧮 לחשב את עלות הסל בכל רשת',
-        '↕ לסדר מהזול ליקר',
-        '📨 קודם כול — שאלה אל המחסן',
+      {/* שלב 4: המנהל שולח אל שכבת הנתונים */}
+      <Callout x={100} y={430} w={310} show={step === 4} arrow="up">
+        המנהל שולח בקשה אל <strong>שכבת הנתונים</strong> — זה בדיוק המסע שראינו בשקף הקודם.
+      </Callout>
+
+      {/* שלב 5: המנהל אורז את התשובה — קרן סריקה חולפת על הכרטיס */}
+      <InfoCard x={360} y={430} w={340} title="המנהל אורז את התשובה" show={step === 5} scan items={[
+        '🧮 עלות הסל בכל רשת',
+        '↕ מסודר מהזול ליקר',
+        '📦 ארוז ומוכן לדרך חזרה',
       ]} />
 
-      {/* שלב 5: המחסן מאתר — קרן סריקה חולפת על הכרטיס */}
-      <InfoCard x={1435} y={385} w={360} title="איתור במחסן" show={step === 5} scan items={[
-        '🔍 בלי לעבור מדף-מדף — ישר למקום הנכון',
-        '📦 כל המחירים של כל הפריטים ברשימה',
+      {/* שלב 6: התשובה יוצאת לקליינט + ניצוצות */}
+      <InfoCard x={1540} y={420} w={310} title="מה יוצא אל הקליינט?" show={step === 6} items={[
+        '🏆 רמי לוי · ₪142 — הכי משתלם',
+        '🏪 שופרסל · ₪151',
+        '🏪 ויקטורי · ₪159',
       ]} />
-
-      {/* שלב 6: התוצאה על המסך + ניצוצות */}
-      <div className={`x11-ui ${step === 6 ? 'show' : ''}`} dir="rtl">
-        <div className="x11-ui-head">השוואת עגלה · 12 מוצרים</div>
-        <div className="x11-ui-row best"><span>רמי לוי</span><b>₪142</b><i>הכי משתלם</i></div>
-        <div className="x11-ui-row"><span>שופרסל</span><b>₪151</b></div>
-        <div className="x11-ui-row"><span>ויקטורי</span><b>₪159</b></div>
-      </div>
-      <SparkBurst x={235} y={430} show={step === 6} />
+      <SparkBurst x={1775} y={185} show={step === 6} />
     </ExplainerStage>
   )
 }

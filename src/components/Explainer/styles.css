@@ -139,6 +139,85 @@
   50% { filter: drop-shadow(0 0 30px rgba(127, 231, 242, 1)); }
 }
 
+/* --- עוגן שכבה שכנה (ישות כללית, לא מפורטת) --- */
+
+.xp-anchor {
+  position: absolute;
+  z-index: 4;
+  width: 190px;
+  text-align: center;
+  filter: saturate(0.4) brightness(0.75);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.xp-anchor.lit {
+  filter: none;
+  transform: scale(1.06);
+}
+
+.xp-anchor-box {
+  width: 170px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 26px;
+  border: 2px dashed rgba(127, 231, 242, 0.45);
+  background: linear-gradient(160deg, rgba(20, 58, 102, 0.55), rgba(6, 24, 43, 0.7));
+  display: grid;
+  place-items: center;
+  color: var(--c-aqua);
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.xp-anchor.lit .xp-anchor-box {
+  border-color: var(--c-aqua);
+  border-style: solid;
+  box-shadow: 0 0 34px rgba(43, 199, 220, 0.45), inset 0 0 26px rgba(43, 199, 220, 0.12);
+}
+
+.xp-anchor-box .icon {
+  width: 76px;
+  height: 76px;
+}
+
+.xp-anchor-label {
+  margin-top: 12px;
+  font-family: var(--font-hebrew);
+  font-size: 22px;
+  font-weight: 800;
+  color: #eaf6fa;
+}
+
+.xp-anchor-sub {
+  margin-top: 4px;
+  font-size: 14.5px;
+  color: var(--c-dark-muted);
+}
+
+/* --- סוגר קיבוץ עם שם השכבה --- */
+
+.xp-bracket {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.xp-bracket-line {
+  height: 16px;
+  border: 2px solid rgba(127, 231, 242, 0.35);
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+}
+
+.xp-bracket-label {
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-hebrew);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(127, 231, 242, 0.85);
+}
+
 /* --- כרטיס מידע אנושי (בלי קוד) --- */
 
 .xp-info {

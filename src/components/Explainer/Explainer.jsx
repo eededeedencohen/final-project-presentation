@@ -90,6 +90,28 @@ export function CodeChip({ x, y, w = 330, title, lines, show = false, tone = 'co
   )
 }
 
+/* עוגן שכבה שכנה: ישות כללית בקצה הסצנה (שרת/מסד/מסך) —
+   מציג לאן השכבה מתחברת בלי לפרט מה יש בפנים */
+export function LayerAnchor({ x, y, icon, label, sub, lit = false }) {
+  return (
+    <div className={`xp-anchor ${lit ? 'lit' : ''}`} style={{ left: x, top: y }}>
+      <div className="xp-anchor-box">{icon}</div>
+      <div className="xp-anchor-label">{label}</div>
+      {sub && <div className="xp-anchor-sub" dir="rtl">{sub}</div>}
+    </div>
+  )
+}
+
+/* סוגר קיבוץ: קו עדין מתחת לקבוצת תחנות עם שם השכבה */
+export function LayerBracket({ x, y, w, label }) {
+  return (
+    <div className="xp-bracket" style={{ left: x, top: y, width: w }}>
+      <div className="xp-bracket-line" />
+      <div className="xp-bracket-label" dir="rtl">{label}</div>
+    </div>
+  )
+}
+
 /* כרטיס מידע אנושי (בלי קוד): כותרת + שורות; שורות מסוג check
    נחתמות ב-וי אחת-אחת */
 export function InfoCard({ x, y, w = 300, title, items = [], show = false, checklist = false, scan = false }) {
