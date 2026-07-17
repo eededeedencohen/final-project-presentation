@@ -126,7 +126,7 @@ export default function ClientFlowExplainer({ step = 0 }) {
         <HexStation {...ST.expert} icon={<Icon name="hook" size={52} className="x14-ic" />} label="המומחים" sub="Hooks · חוכמה לכל נושא" state={stateOf(step, 3, 16)} />
         <HexStation {...ST.blocks} icon={<Icon name="puzzle" size={52} className="x14-ic" />} label="אבני הבניין" sub="Components · חלקי המסך" state={stateOf(step, 1, 18)} />
         <HexStation {...ST.page} icon={<Icon name="layout" size={52} className="x14-ic" />} label="העמוד" sub="Pages · Router בוחר מה מציגים" state={step === 20 ? 'active' : step > 20 ? 'done' : 'idle'} />
-        <HexStation {...ST.app} logo={reactLogo} label="האפליקציה" sub="React · App — הבית של הכול" state={step === 0 || step === 22 ? 'active' : 'done'} />
+        <HexStation {...ST.app} logo={reactLogo} label="האפליקציה" sub="React · App — הבית של הכול" state={step === 0 || step === 22 ? 'active' : 'idle'} />
       </div>
 
       {/* סוגר: כל התחנות = שכבת הקליינט */}
