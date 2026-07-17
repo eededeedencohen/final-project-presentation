@@ -19,32 +19,32 @@ export default function Slide03() {
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p03-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p03-e3 pel">
+      <svg style={{ '--d': 1840, '--sx': '0px' }} className="fx fx-dom p03-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 1840, '--sx': '0px' }} className="fx fx-dom p03-e3 pel">
         <div className="p03-e3-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e4 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e4 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
       <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e5 pel">
         <div className="p03-e5-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e6 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
-      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e7 pel">
+      <svg style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e6 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
+      <div style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p03-e7 pel">
         <div className="p03-e7-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e8 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e9 pel">
+      <svg style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p03-e8 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e9 pel">
         <div className="p03-e9-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
       <svg style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p03-e10 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p03-e11 pel">
+      <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e11 pel">
         <div className="p03-e11-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
@@ -118,36 +118,36 @@ export default function Slide03() {
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p03-t4"> מלאה </span></p>
         </div>
       </div>
-      <svg style={{ '--d': 430, '--sx': '0px', transformOrigin: '185px 157px' }} className="fx fx-pop p03-e36 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 430, '--sx': '0px', transformOrigin: '132px 174px' }} className="fx fx-pop p03-e37 pel">
+      <svg style={{ '--d': 570, '--sx': '0px', transformOrigin: '185px 162px' }} className="fx fx-pop p03-e36 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 430, '--sx': '0px', transformOrigin: '134px 169px' }} className="fx fx-pop p03-e37 pel">
         <div className="p03-e37-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '104.86px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 430, '--sx': '0px', transformOrigin: '133px 128px' }} className="fx fx-pop p03-e38 pel" src={img4} alt="" />
-      <div style={{ '--d': 1120, '--sx': '0px' }} className="fx fx-dom p03-e39 pel">
+      <img style={{ '--d': 570, '--sx': '0px', transformOrigin: '133px 133px' }} className="fx fx-pop p03-e38 pel" src={img4} alt="" />
+      <div style={{ '--d': 2020, '--sx': '0px' }} className="fx fx-dom p03-e39 pel">
         <div className="p03-e39-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p03-t5">צרכנות רגועה מבוססת דאטה בזמן הקנייה</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 430, '--sx': '0px', transformOrigin: '194px 164px' }} className="fx fx-pop p03-e40 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <svg style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e41 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e42 pel">
+      <svg style={{ '--d': 570, '--sx': '0px', transformOrigin: '194px 169px' }} className="fx fx-pop p03-e40 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 1120, '--sx': '0px' }} className="fx fx-dom p03-e41 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 1480, '--sx': '0px' }} className="fx fx-dom p03-e42 pel">
         <div className="p03-e42-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '56.47px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e43 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e44 pel">
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e43 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e44 pel">
         <div className="p03-e44-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '22.61px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e45 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <div style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p03-e46 pel"><img src={img5} alt="" /></div>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e47 pel" viewBox="0 0 40.91 76.15" preserveAspectRatio="none"><line x1="0" y1="0" x2="40.91" y2="76.15" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e48 pel" viewBox="0 0 42.93 75.03" preserveAspectRatio="none"><line x1="0" y1="0" x2="42.93" y2="75.03" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
-      <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p03-e49 pel">
+      <svg style={{ '--d': 1660, '--sx': '0px' }} className="fx fx-dom p03-e45 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <div style={{ '--d': 1300, '--sx': '0px' }} className="fx fx-dom p03-e46 pel"><img src={img5} alt="" /></div>
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e47 pel" viewBox="0 0 40.91 76.15" preserveAspectRatio="none"><line x1="0" y1="0" x2="40.91" y2="76.15" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e48 pel" viewBox="0 0 42.93 75.03" preserveAspectRatio="none"><line x1="0" y1="0" x2="42.93" y2="75.03" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
+      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p03-e49 pel">
         <div className="p03-e49-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p03-t6">Smart</span></p>
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p03-t6"> Cart</span></p>
