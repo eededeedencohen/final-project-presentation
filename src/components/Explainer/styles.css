@@ -270,7 +270,8 @@
   background: var(--pk, var(--xp-deep));
   border: 3px solid #ffffff;
   box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
-  z-index: 5;
+  /* מעל התחנות (6) והכרטיסים (7) — שהתווית לעולם לא תוסתר */
+  z-index: 9;
   offset-rotate: 0deg;
   animation: xpTravel 1.7s cubic-bezier(0.45, 0, 0.3, 1) forwards;
 }

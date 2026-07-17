@@ -365,7 +365,8 @@
   border-radius: 50%;
   border: 3px solid #ffffff;
   box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
-  z-index: 5;
+  /* מעל אזורי השכבות — שתוויות בקשה/תשובה לא יוסתרו */
+  z-index: 8;
   offset-rotate: 0deg;
 }
 
