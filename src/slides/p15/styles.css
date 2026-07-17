@@ -292,7 +292,7 @@
 
 .p15-e27 {
   left: 387.28px;
-  top: 439.28px;
+  top: 446px; /* הונמך מעט כדי לא לגעת באייקון שמעליו */
   width: 297.78px;
   height: 133.11px;
 }
@@ -392,10 +392,11 @@
 }
 
 .p15-e34 {
-  left: 18.98px;
-  top: 391.35px;
-  width: 291.76px;
-  height: 291.76px;
+  /* הוקטן ומורכז כדי לא לחפוף את הטקסט שמתחתיו */
+  left: 34.86px;
+  top: 407.23px;
+  width: 260px;
+  height: 260px;
   object-fit: fill;
 }
 
@@ -470,10 +471,11 @@
 }
 
 .p15-e41 {
-  left: 727.92px;
-  top: 376.81px;
-  width: 336.43px;
-  height: 336.43px;
+  /* הוקטן ומורכז כדי לא לחפוף את הטקסט "ממשק מותאם לשימוש ביד אחת" */
+  left: 770.14px;
+  top: 419.03px;
+  width: 252px;
+  height: 252px;
   object-fit: fill;
 }
 
@@ -502,7 +504,7 @@
 
 .p15-e44 {
   left: 405.41px;
-  top: 856.72px;
+  top: 864.5px; /* הונמך מעט כדי לא לחפוף את האייקון שמעליו */
   width: 264.57px;
   height: 126.38px;
 }
@@ -524,10 +526,11 @@
 }
 
 .p15-e45 {
-  left: 397.34px;
-  top: 604.2px;
-  width: 268.02px;
-  height: 268.02px;
+  /* הוקטן ומורכז כדי לא לחפוף את הטקסט שמתחתיו */
+  left: 411.35px;
+  top: 618.21px;
+  width: 240px;
+  height: 240px;
   object-fit: fill;
 }
 

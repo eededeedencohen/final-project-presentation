@@ -84,7 +84,7 @@ export default function Slide05() {
       </div>
       <div style={{ '--d': 800 }} className="fx fx-fade p05-e24 pel">
         <div className="p05-e24-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p05-t1">היעדר שכבת בינה מלאכותית מותאמת אישי</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p05-t1">היעדר שכבת בינה מלאכותית מותאמת אישית</span></p>
         </div>
       </div>
       <div style={{ '--d': 840 }} className="fx fx-fade p05-e25 pel">
@@ -154,7 +154,7 @@ export default function Slide05() {
       <svg style={{ '--d': 900 }} className="fx fx-fade p05-e50 pel" viewBox="0 0 118.6 205.26" preserveAspectRatio="none"><line x1="0" y1="0" x2="118.6" y2="205.26" stroke="#ffffff" strokeWidth="7.76" vectorEffect="non-scaling-stroke" /></svg>
       <div style={{ '--d': 900 }} className="fx fx-fade p05-e51 pel">
         <div className="p05-e51-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p05-t5">הפער<br />הפתרוןנות<br />הקיימים</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p05-t5">הפער<br />בפתרונות<br />הקיימים</span></p>
         </div>
       </div>
       <img style={{ '--d': 900 }} className="fx fx-fade p05-e52 pel" src={img4} alt="" />

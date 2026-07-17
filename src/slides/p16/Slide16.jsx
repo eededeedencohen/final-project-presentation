@@ -80,7 +80,7 @@ export default function Slide16() {
       </div>
       <div style={{ '--d': 800 }} className="fx fx-fade p16-e25 pel">
         <div className="p16-e25-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p16-t0">דירוג חלופות מותאם אישי</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p16-t0">דירוג חלופות מותאם אישית</span></p>
         </div>
       </div>
       <img style={{ '--d': 840 }} className="fx fx-fade p16-e26 pel" src={img1} alt="" />

@@ -195,7 +195,7 @@ export default function Slide06() {
       </div>
       <div style={{ '--d': 900 }} className="fx fx-fade p06-e63 pel">
         <div className="p06-e63-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p06-t5">מערכת </span><span className="p06-t5">ORC</span><span className="p06-t5"> לאיסוף<br />אוטומטי מקבלות</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p06-t5">מערכת </span><span className="p06-t5">OCR</span><span className="p06-t5"> לאיסוף<br />אוטומטי מקבלות</span></p>
         </div>
       </div>
       <img style={{ '--d': 900 }} className="fx fx-fade p06-e64 pel" src={img6} alt="" />

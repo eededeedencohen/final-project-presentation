@@ -56,7 +56,7 @@ export default function Slide19() {
       <img style={{ '--d': 600 }} className="fx fx-fade p19-e15 pel" src={img2} alt="" />
       <div style={{ '--d': 640 }} className="fx fx-fade p19-e16 pel">
         <div className="p19-e16-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p19-t2">צמצום משמעותי בעמוס המנטלי</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p19-t2">צמצום משמעותי בעומס המנטלי</span></p>
         </div>
       </div>
       <svg style={{ '--d': 680 }} className="fx fx-fade p19-e17 pel" viewBox="0 0 812800 812800" preserveAspectRatio="none"><path d="M 652780 0 L 160020 0 L 0 160020 L 0 652780 L 160020 812800 L 652780 812800 L 812800 652780 L 812800 160020 L 652780 0 Z" fill="#396e83" /></svg>

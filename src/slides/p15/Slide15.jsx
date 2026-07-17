@@ -104,7 +104,7 @@ export default function Slide15() {
       </div>
       <div style={{ '--d': 900 }} className="fx fx-fade p15-e33 pel">
         <div className="p15-e33-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p15-t1">פיענוח </span><span className="p15-t1">ORC</span><span className="p15-t1"> לאכלוס היסטוריה</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p15-t1">פיענוח </span><span className="p15-t1">OCR</span><span className="p15-t1"> לאכלוס היסטוריה</span></p>
         </div>
       </div>
       <img style={{ '--d': 900 }} className="fx fx-fade p15-e34 pel" src={img2} alt="" />

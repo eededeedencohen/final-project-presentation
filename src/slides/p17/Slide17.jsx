@@ -164,7 +164,7 @@ export default function Slide17() {
       <img style={{ '--d': 900 }} className="fx fx-fade p17-e50 pel" src={img4} alt="" />
       <div style={{ '--d': 900 }} className="fx fx-fade p17-e51 pel">
         <div className="p17-e51-tx">
-          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t3">אינצגרציה וסנכרון חלקי </span><span className="p17-t3">API</span><span className="p17-t3"> שונים</span></p>
+          <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t3">אינטגרציה וסנכרון חלקי </span><span className="p17-t3">API</span><span className="p17-t3"> שונים</span></p>
         </div>
       </div>
       <img style={{ '--d': 900 }} className="fx fx-fade p17-e52 pel" src={img5} alt="" />
