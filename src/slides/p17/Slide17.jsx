@@ -16,44 +16,44 @@ export default function Slide17() {
   return (
     <section className="pslide p17" dir="ltr">
       <CircuitBackground tone="light" />
-      <svg style={{ '--d': 479 }} className="fx fx-fade p17-e0 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 478 }} className="fx fx-fade p17-e1 pel">
+      <svg style={{ '--d': 479, '--sx': '-70px' }} className="fx fx-fade p17-e0 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 478, '--sx': '-70px' }} className="fx fx-fade p17-e1 pel">
         <div className="p17-e1-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 292 }} className="fx fx-fade p17-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 291 }} className="fx fx-fade p17-e3 pel">
+      <svg style={{ '--d': 292, '--sx': '70px' }} className="fx fx-fade p17-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 291, '--sx': '70px' }} className="fx fx-fade p17-e3 pel">
         <div className="p17-e3-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 403 }} className="fx fx-fade p17-e4 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
-      <div style={{ '--d': 401 }} className="fx fx-fade p17-e5 pel">
+      <svg style={{ '--d': 403, '--sx': '-70px' }} className="fx fx-fade p17-e4 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
+      <div style={{ '--d': 401, '--sx': '-70px' }} className="fx fx-fade p17-e5 pel">
         <div className="p17-e5-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 219 }} className="fx fx-fade p17-e6 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
-      <div style={{ '--d': 218 }} className="fx fx-fade p17-e7 pel">
+      <svg style={{ '--d': 219, '--sx': '70px' }} className="fx fx-fade p17-e6 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#969393" /></svg>
+      <div style={{ '--d': 218, '--sx': '70px' }} className="fx fx-fade p17-e7 pel">
         <div className="p17-e7-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 359 }} className="fx fx-fade p17-e8 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 357 }} className="fx fx-fade p17-e9 pel">
+      <svg style={{ '--d': 359, '--sx': '-70px' }} className="fx fx-fade p17-e8 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 357, '--sx': '-70px' }} className="fx fx-fade p17-e9 pel">
         <div className="p17-e9-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 175 }} className="fx fx-fade p17-e10 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 174 }} className="fx fx-fade p17-e11 pel">
+      <svg style={{ '--d': 175, '--sx': '70px' }} className="fx fx-fade p17-e10 pel" viewBox="0 0 483446 221031" preserveAspectRatio="none"><path d="M 203200 0 L 483446 0 L 280246 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 174, '--sx': '70px' }} className="fx fx-fade p17-e11 pel">
         <div className="p17-e11-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '132.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 157 }} className="fx fx-fade p17-e12 pel" src={img0} alt="" />
-      <div style={{ '--d': 0 }} className="fx fx-fade p17-e13 pel">
+      <img style={{ '--d': 157, '--sx': '70px' }} className="fx fx-fade p17-e12 pel" src={img0} alt="" />
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p17-e13 pel">
         <svg className="p17-e14 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p17-e15 pel">
           <div className="p17-e15-tx">
@@ -61,7 +61,7 @@ export default function Slide17() {
           </div>
         </div>
       </div>
-      <div style={{ '--d': 147 }} className="fx fx-fade p17-e16 pel">
+      <div style={{ '--d': 147, '--sx': '70px' }} className="fx fx-fade p17-e16 pel">
         <svg className="p17-e17 pel" viewBox="0 0 1721018 1451547" preserveAspectRatio="none"><path d="M 0 0 L 1721018 0 L 1721018 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
         <div className="p17-e18 pel">
           <div className="p17-e18-tx">
@@ -69,135 +69,135 @@ export default function Slide17() {
           </div>
         </div>
       </div>
-      <div style={{ '--d': 193 }} className="fx fx-fade p17-e19 pel">
+      <div style={{ '--d': 193, '--sx': '70px' }} className="fx fx-fade p17-e19 pel">
         <svg className="p17-e20 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       </div>
-      <svg style={{ '--d': 86 }} className="fx fx-fade p17-e21 pel" viewBox="0 0 145.27 252.74" preserveAspectRatio="none"><line x1="0" y1="0" x2="145.27" y2="252.74" stroke="#ffffff" strokeWidth="7" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 127 }} className="fx fx-fade p17-e22 pel" viewBox="0 0 145.84 252.41" preserveAspectRatio="none"><line x1="0" y1="0" x2="145.84" y2="252.41" stroke="#ffffff" strokeWidth="7" vectorEffect="non-scaling-stroke" /></svg>
-      <div style={{ '--d': 193 }} className="fx fx-fade p17-e23 pel">
+      <svg style={{ '--d': 86, '--sx': '70px' }} className="fx fx-fade p17-e21 pel" viewBox="0 0 145.27 252.74" preserveAspectRatio="none"><line x1="0" y1="0" x2="145.27" y2="252.74" stroke="#ffffff" strokeWidth="7" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 127, '--sx': '70px' }} className="fx fx-fade p17-e22 pel" viewBox="0 0 145.84 252.41" preserveAspectRatio="none"><line x1="0" y1="0" x2="145.84" y2="252.41" stroke="#ffffff" strokeWidth="7" vectorEffect="non-scaling-stroke" /></svg>
+      <div style={{ '--d': 193, '--sx': '70px' }} className="fx fx-fade p17-e23 pel">
         <div className="p17-e23-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t0">אתגרים</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 347 }} className="fx fx-fade p17-e24 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 346 }} className="fx fx-fade p17-e25 pel">
+      <svg style={{ '--d': 347, '--sx': '-70px' }} className="fx fx-fade p17-e24 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 346, '--sx': '-70px' }} className="fx fx-fade p17-e25 pel">
         <div className="p17-e25-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '111.53px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 342 }} className="fx fx-fade p17-e26 pel" src={img1} alt="" />
-      <div style={{ '--d': 365 }} className="fx fx-fade p17-e27 pel">
+      <img style={{ '--d': 342, '--sx': '-70px' }} className="fx fx-fade p17-e26 pel" src={img1} alt="" />
+      <div style={{ '--d': 365, '--sx': '-70px' }} className="fx fx-fade p17-e27 pel">
         <div className="p17-e27-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t1">ביצועים בהשוואת אלפי מחירים</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 516 }} className="fx fx-fade p17-e28 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 514 }} className="fx fx-fade p17-e29 pel">
+      <svg style={{ '--d': 516, '--sx': '-70px' }} className="fx fx-fade p17-e28 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 514, '--sx': '-70px' }} className="fx fx-fade p17-e29 pel">
         <div className="p17-e29-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '114.7px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 516 }} className="fx fx-fade p17-e30 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 514 }} className="fx fx-fade p17-e31 pel">
+      <svg style={{ '--d': 516, '--sx': '-70px' }} className="fx fx-fade p17-e30 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 514, '--sx': '-70px' }} className="fx fx-fade p17-e31 pel">
         <div className="p17-e31-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '113.4px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <div style={{ '--d': 538 }} className="fx fx-fade p17-e32 pel">
+      <div style={{ '--d': 538, '--sx': '-70px' }} className="fx fx-fade p17-e32 pel">
         <div className="p17-e32-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t1">ניקו</span><span className="p17-t1">י ותיקוף</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 404 }} className="fx fx-fade p17-e33 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 402 }} className="fx fx-fade p17-e34 pel">
+      <svg style={{ '--d': 404, '--sx': '-70px' }} className="fx fx-fade p17-e33 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 402, '--sx': '-70px' }} className="fx fx-fade p17-e34 pel">
         <div className="p17-e34-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '114.89px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 404 }} className="fx fx-fade p17-e35 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 402 }} className="fx fx-fade p17-e36 pel">
+      <svg style={{ '--d': 404, '--sx': '-70px' }} className="fx fx-fade p17-e35 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 402, '--sx': '-70px' }} className="fx fx-fade p17-e36 pel">
         <div className="p17-e36-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '113.21px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 397 }} className="fx fx-fade p17-e37 pel" src={img2} alt="" />
-      <div style={{ '--d': 426 }} className="fx fx-fade p17-e38 pel">
+      <img style={{ '--d': 397, '--sx': '-70px' }} className="fx fx-fade p17-e37 pel" src={img2} alt="" />
+      <div style={{ '--d': 426, '--sx': '-70px' }} className="fx fx-fade p17-e38 pel">
         <div className="p17-e38-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t1">איסוף נתונים עמוס</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 580 }} className="fx fx-fade p17-e39 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 573 }} className="fx fx-fade p17-e40 pel">
+      <svg style={{ '--d': 580, '--sx': '-70px' }} className="fx fx-fade p17-e39 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 573, '--sx': '-70px' }} className="fx fx-fade p17-e40 pel">
         <div className="p17-e40-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '115.42px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 580 }} className="fx fx-fade p17-e41 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 578 }} className="fx fx-fade p17-e42 pel">
+      <svg style={{ '--d': 580, '--sx': '-70px' }} className="fx fx-fade p17-e41 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 578, '--sx': '-70px' }} className="fx fx-fade p17-e42 pel">
         <div className="p17-e42-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '113.54px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 573 }} className="fx fx-fade p17-e43 pel" src={img3} alt="" />
-      <div style={{ '--d': 571 }} className="fx fx-fade p17-e44 pel">
+      <img style={{ '--d': 573, '--sx': '-70px' }} className="fx fx-fade p17-e43 pel" src={img3} alt="" />
+      <div style={{ '--d': 571, '--sx': '-70px' }} className="fx fx-fade p17-e44 pel">
         <div className="p17-e44-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t2">NLP</span></p>
         </div>
       </div>
-      <div style={{ '--d': 602 }} className="fx fx-fade p17-e45 pel">
+      <div style={{ '--d': 602, '--sx': '-70px' }} className="fx fx-fade p17-e45 pel">
         <div className="p17-e45-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t3">עיבוד שפה טבעית<br />עברית </span><span className="p17-t3">RTL</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 464 }} className="fx fx-fade p17-e46 pel" viewBox="0 0 812800 702273" preserveAspectRatio="none"><path d="M 812800 351136 L 609600 702273 L 203200 702273 L 0 351136 L 203200 0 L 609600 0 L 812800 351136 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 463 }} className="fx fx-fade p17-e47 pel">
+      <svg style={{ '--d': 464, '--sx': '-70px' }} className="fx fx-fade p17-e46 pel" viewBox="0 0 812800 702273" preserveAspectRatio="none"><path d="M 812800 351136 L 609600 702273 L 203200 702273 L 0 351136 L 203200 0 L 609600 0 L 812800 351136 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 463, '--sx': '-70px' }} className="fx fx-fade p17-e47 pel">
         <div className="p17-e47-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '117.26px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 464 }} className="fx fx-fade p17-e48 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 463 }} className="fx fx-fade p17-e49 pel">
+      <svg style={{ '--d': 464, '--sx': '-70px' }} className="fx fx-fade p17-e48 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 463, '--sx': '-70px' }} className="fx fx-fade p17-e49 pel">
         <div className="p17-e49-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '116.14px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 425 }} className="fx fx-fade p17-e50 pel" src={img4} alt="" />
-      <div style={{ '--d': 485 }} className="fx fx-fade p17-e51 pel">
+      <img style={{ '--d': 425, '--sx': '-70px' }} className="fx fx-fade p17-e50 pel" src={img4} alt="" />
+      <div style={{ '--d': 485, '--sx': '-70px' }} className="fx fx-fade p17-e51 pel">
         <div className="p17-e51-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t3">אינטגרציה וסנכרון חלקי </span><span className="p17-t3">API</span><span className="p17-t3"> שונים</span></p>
         </div>
       </div>
-      <img style={{ '--d': 459 }} className="fx fx-fade p17-e52 pel" src={img5} alt="" />
-      <svg style={{ '--d': 407 }} className="fx fx-fade p17-e53 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 406 }} className="fx fx-fade p17-e54 pel">
+      <img style={{ '--d': 459, '--sx': '-70px' }} className="fx fx-fade p17-e52 pel" src={img5} alt="" />
+      <svg style={{ '--d': 407, '--sx': '-70px' }} className="fx fx-fade p17-e53 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 406, '--sx': '-70px' }} className="fx fx-fade p17-e54 pel">
         <div className="p17-e54-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '111.53px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <div style={{ '--d': 426 }} className="fx fx-fade p17-e55 pel">
+      <div style={{ '--d': 426, '--sx': '-70px' }} className="fx fx-fade p17-e55 pel">
         <div className="p17-e55-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t4">תיוג סמנטי ידני ל</span><span className="p17-t5">מעל </span><span className="p17-t5">6000</span><span className="p17-t5"> מוצרים</span></p>
         </div>
       </div>
-      <img style={{ '--d': 402 }} className="fx fx-fade p17-e56 pel" src={img6} alt="" />
-      <img style={{ '--d': 510 }} className="fx fx-fade p17-e57 pel" src={img7} alt="" />
-      <svg style={{ '--d': 93 }} className="fx fx-fade p17-e58 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 92 }} className="fx fx-fade p17-e59 pel">
+      <img style={{ '--d': 402, '--sx': '-70px' }} className="fx fx-fade p17-e56 pel" src={img6} alt="" />
+      <img style={{ '--d': 510, '--sx': '-70px' }} className="fx fx-fade p17-e57 pel" src={img7} alt="" />
+      <svg style={{ '--d': 93, '--sx': '70px' }} className="fx fx-fade p17-e58 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 92, '--sx': '70px' }} className="fx fx-fade p17-e59 pel">
         <div className="p17-e59-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '56.47px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 52 }} className="fx fx-fade p17-e60 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 52 }} className="fx fx-fade p17-e61 pel">
+      <svg style={{ '--d': 52, '--sx': '70px' }} className="fx fx-fade p17-e60 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 52, '--sx': '70px' }} className="fx fx-fade p17-e61 pel">
         <div className="p17-e61-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '22.61px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 93 }} className="fx fx-fade p17-e62 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <div style={{ '--d': 93 }} className="fx fx-fade p17-e63 pel"><img src={img8} alt="" /></div>
-      <svg style={{ '--d': 69 }} className="fx fx-fade p17-e64 pel" viewBox="0 0 40.91 76.15" preserveAspectRatio="none"><line x1="0" y1="0" x2="40.91" y2="76.15" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 57 }} className="fx fx-fade p17-e65 pel" viewBox="0 0 42.93 75.03" preserveAspectRatio="none"><line x1="0" y1="0" x2="42.93" y2="75.03" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
-      <div style={{ '--d': 41 }} className="fx fx-fade p17-e66 pel">
+      <svg style={{ '--d': 93, '--sx': '70px' }} className="fx fx-fade p17-e62 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <div style={{ '--d': 93, '--sx': '70px' }} className="fx fx-fade p17-e63 pel"><img src={img8} alt="" /></div>
+      <svg style={{ '--d': 69, '--sx': '70px' }} className="fx fx-fade p17-e64 pel" viewBox="0 0 40.91 76.15" preserveAspectRatio="none"><line x1="0" y1="0" x2="40.91" y2="76.15" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 57, '--sx': '70px' }} className="fx fx-fade p17-e65 pel" viewBox="0 0 42.93 75.03" preserveAspectRatio="none"><line x1="0" y1="0" x2="42.93" y2="75.03" stroke="#ffffff" strokeWidth="3.08" vectorEffect="non-scaling-stroke" /></svg>
+      <div style={{ '--d': 41, '--sx': '70px' }} className="fx fx-fade p17-e66 pel">
         <div className="p17-e66-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t6">Smart</span></p>
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p17-t6"> Cart</span></p>
