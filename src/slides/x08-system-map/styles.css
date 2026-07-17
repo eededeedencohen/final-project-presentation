@@ -1,129 +1,64 @@
 /* ============================================================
-   x08 — מפת המערכת: מובייל · שרת · נתונים — גדול, מלא וברור
+   x08 — מפת המערכת כשקף בנייה בלחיצות.
+   בלי גלולות מעוגלות: איורים, עיגולים וטקסט נקי בלבד.
+   הקואורדינטות בתוך .xp-scene (1920x700).
    ============================================================ */
 
-.smap {
-  --sm-teal: #396e83;
-  --sm-deep: #0d7377;
-  --sm-ink: #24404e;
-  --sm-gray: #69808c;
-  --sm-amber: #e8a33d;
-
+/* אלמנט שנבנה בלחיצה: עמום עד שמגיע תורו */
+.smap-el {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-  color: var(--sm-ink);
-  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
-  background:
-    radial-gradient(1300px 750px at 12% -10%, rgba(43, 199, 220, 0.09), transparent 60%),
-    radial-gradient(1000px 650px at 95% 110%, rgba(15, 163, 184, 0.08), transparent 55%),
-    var(--c-bg);
-}
-
-/* --- כותרת --- */
-
-.smap-head {
-  position: absolute;
-  top: 40px;
-  inset-inline: 80px;
-  z-index: 3;
-  text-align: right;
-}
-
-.smap-title {
-  font-size: 58px;
-  font-weight: 800;
-  color: var(--sm-teal);
-}
-
-.smap-kicker {
-  margin-top: 6px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  color: rgba(57, 110, 131, 0.55);
-  direction: ltr;
-  text-align: right;
-}
-
-/* --- אזורי השכבות --- */
-
-.smap-zone {
-  position: absolute;
-  top: 320px;
-  width: 480px;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 4;
+  opacity: 0.16;
+  filter: grayscale(0.7);
+  transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.9, 0.3, 1);
 }
 
-.smap-client { right: 20px; }
-.smap-server { left: 720px; }
-.smap-data { left: 30px; }
-
-.smap-zone-name {
-  margin-top: 26px;
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--sm-ink);
+.smap-el.on {
+  opacity: 1;
+  filter: none;
 }
 
-.smap-zone-sub {
-  margin-top: 6px;
-  font-size: 22px;
-  color: var(--sm-gray);
+.smap-el.now {
+  transform: scale(1.04);
 }
 
-.smap-chips {
-  display: flex;
-  gap: 14px;
+/* שם שכבה — טקסט נקי, בלי קופסה */
+.smap-name {
   margin-top: 18px;
-}
-
-.smap-chip {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  direction: ltr;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--sm-ink);
-  background: #ffffff;
-  border: 2px solid rgba(57, 110, 131, 0.3);
-  border-radius: 999px;
-  padding: 12px 24px;
-  box-shadow: var(--shadow-1);
-}
-
-.smap-chip img {
-  height: 42px;
-  max-width: 140px;
-  width: auto;
-  object-fit: contain;
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: #24404e;
+  text-align: center;
 }
 
 /* --- המובייל --- */
 
 .smap-phone {
   position: relative;
-  width: 310px;
-  height: 420px;
-  border-radius: 38px;
-  border: 9px solid var(--sm-teal);
+  width: 280px;
+  height: 360px;
+  border-radius: 34px; /* מכשיר אמיתי — לא קופסת עיצוב */
+  border: 8px solid #396e83;
   background: #ffffff;
-  box-shadow: 0 24px 54px rgba(36, 64, 78, 0.24);
+  box-shadow: 0 22px 48px rgba(36, 64, 78, 0.22);
   overflow: hidden;
-  animation: smapFloat 5s ease-in-out infinite;
+}
+
+.smap-el.now .smap-phone {
+  box-shadow: 0 0 0 8px rgba(13, 115, 119, 0.18), 0 22px 48px rgba(36, 64, 78, 0.3);
 }
 
 .smap-phone-notch {
   position: absolute;
-  top: 8px;
+  top: 7px;
   left: 50%;
   transform: translateX(-50%);
-  width: 92px;
-  height: 11px;
+  width: 84px;
+  height: 10px;
   border-radius: 999px;
   background: rgba(57, 110, 131, 0.35);
   z-index: 2;
@@ -131,19 +66,18 @@
 
 .smap-phone-screen {
   position: absolute;
-  inset: 28px 14px 30px;
+  inset: 26px 13px 18px;
   display: flex;
   flex-direction: column;
   gap: 9px;
 }
 
 .smap-ui-head {
-  background: linear-gradient(120deg, var(--sm-deep), var(--sm-teal));
+  background: linear-gradient(120deg, #0d7377, #396e83);
   color: #fff;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 19px;
   text-align: center;
-  border-radius: 11px;
   padding: 9px 0;
   direction: ltr;
 }
@@ -152,35 +86,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  background: rgba(57, 110, 131, 0.06);
-  border-radius: 10px;
-  padding: 10px 13px;
+  font-size: 17.5px;
+  background: rgba(57, 110, 131, 0.07);
+  padding: 10px 12px;
+  color: #24404e;
 }
 
-.smap-ui-row b { color: var(--sm-teal); }
+.smap-ui-row b { color: #396e83; }
 
 .smap-ui-total {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   background: rgba(232, 163, 61, 0.16);
-  border: 2px solid rgba(232, 163, 61, 0.5);
-  border-radius: 11px;
-  padding: 11px 13px;
-}
-
-.smap-phone-home {
-  position: absolute;
-  bottom: 9px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 76px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(57, 110, 131, 0.3);
+  border: 2px solid rgba(232, 163, 61, 0.55);
+  padding: 10px 12px;
+  color: #24404e;
 }
 
 /* --- ארון השרתים --- */
@@ -188,28 +111,30 @@
 .smap-rack {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  animation: smapFloat 5s ease-in-out infinite 0.6s;
+  gap: 12px;
 }
 
 .smap-rack-unit {
-  width: 400px;
-  height: 112px;
-  border-radius: 20px;
-  border: 6px solid var(--sm-teal);
+  width: 350px;
+  height: 82px;
+  border: 6px solid #396e83;
   background: #ffffff;
-  box-shadow: 0 16px 38px rgba(36, 64, 78, 0.18);
+  box-shadow: 0 14px 34px rgba(36, 64, 78, 0.18);
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 0 28px;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.smap-el.now .smap-rack-unit {
+  box-shadow: 0 0 0 6px rgba(13, 115, 119, 0.16), 0 14px 34px rgba(36, 64, 78, 0.26);
 }
 
 .smap-led {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--sm-deep);
+  background: #0d7377;
   animation: smapBlink 2.2s ease-in-out infinite;
 }
 
@@ -225,39 +150,30 @@
 
 .smap-slot {
   flex: 1;
-  height: 20px;
-  border-radius: 999px;
+  height: 18px;
   background: rgba(57, 110, 131, 0.18);
-}
-
-.smap-dots {
-  font-size: 30px;
-  font-weight: 800;
-  color: rgba(57, 110, 131, 0.5);
-  letter-spacing: 3px;
 }
 
 /* --- המסד --- */
 
 .smap-db {
-  width: 330px;
-  animation: smapFloat 5s ease-in-out infinite 1.2s;
-  filter: drop-shadow(0 18px 34px rgba(36, 64, 78, 0.2));
+  width: 300px;
+  filter: drop-shadow(0 16px 30px rgba(36, 64, 78, 0.2));
 }
 
 .smap-db-top {
-  height: 74px;
+  height: 68px;
   border-radius: 50%;
   background: #ffffff;
-  border: 6px solid var(--sm-teal);
+  border: 6px solid #396e83;
   position: relative;
   z-index: 2;
 }
 
 .smap-db-band {
-  height: 84px;
-  margin-top: -36px;
-  border: 6px solid var(--sm-teal);
+  height: 82px;
+  margin-top: -34px;
+  border: 6px solid #396e83;
   border-top: none;
   background: #ffffff;
   border-radius: 0 0 50% 50% / 0 0 45% 45%;
@@ -267,46 +183,64 @@
   background: rgba(57, 110, 131, 0.08);
 }
 
-@keyframes smapFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+/* --- עוזרי ה-AI: עיגולים בלבד --- */
 
-/* --- לוויין ה-AI --- */
-
-.smap-ai {
+.smap-ai-trio {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 120px;
+  top: -12px;
   z-index: 4;
-  text-align: center;
-}
-
-.smap-ai-box {
   display: flex;
-  gap: 26px;
+  gap: 22px;
   align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border: 3px dashed rgba(57, 110, 131, 0.45);
-  border-radius: 24px;
-  padding: 20px 34px;
-  box-shadow: var(--shadow-1);
+  opacity: 0.16;
+  filter: grayscale(0.7);
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
 
-.smap-ai-box img {
-  height: 60px;
-  max-width: 200px;
-  width: auto;
+.smap-ai-trio.on {
+  opacity: 1;
+  filter: none;
+}
+
+.smap-ai-circle {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 5px solid #396e83;
+  box-shadow: 0 10px 26px rgba(36, 64, 78, 0.18);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.smap-ai-trio.now .smap-ai-circle {
+  animation: smapAiPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes smapAiPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.3), 0 10px 26px rgba(36, 64, 78, 0.18); }
+  50% { box-shadow: 0 0 0 12px rgba(13, 115, 119, 0), 0 10px 26px rgba(36, 64, 78, 0.18); }
+}
+
+.smap-ai-circle img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
-.smap-ai-label {
-  margin-top: 10px;
-  font-size: 20px;
+.smap-ai-caption {
+  position: absolute;
+  top: 108px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 19px;
   font-weight: 800;
-  color: var(--sm-teal);
+  color: #396e83;
+  white-space: nowrap;
 }
 
 .smap-ai-link {
@@ -316,136 +250,16 @@
   height: 100%;
   z-index: 3;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
+
+.smap-ai-link.on { opacity: 1; }
 
 .smap-ai-link path {
   fill: none;
-  stroke: rgba(57, 110, 131, 0.4);
+  stroke: rgba(57, 110, 131, 0.45);
   stroke-width: 4;
   stroke-dasharray: 2 12;
   stroke-linecap: round;
-}
-
-/* --- נתיבי הבקשה/תשובה --- */
-
-.smap-lanes {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.smap-lane {
-  fill: none;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: 4 20;
-}
-
-.smap-lane.req {
-  stroke: var(--sm-deep);
-  animation: smapDash 1.3s linear infinite;
-}
-
-.smap-lane.res {
-  stroke: var(--sm-amber);
-  animation: smapDash 1.3s linear infinite reverse;
-}
-
-@keyframes smapDash {
-  to { stroke-dashoffset: -48; }
-}
-
-/* חבילות בלולאה מתמדת */
-.smap-packet {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  box-shadow: 0 6px 20px rgba(36, 64, 78, 0.4);
-  z-index: 8;
-  offset-rotate: 0deg;
-}
-
-/* מחזור משותף של 9 שניות: הבקשה נוסעת בחצי הראשון, מגיעה למסד —
-   ורק אז התשובה יוצאת חזרה בחצי השני. אף פעם לא במקביל. */
-.smap-pk-req {
-  background: var(--sm-deep);
-  animation: smapTravelReq 9s ease-in-out infinite;
-}
-
-.smap-pk-res {
-  background: var(--sm-amber);
-  animation: smapTravelRes 9s ease-in-out infinite;
-}
-
-@keyframes smapTravelReq {
-  0% { offset-distance: 0%; opacity: 0; }
-  4% { opacity: 1; }
-  42% { offset-distance: 100%; opacity: 1; }
-  46% { offset-distance: 100%; opacity: 0; }
-  100% { offset-distance: 100%; opacity: 0; }
-}
-
-@keyframes smapTravelRes {
-  0% { offset-distance: 0%; opacity: 0; }
-  48% { offset-distance: 0%; opacity: 0; }
-  52% { offset-distance: 0%; opacity: 1; }
-  92% { offset-distance: 100%; opacity: 1; }
-  96% { offset-distance: 100%; opacity: 0; }
-  100% { offset-distance: 100%; opacity: 0; }
-}
-
-.smap-pk-label {
-  position: absolute;
-  bottom: 42px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 21px;
-  font-weight: 800;
-  color: var(--sm-ink);
-  background: #ffffff;
-  border: 2px solid rgba(57, 110, 131, 0.35);
-  border-radius: 999px;
-  padding: 6px 18px;
-  box-shadow: var(--shadow-1);
-}
-
-/* תגיות פרוטוקול */
-.smap-pill {
-  position: absolute;
-  z-index: 4;
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--sm-teal);
-  background: #ffffff;
-  border: 2px solid rgba(57, 110, 131, 0.35);
-  border-radius: 999px;
-  padding: 9px 20px;
-  box-shadow: var(--shadow-1);
-}
-
-/* --- שורת הגשר התחתונה --- */
-
-.smap-footer {
-  position: absolute;
-  bottom: 48px;
-  inset-inline: 100px;
-  z-index: 4;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--sm-ink);
-}
-
-.smap-footer em {
-  font-style: normal;
-  color: var(--sm-deep);
 }

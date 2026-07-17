@@ -1,4 +1,4 @@
-import CircuitBackground from '../../components/CircuitBackground/CircuitBackground.jsx'
+import { ExplainerStage, HexStation, Pipe } from '../../components/Explainer/Explainer.jsx'
 import mongodbLogo from '../../assets/tech/mongodb.png'
 import mongooseLogo from '../../assets/tech/mongoose.png'
 import nodeLogo from '../../assets/tech/nodejs.png'
@@ -11,115 +11,105 @@ import elevenLogo from '../../assets/tech/elevenlabs.png'
 import './styles.css'
 
 /* ============================================================
-   מפת המערכת — שקף תמונה-מלאה אחד לפני הצלילה לשכבות:
-   נתונים (מסד) · שרת (ארון) · קליינט (מובייל), עם בקשה ותשובה
-   שנוסעות ביניהם בלולאה מתמדת, ושירותי ה-AI כלוויין מעל השרת.
+   מפת המערכת — שקף בנייה: כל לחיצה מוסיפה בדיוק שחקן אחד
+   לתמונה (שכבה, טכנולוגיה או חיבור) עם הסבר בגובה העיניים,
+   שגם מי שלא מבין בתוכנה יבין. בלי דילוגים, בלי כפילויות.
    ============================================================ */
 
-/* נתיבי הנסיעה (במת 1920x1080): בקשה למעלה (ימין⟵שמאל), תשובה למטה */
-const REQ_PATH = 'M 1400 520 C 1280 440, 1230 440, 1110 515 L 810 515 C 690 440, 640 440, 520 515'
-const RES_PATH = 'M 520 635 C 640 715, 690 715, 810 640 L 1110 640 C 1230 715, 1280 715, 1400 638'
+const CAPTIONS = [
+  <>בואו נבנה יחד את התמונה המלאה — <em>חלק אחר חלק</em>. כל לחיצה מוסיפה שחקן אחד לסיפור.</>,
+  <>הכול מתחיל כאן — <em>במסך שביד של המשתמש</em>: כאן כותבים רשימת קניות, סורקים מוצרים ורואים מחירים.</>,
+  <><em>React</em> הוא הצייר של המסך: כשמשהו משתנה, הוא מצייר מחדש <em>רק את הפינה שהשתנתה</em> — לכן הכול מרגיש מיידי.</>,
+  <><em>Axios</em> הוא השליח: כשהמסך צריך משהו שאין לו — השליח יוצא לדרך. <em>המסך עצמו אף פעם לא יוצא החוצה</em>.</>,
+  <>לחצנו ״השוו מחירים״ — והשליח יוצא עם <em>הבקשה</em> אל השרת. תראו אותה נוסעת.</>,
+  <>הבקשה הגיעה אל <em>השרת — מרכז התיאום</em>: הוא מקבל כל פנייה, בודק אותה, ומחליט מי מטפל בה.</>,
+  <><em>Node.js</em> הוא המנוע של השרת — מחזיק <em>אלפי פניות בו-זמנית</em> בלי להתבלבל ובלי שאף אחד יחכה.</>,
+  <><em>Express</em> הוא שומר הסף: מוודא שכל פנייה מגיעה ממקור מוכר, ומפנה אותה <em>בדיוק לדלפק הנכון</em>.</>,
+  <>כדי לענות, השרת שולח שאלה אל מחסן הנתונים: <em>״כמה עולה כל מוצר, בכל רשת?״</em></>,
+  <>וזה <em>מחסן הנתונים</em> — הספרייה של המערכת: כל מחיר, של כל מוצר, בכל רשת — שמור כאן ומעודכן.</>,
+  <><em>MongoDB</em> הוא המדפים של המחסן — בנוי לשמור <em>מיליוני פריטים</em> ולשלוף כל אחד מהם בשבריר שנייה.</>,
+  <><em>Mongoose</em> הוא בקר האיכות בדלת המחסן — <em>שום נתון פגום לא נכנס</em>, ושום תשובה לא יוצאת בלי בדיקה.</>,
+  <>ומעל כולם — <em>שלושה עוזרים חכמים</em>: אחד מבין משפטים חופשיים, אחד קורא קבלות מצולמות, ואחד עונה בקול אנושי.</>,
+  <>והרגע הכי יפה: <em>התשובה</em> עושה את כל הדרך חזרה — מהמחסן, דרך השרת, עד המסך. <em>הכול בפחות משנייה</em>.</>,
+  <>זו כל המערכת — <em>שלוש שכבות שמדברות ביניהן בלי הפסקה</em>. עכשיו נצלול לכל אחת מהן מקרוב.</>,
+]
 
-export default function SystemMapSlide() {
+/* סדר הבנייה: 1 קליינט · 2 React · 3 Axios · 4 חיבור⟵שרת · 5 שרת ·
+   6 Node · 7 Express · 8 חיבור⟵מחסן · 9 מחסן · 10 MongoDB ·
+   11 Mongoose · 12 עוזרי AI · 13 התשובה חוזרת · 14 סיום */
+
+const REQ_CLIENT_TO_SERVER = 'M 1495 265 C 1400 205, 1250 205, 1150 258'
+const REQ_SERVER_TO_DATA = 'M 775 258 C 680 200, 520 200, 430 258'
+const RES_DATA_TO_CLIENT = 'M 430 335 C 525 398, 690 398, 800 338 L 1120 338 C 1240 398, 1400 398, 1500 335'
+
+const stationState = (step, k) => (step === k ? 'active' : step > k ? 'done' : 'idle')
+
+export default function SystemMapSlide({ step = 0 }) {
+  const el = (k) => `smap-el ${step >= k ? 'on' : ''} ${step === k ? 'now' : ''}`
+
   return (
-    <section className="smap" dir="rtl">
-      <CircuitBackground tone="light" />
+    <ExplainerStage kicker="SYSTEM OVERVIEW" title="מפת המערכת — התמונה המלאה" step={step} captions={CAPTIONS}>
+      {/* --- חיבורים --- */}
+      <Pipe path={REQ_CLIENT_TO_SERVER} lit={step === 4} done={step > 4} packetLabel="בקשה" />
+      <Pipe path={REQ_SERVER_TO_DATA} lit={step === 8} done={step > 8} packetLabel="שאלה למחסן" />
+      <Pipe path={RES_DATA_TO_CLIENT} lit={step === 13} done={step > 13} packetColor="#e8a33d" packetLabel="תשובה" />
 
-      <header className="smap-head fx fx-rise" style={{ '--d': 0 }}>
-        <h2 className="smap-title">מפת המערכת — התמונה המלאה</h2>
-        <div className="smap-kicker">SYSTEM OVERVIEW</div>
-      </header>
-
-      {/* ---- שכבת הקליינט: מובייל (ימין) ---- */}
-      <div className="smap-zone smap-client fx fx-rise" style={{ '--d': 150 }}>
+      {/* --- שכבת הקליינט: מובייל --- */}
+      <div className={el(1)} style={{ left: 1510, top: 40 }}>
         <div className="smap-phone">
           <div className="smap-phone-notch" />
           <div className="smap-phone-screen">
             <div className="smap-ui-head">Smart Cart</div>
             <div className="smap-ui-row"><span>חלב 3% טרה</span><b>₪5.40</b></div>
             <div className="smap-ui-row"><span>לחם מלא</span><b>₪8.90</b></div>
-            <div className="smap-ui-row"><span>ביצים L</span><b>₪12.60</b></div>
-            <div className="smap-ui-total"><span>סה״כ</span><b>₪26.90</b></div>
+            <div className="smap-ui-total"><span>סה״כ</span><b>₪14.30</b></div>
           </div>
-          <div className="smap-phone-home" />
         </div>
-        <div className="smap-zone-name">שכבת הקליינט</div>
-        <div className="smap-zone-sub">המסך של המשתמש · אפליקציית SPA</div>
-        <div className="smap-chips">
-          <span className="smap-chip"><img src={reactLogo} alt="" />React</span>
-          <span className="smap-chip"><img src={axiosLogo} alt="" />Axios</span>
-        </div>
+        <div className="smap-name">שכבת הקליינט</div>
       </div>
+      <HexStation x={1490} y={505} size={100} logo={reactLogo} label="React" sub="הצייר של המסך" state={stationState(step, 2)} />
+      <HexStation x={1680} y={505} size={100} logo={axiosLogo} label="Axios" sub="השליח" state={stationState(step, 3)} />
 
-      {/* ---- שכבת השרת: ארון שרתים (מרכז) ---- */}
-      <div className="smap-zone smap-server fx fx-rise" style={{ '--d': 300 }}>
+      {/* --- שכבת השרת: ארון --- */}
+      <div className={el(5)} style={{ left: 785, top: 130 }}>
         <div className="smap-rack">
           {[0, 1, 2].map((i) => (
             <div className="smap-rack-unit" key={i}>
               <span className="smap-led" />
               <span className="smap-led dim" />
               <span className="smap-slot" />
-              <span className="smap-dots">···</span>
             </div>
           ))}
         </div>
-        <div className="smap-zone-name">שכבת השרת</div>
-        <div className="smap-zone-sub">מרכז התיאום · הלוגיקה העסקית</div>
-        <div className="smap-chips">
-          <span className="smap-chip"><img src={nodeLogo} alt="" />Node.js</span>
-          <span className="smap-chip"><img src={expressLogo} alt="" />Express</span>
-        </div>
+        <div className="smap-name">שכבת השרת</div>
       </div>
+      <HexStation x={790} y={505} size={100} logo={nodeLogo} label="Node.js" sub="המנוע" state={stationState(step, 6)} />
+      <HexStation x={980} y={505} size={100} logo={expressLogo} label="Express" sub="שומר הסף" state={stationState(step, 7)} />
 
-      {/* ---- שכבת הנתונים: מסד (שמאל) ---- */}
-      <div className="smap-zone smap-data fx fx-rise" style={{ '--d': 450 }}>
+      {/* --- שכבת הנתונים: מסד --- */}
+      <div className={el(9)} style={{ left: 105, top: 95 }}>
         <div className="smap-db">
           <div className="smap-db-top" />
           <div className="smap-db-band" />
-          <div className="smap-db-band" />
           <div className="smap-db-band last" />
         </div>
-        <div className="smap-zone-name">שכבת הנתונים</div>
-        <div className="smap-zone-sub">כל המחירים של כל הרשתות</div>
-        <div className="smap-chips">
-          <span className="smap-chip"><img src={mongodbLogo} alt="" />MongoDB</span>
-          <span className="smap-chip"><img src={mongooseLogo} alt="" />Mongoose</span>
-        </div>
+        <div className="smap-name">שכבת הנתונים</div>
       </div>
+      <HexStation x={95} y={505} size={100} logo={mongodbLogo} label="MongoDB" sub="המדפים" state={stationState(step, 10)} />
+      <HexStation x={285} y={505} size={100} logo={mongooseLogo} label="Mongoose" sub="בקר האיכות" state={stationState(step, 11)} />
 
-      {/* ---- לוויין שירותי ה-AI ---- */}
-      <div className="smap-ai fx fx-fade" style={{ '--d': 650 }}>
-        <div className="smap-ai-box">
-          <img src={openaiLogo} alt="OpenAI" />
-          <img src={visionLogo} alt="Google Vision" />
-          <img src={elevenLogo} alt="ElevenLabs" />
-        </div>
-        <div className="smap-ai-label">שירותי AI חיצוניים</div>
+      {/* --- עוזרי ה-AI: שלושה עיגולים מעל השרת --- */}
+      <div className={`smap-ai-trio ${step >= 12 ? 'on' : ''} ${step === 12 ? 'now' : ''}`}>
+        <div className="smap-ai-circle"><img src={openaiLogo} alt="OpenAI" /></div>
+        <div className="smap-ai-circle"><img src={visionLogo} alt="Google Cloud Vision" /></div>
+        <div className="smap-ai-circle"><img src={elevenLogo} alt="ElevenLabs" /></div>
+        <div className="smap-ai-caption">עוזרי הבינה המלאכותית</div>
       </div>
-      <svg className="smap-ai-link fx fx-fade" style={{ '--d': 700 }} viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M 960 278 L 960 322" />
+      <svg className={`smap-ai-link ${step >= 12 ? 'on' : ''}`} viewBox="0 0 1920 700" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 960 96 L 960 128" />
       </svg>
-
-      {/* ---- נתיבי בקשה/תשובה עם חבילות בלולאה ---- */}
-      <svg className="smap-lanes fx fx-fade" style={{ '--d': 550 }} viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-        <path className="smap-lane req" d={REQ_PATH} />
-        <path className="smap-lane res" d={RES_PATH} />
-      </svg>
-      <div className="smap-packet smap-pk-req" style={{ offsetPath: `path('${REQ_PATH}')` }}>
-        <span className="smap-pk-label">בקשה</span>
-      </div>
-      <div className="smap-packet smap-pk-res" style={{ offsetPath: `path('${RES_PATH}')` }}>
-        <span className="smap-pk-label">תשובה</span>
-      </div>
-
-      {/* תגיות פרוטוקול על הקווים */}
-      <span className="smap-pill fx fx-fade" style={{ '--d': 800, left: 1195, top: 352 }} dir="ltr">REST API</span>
-      <span className="smap-pill fx fx-fade" style={{ '--d': 880, left: 500, top: 352 }} dir="ltr">Mongoose ODM</span>
-
-      {/* שורת גשר לשקפים הבאים */}
-      <div className="smap-footer fx fx-rise" style={{ '--d': 1000 }}>
-        שלוש שכבות, שיחה אחת מתמדת — <em>ובשקפים הבאים נצלול לכל אחת מהן, צעד אחר צעד</em>
-      </div>
-    </section>
+    </ExplainerStage>
   )
 }
+
+SystemMapSlide.steps = CAPTIONS.length - 1
