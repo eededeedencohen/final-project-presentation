@@ -25,9 +25,9 @@ export default function Slide20() {
       </div>
       <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e4 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e5 pel"><img src={img0} alt="" /></div>
-      <svg style={{ '--d': 113, '--sx': '70px' }} className="fx fx-fade p20-e6 pel" viewBox="0 0 164.85 306.83" preserveAspectRatio="none"><line x1="0" y1="0" x2="164.85" y2="306.83" stroke="#ffffff" strokeWidth="9" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 113, '--sx': '70px' }} className="fx fx-fade p20-e7 pel" viewBox="0 0 172.99 302.32" preserveAspectRatio="none"><line x1="0" y1="0" x2="172.99" y2="302.32" stroke="#ffffff" strokeWidth="9" vectorEffect="non-scaling-stroke" /></svg>
-      <img style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e8 pel" src={img1} alt="" />
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e6 pel" viewBox="0 0 164.85 306.83" preserveAspectRatio="none"><line x1="0" y1="0" x2="164.85" y2="306.83" stroke="#ffffff" strokeWidth="9" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e7 pel" viewBox="0 0 172.99 302.32" preserveAspectRatio="none"><line x1="0" y1="0" x2="172.99" y2="302.32" stroke="#ffffff" strokeWidth="9" vectorEffect="non-scaling-stroke" /></svg>
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e8 pel" src={img1} alt="" />
       <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e9 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
       <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e10 pel">
         <div className="p20-e10-tx">
@@ -41,23 +41,23 @@ export default function Slide20() {
         </div>
       </div>
       <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e13 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <svg style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e14 pel" viewBox="0 0 170.41 296.48" preserveAspectRatio="none"><line x1="0" y1="0" x2="170.41" y2="296.48" stroke="#ffffff" strokeWidth="8" vectorEffect="non-scaling-stroke" /></svg>
-      <img style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e15 pel" src={img2} alt="" />
-      <svg style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e16 pel" viewBox="0 0 171.08 296.09" preserveAspectRatio="none"><line x1="0" y1="0" x2="171.08" y2="296.09" stroke="#ffffff" strokeWidth="8" vectorEffect="non-scaling-stroke" /></svg>
-      <img style={{ '--d': 113, '--sx': '70px' }} className="fx fx-fade p20-e17 pel" src={img2} alt="" />
-      <svg style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e18 pel" viewBox="0 0 819581 309363" preserveAspectRatio="none"><path d="M 0 0 L 819581 0 L 819581 309363 L 0 309363 Z" fill="#ffffff" /></svg>
-      <div style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e19 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e14 pel" viewBox="0 0 170.41 296.48" preserveAspectRatio="none"><line x1="0" y1="0" x2="170.41" y2="296.48" stroke="#ffffff" strokeWidth="8" vectorEffect="non-scaling-stroke" /></svg>
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e15 pel" src={img2} alt="" />
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e16 pel" viewBox="0 0 171.08 296.09" preserveAspectRatio="none"><line x1="0" y1="0" x2="171.08" y2="296.09" stroke="#ffffff" strokeWidth="8" vectorEffect="non-scaling-stroke" /></svg>
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e17 pel" src={img2} alt="" />
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e18 pel" viewBox="0 0 819581 309363" preserveAspectRatio="none"><path d="M 0 0 L 819581 0 L 819581 309363 L 0 309363 Z" fill="#ffffff" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e19 pel">
         <div className="p20-e19-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e20 pel" viewBox="0 0 812800 711200" preserveAspectRatio="none"><path d="M 406400 711200 L 812800 0 L 0 0 L 406400 711200 Z" fill="#ffffff" /></svg>
-      <div style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e21 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e20 pel" viewBox="0 0 812800 711200" preserveAspectRatio="none"><path d="M 406400 711200 L 812800 0 L 0 0 L 406400 711200 Z" fill="#ffffff" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e21 pel">
         <div className="p20-e21-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '51.29px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <div style={{ '--d': 474, '--sx': '-70px' }} className="fx fx-fade p20-e22 pel">
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p20-e22 pel">
         <div className="p20-e22-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p20-t0">תודה</span></p>
         </div>

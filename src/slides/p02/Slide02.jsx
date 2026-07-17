@@ -29,21 +29,21 @@ export default function Slide02() {
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '176.66px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e6 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e7 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e6 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e7 pel">
         <div className="p02-e7-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '140.95px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e8 pel" viewBox="0 0 2991043 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2991043 0 L 2991043 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e9 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e8 pel" viewBox="0 0 2991043 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2991043 0 L 2991043 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e9 pel">
         <div className="p02-e9-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '56.45px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e10 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <svg style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e11 pel" viewBox="0 0 101.78 176.29" preserveAspectRatio="none"><line x1="0" y1="0" x2="101.78" y2="176.29" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e12 pel" viewBox="0 0 102.21 180.28" preserveAspectRatio="none"><line x1="0" y1="0" x2="102.21" y2="180.28" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e10 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e11 pel" viewBox="0 0 101.78 176.29" preserveAspectRatio="none"><line x1="0" y1="0" x2="101.78" y2="176.29" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e12 pel" viewBox="0 0 102.21 180.28" preserveAspectRatio="none"><line x1="0" y1="0" x2="102.21" y2="180.28" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
       <svg style={{ '--d': 82, '--sx': '70px' }} className="fx fx-fade p02-e13 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
       <div style={{ '--d': 82, '--sx': '70px' }} className="fx fx-fade p02-e14 pel">
         <div className="p02-e14-tx">
@@ -66,50 +66,50 @@ export default function Slide02() {
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t0"> Cart</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e22 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e23 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e22 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e23 pel">
         <div className="p02-e23-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '156.74px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e24 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e25 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e24 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e25 pel">
         <div className="p02-e25-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '156.74px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e26 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e27 pel">
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e26 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e27 pel">
         <div className="p02-e27-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '156.74px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <img style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e28 pel" src={img1} alt="" />
-      <img style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e29 pel" src={img2} alt="" />
-      <img style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e30 pel" src={img3} alt="" />
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e31 pel">
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e28 pel" src={img1} alt="" />
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e29 pel" src={img2} alt="" />
+      <img style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e30 pel" src={img3} alt="" />
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e31 pel">
         <div className="p02-e31-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t1">קושי בהשוואה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 372, '--sx': '-70px' }} className="fx fx-fade p02-e32 pel">
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e32 pel">
         <div className="p02-e32-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t2">בעיה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e33 pel">
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e33 pel">
         <div className="p02-e33-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t1">הפתעת הקופה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e34 pel">
+      <div style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e34 pel">
         <div className="p02-e34-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t3">יוקר המחיה</span></p>
         </div>
       </div>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e35 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e36 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <svg style={{ '--d': 343, '--sx': '-70px' }} className="fx fx-fade p02-e37 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e35 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e36 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 0, '--sx': '0px' }} className="fx fx-fade p02-e37 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
     </section>
   )
 }
