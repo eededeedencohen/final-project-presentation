@@ -113,8 +113,8 @@ export default function SystemMapSlide() {
       </div>
 
       {/* תגיות פרוטוקול על הקווים */}
-      <span className="smap-pill fx fx-fade" style={{ '--d': 800, left: 1165, top: 395 }} dir="ltr">REST API</span>
-      <span className="smap-pill fx fx-fade" style={{ '--d': 880, left: 545, top: 395 }} dir="ltr">Mongoose ODM</span>
+      <span className="smap-pill fx fx-fade" style={{ '--d': 800, left: 1195, top: 352 }} dir="ltr">REST API</span>
+      <span className="smap-pill fx fx-fade" style={{ '--d': 880, left: 500, top: 352 }} dir="ltr">Mongoose ODM</span>
 
       {/* שורת גשר לשקפים הבאים */}
       <div className="smap-footer fx fx-rise" style={{ '--d': 1000 }}>
