@@ -58,8 +58,8 @@ export default function Slide02() {
       </div>
       <svg style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e17 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       <div style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e18 pel"><img src={img0} alt="" /></div>
-      <svg style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e19 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e20 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e19 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p02-e20 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
       <div style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e21 pel">
         <div className="p02-e21-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t0">Smart</span></p>
@@ -87,7 +87,7 @@ export default function Slide02() {
       <img style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e28 pel" src={img1} alt="" />
       <img style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e29 pel" src={img2} alt="" />
       <img style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e30 pel" src={img3} alt="" />
-      <div style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e31 pel">
+      <div style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e31 pel">
         <div className="p02-e31-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t1">קושי בהשוואה</span></p>
         </div>
@@ -97,12 +97,12 @@ export default function Slide02() {
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t2">בעיה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e33 pel">
+      <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p02-e33 pel">
         <div className="p02-e33-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t1">הפתעת הקופה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 0, '--sx': '2238px' }} className="fx fx-title p02-e34 pel">
+      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p02-e34 pel">
         <div className="p02-e34-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t3">יוקר המחיה</span></p>
         </div>
