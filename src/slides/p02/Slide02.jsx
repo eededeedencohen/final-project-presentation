@@ -11,20 +11,20 @@ export default function Slide02() {
   return (
     <section className="pslide p02" dir="ltr">
       <CircuitBackground tone="light" />
-      <svg style={{ '--d': 432 }} className="fx fx-fade p02-e0 pel" viewBox="0 0 1826804 698500" preserveAspectRatio="none"><path d="M 1826804 349250 L 1623604 698500 L 203200 698500 L 0 349250 L 203200 0 L 1623604 0 L 1826804 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 426 }} className="fx fx-fade p02-e1 pel">
+      <svg style={{ '--d': 0 }} className="fx fx-fade p02-e0 pel" viewBox="0 0 1826804 698500" preserveAspectRatio="none"><path d="M 1826804 349250 L 1623604 698500 L 203200 698500 L 0 349250 L 203200 0 L 1623604 0 L 1826804 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0 }} className="fx fx-fade p02-e1 pel">
         <div className="p02-e1-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '279.72px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 473 }} className="fx fx-fade p02-e2 pel" viewBox="0 0 1309749 698500" preserveAspectRatio="none"><defs><linearGradient id="p02-e2-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#a6a6a6" stopOpacity="0.74" /><stop offset="100%" stopColor="#ffffff" stopOpacity="1" /></linearGradient></defs><path d="M 1309749 349250 L 1106549 698500 L 203200 698500 L 0 349250 L 203200 0 L 1106549 0 L 1309749 349250 Z" fill="url(#p02-e2-g)" /></svg>
-      <div style={{ '--d': 464 }} className="fx fx-fade p02-e3 pel">
+      <svg style={{ '--d': 0 }} className="fx fx-fade p02-e2 pel" viewBox="0 0 1309749 698500" preserveAspectRatio="none"><defs><linearGradient id="p02-e2-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#a6a6a6" stopOpacity="0.74" /><stop offset="100%" stopColor="#ffffff" stopOpacity="1" /></linearGradient></defs><path d="M 1309749 349250 L 1106549 698500 L 203200 698500 L 0 349250 L 203200 0 L 1106549 0 L 1309749 349250 Z" fill="url(#p02-e2-g)" /></svg>
+      <div style={{ '--d': 0 }} className="fx fx-fade p02-e3 pel">
         <div className="p02-e3-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '432.24px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 515 }} className="fx fx-fade p02-e4 pel" viewBox="0 0 2116856 644425" preserveAspectRatio="none"><path d="M 2116856 322212 L 1913656 644425 L 203200 644425 L 0 322212 L 203200 0 L 1913656 0 L 2116856 322212 Z" fill="rgba(57, 110, 131, 0.329)" /></svg>
-      <div style={{ '--d': 513 }} className="fx fx-fade p02-e5 pel">
+      <svg style={{ '--d': 0 }} className="fx fx-fade p02-e4 pel" viewBox="0 0 2116856 644425" preserveAspectRatio="none"><path d="M 2116856 322212 L 1913656 644425 L 203200 644425 L 0 322212 L 203200 0 L 1913656 0 L 2116856 322212 Z" fill="rgba(57, 110, 131, 0.329)" /></svg>
+      <div style={{ '--d': 0 }} className="fx fx-fade p02-e5 pel">
         <div className="p02-e5-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '176.66px' }}>{'\u00A0'}</p>
         </div>

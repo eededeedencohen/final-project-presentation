@@ -31,7 +31,7 @@ export default function Slide18() {
         </div>
       </div>
       <img style={{ '--d': 157 }} className="fx fx-fade p18-e4 pel" src={img1} alt="" />
-      <div style={{ '--d': 194 }} className="fx fx-fade p18-e5 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p18-e5 pel">
         <svg className="p18-e6 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p18-e7 pel">
           <div className="p18-e7-tx">

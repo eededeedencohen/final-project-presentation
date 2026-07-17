@@ -18,7 +18,7 @@ export default function Slide13() {
   return (
     <section className="pslide p13" dir="ltr">
       <CircuitBackground tone="light" />
-      <div style={{ '--d': 345 }} className="fx fx-fade p13-e0 pel"><img src={img0} alt="" /></div>
+      <div style={{ '--d': 0 }} className="fx fx-fade p13-e0 pel"><img src={img0} alt="" /></div>
       <svg style={{ '--d': 649 }} className="fx fx-fade p13-e1 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
       <div style={{ '--d': 648 }} className="fx fx-fade p13-e2 pel">
         <div className="p13-e2-tx">
@@ -116,7 +116,7 @@ export default function Slide13() {
         </div>
       </div>
       <img style={{ '--d': 172 }} className="fx fx-fade p13-e40 pel" src={img9} alt="" />
-      <div style={{ '--d': 208 }} className="fx fx-fade p13-e41 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p13-e41 pel">
         <svg className="p13-e42 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p13-e43 pel">
           <div className="p13-e43-tx">

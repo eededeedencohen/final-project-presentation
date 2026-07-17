@@ -14,7 +14,7 @@ export default function Slide12() {
   return (
     <section className="pslide p12" dir="ltr">
       <CircuitBackground tone="light" />
-      <img style={{ '--d': 341 }} className="fx fx-fade p12-e0 pel" src={img0} alt="" />
+      <img style={{ '--d': 0 }} className="fx fx-fade p12-e0 pel" src={img0} alt="" />
       <svg style={{ '--d': 641 }} className="fx fx-fade p12-e1 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
       <div style={{ '--d': 640 }} className="fx fx-fade p12-e2 pel">
         <div className="p12-e2-tx">
@@ -55,7 +55,7 @@ export default function Slide12() {
       </div>
       <div style={{ '--d': 503 }} className="fx fx-fade p12-e15 pel"><img src={img3} alt="" /></div>
       <img style={{ '--d': 197 }} className="fx fx-fade p12-e16 pel" src={img4} alt="" />
-      <div style={{ '--d': 240 }} className="fx fx-fade p12-e17 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p12-e17 pel">
         <svg className="p12-e18 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p12-e19 pel">
           <div className="p12-e19-tx">
@@ -63,7 +63,7 @@ export default function Slide12() {
           </div>
         </div>
       </div>
-      <div style={{ '--d': 184 }} className="fx fx-fade p12-e20 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p12-e20 pel">
         <svg className="p12-e21 pel" viewBox="0 0 1721018 1451547" preserveAspectRatio="none"><path d="M 0 0 L 1721018 0 L 1721018 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
         <div className="p12-e22 pel">
           <div className="p12-e22-tx">
@@ -71,7 +71,7 @@ export default function Slide12() {
           </div>
         </div>
       </div>
-      <div style={{ '--d': 239 }} className="fx fx-fade p12-e23 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p12-e23 pel">
         <svg className="p12-e24 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       </div>
       <div style={{ '--d': 237 }} className="fx fx-fade p12-e25 pel">

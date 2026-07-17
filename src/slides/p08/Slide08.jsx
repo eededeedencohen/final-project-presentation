@@ -14,7 +14,7 @@ export default function Slide08() {
   return (
     <section className="pslide p08" dir="ltr">
       <CircuitBackground tone="light" />
-      <div style={{ '--d': 340 }} className="fx fx-fade p08-e0 pel"><img src={img0} alt="" /></div>
+      <div style={{ '--d': 0 }} className="fx fx-fade p08-e0 pel"><img src={img0} alt="" /></div>
       <svg style={{ '--d': 641 }} className="fx fx-fade p08-e1 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
       <div style={{ '--d': 640 }} className="fx fx-fade p08-e2 pel">
         <div className="p08-e2-tx">
@@ -55,7 +55,7 @@ export default function Slide08() {
       </div>
       <div style={{ '--d': 413 }} className="fx fx-fade p08-e15 pel"><img src={img3} alt="" /></div>
       <img style={{ '--d': 186 }} className="fx fx-fade p08-e16 pel" src={img4} alt="" />
-      <div style={{ '--d': 226 }} className="fx fx-fade p08-e17 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p08-e17 pel">
         <svg className="p08-e18 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p08-e19 pel">
           <div className="p08-e19-tx">
@@ -71,7 +71,7 @@ export default function Slide08() {
           </div>
         </div>
       </div>
-      <div style={{ '--d': 225 }} className="fx fx-fade p08-e23 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p08-e23 pel">
         <svg className="p08-e24 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       </div>
       <div style={{ '--d': 225 }} className="fx fx-fade p08-e25 pel">

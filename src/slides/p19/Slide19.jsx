@@ -14,19 +14,19 @@ export default function Slide19() {
     <section className="pslide p19" dir="ltr">
       <CircuitBackground tone="light" />
       <img style={{ '--d': 466 }} className="fx fx-fade p19-e0 pel" src={img0} alt="" />
-      <svg style={{ '--d': 423 }} className="fx fx-fade p19-e1 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 419 }} className="fx fx-fade p19-e2 pel">
+      <svg style={{ '--d': 0 }} className="fx fx-fade p19-e1 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0 }} className="fx fx-fade p19-e2 pel">
         <div className="p19-e2-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '223.42px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 473 }} className="fx fx-fade p19-e3 pel" viewBox="0 0 1721018 1451547" preserveAspectRatio="none"><path d="M 0 0 L 1721018 0 L 1721018 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 472 }} className="fx fx-fade p19-e4 pel">
+      <svg style={{ '--d': 0 }} className="fx fx-fade p19-e3 pel" viewBox="0 0 1721018 1451547" preserveAspectRatio="none"><path d="M 0 0 L 1721018 0 L 1721018 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 0 }} className="fx fx-fade p19-e4 pel">
         <div className="p19-e4-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '89.47px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 424 }} className="fx fx-fade p19-e5 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <svg style={{ '--d': 0 }} className="fx fx-fade p19-e5 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       <svg style={{ '--d': 549 }} className="fx fx-fade p19-e6 pel" viewBox="0 0 170.41 296.48" preserveAspectRatio="none"><line x1="0" y1="0" x2="170.41" y2="296.48" stroke="#ffffff" strokeWidth="10.67" vectorEffect="non-scaling-stroke" /></svg>
       <svg style={{ '--d': 501 }} className="fx fx-fade p19-e7 pel" viewBox="0 0 171.08 296.09" preserveAspectRatio="none"><line x1="0" y1="0" x2="171.08" y2="296.09" stroke="#ffffff" strokeWidth="10.67" vectorEffect="non-scaling-stroke" /></svg>
       <div style={{ '--d': 423 }} className="fx fx-fade p19-e8 pel">

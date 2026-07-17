@@ -167,8 +167,9 @@ img.pel {
 /* בשקפים המשוחזרים: כל משושה על חלקיו מופיע כמקשה אחת (ההשהיות
    מחושבות לפי מיקום — חלקי אותו משושה כמעט זהים), והמשושים נכנסים
    בזה אחר זה בסריקה מימין לשמאל. */
+/* fade בלבד! אנימציה עם transform דורסת סיבובים של אלמנטים (rot) */
 .pslide .fx {
-  animation-name: fxRise !important;
+  animation-name: fxFade !important;
   animation-duration: 0.55s;
 }
 

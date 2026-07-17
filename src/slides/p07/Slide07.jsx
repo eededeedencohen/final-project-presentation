@@ -120,7 +120,7 @@ export default function Slide07() {
       <div style={{ '--d': 503 }} className="fx fx-fade p07-e49 pel"><img src={img10} alt="" /></div>
       <img style={{ '--d': 503 }} className="fx fx-fade p07-e50 pel" src={img2} alt="" />
       <img style={{ '--d': 172 }} className="fx fx-fade p07-e51 pel" src={img11} alt="" />
-      <div style={{ '--d': 209 }} className="fx fx-fade p07-e52 pel">
+      <div style={{ '--d': 0 }} className="fx fx-fade p07-e52 pel">
         <svg className="p07-e53 pel" viewBox="0 0 812800 700187" preserveAspectRatio="none"><path d="M 812800 350094 L 609600 700187 L 203200 700187 L 0 350094 L 203200 0 L 609600 0 L 812800 350094 Z" fill="#396e83" /></svg>
         <div className="p07-e54 pel">
           <div className="p07-e54-tx">
