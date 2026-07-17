@@ -1,0 +1,434 @@
+/* ============================================================
+   x08 — מפת המערכת: מובייל · שרת · נתונים בתמונה אחת חיה
+   ============================================================ */
+
+.smap {
+  --sm-teal: #396e83;
+  --sm-deep: #0d7377;
+  --sm-ink: #24404e;
+  --sm-gray: #69808c;
+  --sm-amber: #e8a33d;
+
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--sm-ink);
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  background:
+    radial-gradient(1300px 750px at 12% -10%, rgba(43, 199, 220, 0.09), transparent 60%),
+    radial-gradient(1000px 650px at 95% 110%, rgba(15, 163, 184, 0.08), transparent 55%),
+    var(--c-bg);
+}
+
+/* --- כותרת --- */
+
+.smap-head {
+  position: absolute;
+  top: 42px;
+  inset-inline: 80px;
+  z-index: 3;
+  text-align: right;
+}
+
+.smap-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--sm-teal);
+}
+
+.smap-kicker {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: rgba(57, 110, 131, 0.55);
+  direction: ltr;
+  text-align: right;
+}
+
+/* --- אזורי השכבות --- */
+
+.smap-zone {
+  position: absolute;
+  top: 330px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+}
+
+.smap-client { right: 60px; }
+.smap-server { left: 750px; }
+.smap-data { left: 90px; }
+
+.smap-zone-name {
+  margin-top: 22px;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--sm-ink);
+}
+
+.smap-zone-sub {
+  margin-top: 4px;
+  font-size: 17px;
+  color: var(--sm-gray);
+}
+
+.smap-chips {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.smap-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  direction: ltr;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--sm-ink);
+  background: #ffffff;
+  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: var(--shadow-1);
+}
+
+.smap-chip img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- המובייל --- */
+
+.smap-phone {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 30px;
+  border: 7px solid var(--sm-teal);
+  background: #ffffff;
+  box-shadow: 0 20px 44px rgba(36, 64, 78, 0.22);
+  overflow: hidden;
+  animation: smapFloat 5s ease-in-out infinite;
+}
+
+.smap-phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(57, 110, 131, 0.35);
+  z-index: 2;
+}
+
+.smap-phone-screen {
+  position: absolute;
+  inset: 20px 10px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.smap-ui-head {
+  background: linear-gradient(120deg, var(--sm-deep), var(--sm-teal));
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 6px 0;
+  direction: ltr;
+}
+
+.smap-ui-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  background: rgba(57, 110, 131, 0.06);
+  border-radius: 7px;
+  padding: 6px 9px;
+}
+
+.smap-ui-row b { color: var(--sm-teal); }
+
+.smap-ui-total {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 800;
+  background: rgba(232, 163, 61, 0.16);
+  border: 1.5px solid rgba(232, 163, 61, 0.5);
+  border-radius: 8px;
+  padding: 7px 9px;
+}
+
+.smap-phone-home {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(57, 110, 131, 0.3);
+}
+
+/* --- ארון השרתים --- */
+
+.smap-rack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: smapFloat 5s ease-in-out infinite 0.6s;
+}
+
+.smap-rack-unit {
+  width: 300px;
+  height: 82px;
+  border-radius: 16px;
+  border: 5px solid var(--sm-teal);
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(36, 64, 78, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+}
+
+.smap-led {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sm-deep);
+  animation: smapBlink 2.2s ease-in-out infinite;
+}
+
+.smap-led.dim {
+  background: rgba(57, 110, 131, 0.35);
+  animation-delay: 1.1s;
+}
+
+@keyframes smapBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.smap-slot {
+  flex: 1;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(57, 110, 131, 0.18);
+}
+
+.smap-dots {
+  font-size: 22px;
+  font-weight: 800;
+  color: rgba(57, 110, 131, 0.5);
+  letter-spacing: 2px;
+}
+
+/* --- המסד --- */
+
+.smap-db {
+  width: 250px;
+  animation: smapFloat 5s ease-in-out infinite 1.2s;
+  filter: drop-shadow(0 16px 30px rgba(36, 64, 78, 0.2));
+}
+
+.smap-db-top {
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 5px solid var(--sm-teal);
+  position: relative;
+  z-index: 2;
+}
+
+.smap-db-band {
+  height: 62px;
+  margin-top: -26px;
+  border: 5px solid var(--sm-teal);
+  border-top: none;
+  background: #ffffff;
+  border-radius: 0 0 50% 50% / 0 0 45% 45%;
+}
+
+.smap-db-band.last {
+  background: rgba(57, 110, 131, 0.08);
+}
+
+@keyframes smapFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- לוויין ה-AI --- */
+
+.smap-ai {
+  position: absolute;
+  left: 812px;
+  top: 175px;
+  z-index: 4;
+  text-align: center;
+}
+
+.smap-ai-box {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #ffffff;
+  border: 2.5px dashed rgba(57, 110, 131, 0.45);
+  border-radius: 20px;
+  padding: 14px 22px;
+  box-shadow: var(--shadow-1);
+}
+
+.smap-ai-box img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.smap-ai-label {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sm-gray);
+}
+
+.smap-ai-link {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.smap-ai-link path {
+  fill: none;
+  stroke: rgba(57, 110, 131, 0.4);
+  stroke-width: 3;
+  stroke-dasharray: 2 10;
+  stroke-linecap: round;
+}
+
+/* --- נתיבי הבקשה/תשובה --- */
+
+.smap-lanes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.smap-lane {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 3 15;
+}
+
+.smap-lane.req {
+  stroke: var(--sm-deep);
+  animation: smapDash 1.3s linear infinite;
+}
+
+.smap-lane.res {
+  stroke: var(--sm-amber);
+  animation: smapDash 1.3s linear infinite reverse;
+}
+
+@keyframes smapDash {
+  to { stroke-dashoffset: -36; }
+}
+
+/* חבילות בלולאה מתמדת */
+.smap-packet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
+  z-index: 5;
+  offset-rotate: 0deg;
+}
+
+.smap-pk-req {
+  background: var(--sm-deep);
+  animation: smapTravel 4.5s ease-in-out infinite;
+}
+
+.smap-pk-res {
+  background: var(--sm-amber);
+  animation: smapTravel 4.5s ease-in-out infinite 2.25s;
+}
+
+@keyframes smapTravel {
+  0% { offset-distance: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+.smap-pk-label {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sm-ink);
+  background: #ffffff;
+  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  border-radius: 999px;
+  padding: 3px 11px;
+  box-shadow: var(--shadow-1);
+}
+
+/* תגיות פרוטוקול */
+.smap-pill {
+  position: absolute;
+  z-index: 4;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sm-teal);
+  background: rgba(57, 110, 131, 0.08);
+  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+
+/* --- שורת הגשר התחתונה --- */
+
+.smap-footer {
+  position: absolute;
+  bottom: 52px;
+  inset-inline: 100px;
+  z-index: 4;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--sm-ink);
+}
+
+.smap-footer em {
+  font-style: normal;
+  color: var(--sm-deep);
+}

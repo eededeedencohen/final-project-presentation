@@ -11,6 +11,7 @@ import Slide05 from './p05/Slide05.jsx'
 import Slide06 from './p06/Slide06.jsx'
 import Slide07 from './p07/Slide07.jsx'
 import Slide08 from './p08/Slide08.jsx'
+import SystemMapSlide from './x08-system-map/SystemMapSlide.jsx'
 import DataFlowExplainer from './x09-data-flow/DataFlowExplainer.jsx'
 import Slide10 from './p10/Slide10.jsx'
 import ServerFlowExplainer from './x11-server-flow/ServerFlowExplainer.jsx'
@@ -32,6 +33,7 @@ export const SLIDES = [
   { id: 'p05', label: 'הפער בפתרונות', Component: Slide05 },
   { id: 'p06', label: 'מטרות יעד', Component: Slide06 },
   { id: 'p07', label: 'טכנולוגיות', Component: Slide07 },
+  { id: 'x08map', label: 'מפת המערכת', Component: SystemMapSlide },
   { id: 'p08', label: 'שכבת ה-Data', Component: Slide08 },
   { id: 'x09', label: 'Data Flow', Component: DataFlowExplainer },
   { id: 'p10', label: 'Server/API', Component: Slide10 },
