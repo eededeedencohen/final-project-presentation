@@ -167,12 +167,41 @@ img.pel {
 /* בשקפים המשוחזרים: כל משושה על חלקיו מופיע כמקשה אחת (ההשהיות
    מחושבות לפי מיקום — חלקי אותו משושה כמעט זהים), והמשושים נכנסים
    בזה אחר זה בסריקה מימין לשמאל. */
-/* מצב יציב: כל השקף המשוחזר מופיע כמקשה אחת — fade נקי, בלי הזזות
-   ובלי הדרגה. (ניסיון הכניסה-מהצד בוטל לבקשת המשתמש.) */
-.pslide .fx {
-  animation-name: fxFade !important;
-  animation-delay: 0ms !important;
-  animation-duration: 0.5s;
+/* ============ הנפשות השקפים המשוחזרים — לפי סוג רכיב ============
+   כל אשכול (צורה + תוכן) הוא יחידה אחת עם אותה השהיה ואותו אפקט.
+   translate/scale הם מאפיינים נפרדים שלא דורסים סיבובי transform. */
+
+/* מצולע כותרת: נכנס מהצד שאליו הוא צמוד (--sx נקבע לפי הצד) */
+@keyframes fxTitleSide {
+  from { opacity: 0; translate: var(--sx, 90px) 0; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* מצולע סעיף: POP — קופץ פנימה */
+@keyframes fxPop {
+  0% { opacity: 0; scale: 0.55; }
+  70% { opacity: 1; scale: 1.07; }
+  100% { opacity: 1; scale: 1; }
+}
+
+/* מקביליות תחתונות: דומינו — עולות ברצף מהיר */
+@keyframes fxDomino {
+  from { opacity: 0; translate: 0 44px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.pslide .fx { animation-duration: 0.55s; }
+
+.pslide .fx-title { animation-name: fxTitleSide !important; }
+
+.pslide .fx-pop {
+  animation-name: fxPop !important;
+  animation-timing-function: cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+.pslide .fx-dom {
+  animation-name: fxDomino !important;
+  animation-duration: 0.4s;
 }
 
 /* פסקה בתוך תיבת טקסט משוחזרת.
