@@ -1,72 +1,82 @@
 /* ============================================================
-   Explainer — ערכת שקפי "מאחורי הקלעים" המונפשים
+   Explainer — שקפי "מאחורי הקלעים" בשפה הוויזואלית של המצגת:
+   רקע בהיר זהה לשאר השקפים, פלטת V2 (טורקיז-צפחה 396e83),
+   פונטים Open Sans / Heebo, ותחנות בסגנון סיכות-המפה של הדק.
    ============================================================ */
 
 .xp-stage {
+  /* פלטת השקף — נגזרת מצבעי המצגת המקורית */
+  --xp-teal: #396e83;
+  --xp-deep: #0d7377;
+  --xp-ink: #24404e;
+  --xp-gray: #69808c;
+  --xp-amber: #e8a33d;
+  --xp-line: rgba(57, 110, 131, 0.35);
+
   position: absolute;
   inset: 0;
   overflow: hidden;
-  color: var(--c-dark-text);
+  color: var(--xp-ink);
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  /* אותו רקע כמו .pslide — עקביות מלאה עם שאר המצגת */
   background:
-    radial-gradient(1400px 800px at 75% -15%, rgba(20, 58, 102, 0.75), transparent 60%),
-    radial-gradient(1100px 700px at 8% 115%, rgba(15, 163, 184, 0.22), transparent 55%),
-    var(--grad-deep);
+    radial-gradient(1300px 750px at 12% -10%, rgba(43, 199, 220, 0.09), transparent 60%),
+    radial-gradient(1000px 650px at 95% 110%, rgba(15, 163, 184, 0.08), transparent 55%),
+    var(--c-bg);
 }
 
-/* --- כותרת --- */
+/* --- כותרת: כמו כותרות הדק — Open Sans כבד, כהה, מיושר לימין --- */
 
 .xp-head {
   position: absolute;
-  top: 44px;
-  inset-inline: 70px;
+  top: 42px;
+  inset-inline: 80px;
   z-index: 3;
   display: flex;
-  align-items: baseline;
-  gap: 26px;
-}
-
-.xp-kicker {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  color: rgba(127, 231, 242, 0.7);
-  white-space: nowrap;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .xp-title {
-  font-family: var(--font-display);
-  font-size: 52px;
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--xp-teal);
+  direction: rtl;
+}
+
+.xp-kicker {
+  margin-top: 6px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.05;
-  background: var(--grad-text-dark);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 24px rgba(43, 199, 220, 0.25));
+  letter-spacing: 0.28em;
+  color: rgba(57, 110, 131, 0.55);
 }
 
 /* --- סצנה --- */
 
 .xp-scene {
   position: absolute;
-  top: 150px;
+  top: 165px;
   left: 0;
   right: 0;
   height: 700px;
   z-index: 2;
 }
 
-/* --- תחנות משושה --- */
+/* --- תחנות: עיגול עם טבעת בצבע הדק + פאה לבנה (כמו סיכות המפה) --- */
 
 .xp-hex {
   position: absolute;
   z-index: 4;
-  transition: transform 0.5s cubic-bezier(0.22, 0.9, 0.3, 1), filter 0.5s ease;
-  filter: saturate(0.55) brightness(0.82);
+  transition: transform 0.5s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.5s ease, filter 0.5s ease;
+  opacity: 0.55;
+  filter: saturate(0.75);
 }
 
-/* תחנה עגולה: טבעת גרדיאנט מסתובבת סביב פאה לבנה רכה */
 .xp-hex-ring,
 .xp-hex-face {
   position: absolute;
@@ -75,14 +85,14 @@
 
 .xp-hex-ring {
   inset: 0;
-  background: conic-gradient(from 0deg, var(--c-teal), var(--c-cyan), var(--c-aqua), var(--c-teal));
-  transition: filter 0.5s ease;
+  background: var(--xp-teal);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
 .xp-hex-face {
-  inset: 6px;
-  background: radial-gradient(circle at 32% 28%, #ffffff, #e9f4f9 75%);
-  box-shadow: inset 0 -8px 18px rgba(11, 37, 69, 0.12);
+  inset: 7px;
+  background: #ffffff;
+  box-shadow: inset 0 -6px 14px rgba(36, 64, 78, 0.08);
   display: grid;
   place-items: center;
   padding: 20%;
@@ -94,103 +104,107 @@
   object-fit: contain;
 }
 
+/* אייקונים בתוך התחנות — בצבע הדק */
+.xp-hex-face svg {
+  color: var(--xp-teal);
+}
+
 .xp-hex-label {
   position: absolute;
-  top: calc(100% + 10px);
-  inset-inline: -40px;
+  top: calc(100% + 12px);
+  inset-inline: -50px;
   text-align: center;
-  font-family: var(--font-display);
-  font-size: 21px;
-  font-weight: 700;
-  color: #eaf6fa;
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--xp-ink);
 }
 
 .xp-hex-sub {
   position: absolute;
-  top: calc(100% + 42px);
-  inset-inline: -60px;
+  top: calc(100% + 46px);
+  inset-inline: -64px;
   text-align: center;
   font-size: 15px;
   line-height: 1.35;
-  color: var(--c-dark-muted);
+  color: var(--xp-gray);
 }
 
 /* מצבי תחנה */
 .xp-hex.xp-active {
+  opacity: 1;
   filter: none;
   transform: scale(1.12);
   z-index: 6;
 }
 
 .xp-hex.xp-active .xp-hex-ring {
-  animation: xpRingSpin 2.6s linear infinite, xpRingPulse 1.6s ease-in-out infinite;
+  background: var(--xp-deep);
+  animation: xpRingPulse 1.5s ease-in-out infinite;
 }
 
 .xp-hex.xp-done {
+  opacity: 1;
   filter: none;
 }
 
-@keyframes xpRingSpin {
-  to { transform: rotate(360deg); }
-}
-
 @keyframes xpRingPulse {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(43, 199, 220, 0.7)); }
-  50% { filter: drop-shadow(0 0 30px rgba(127, 231, 242, 1)); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.35), 0 10px 26px rgba(13, 115, 119, 0.3); }
+  50% { box-shadow: 0 0 0 14px rgba(13, 115, 119, 0), 0 10px 30px rgba(13, 115, 119, 0.45); }
 }
 
-/* --- עוגן שכבה שכנה (ישות כללית, לא מפורטת) --- */
+/* --- עוגן שכבה שכנה (ישות כללית) --- */
 
 .xp-anchor {
   position: absolute;
   z-index: 4;
   width: 190px;
   text-align: center;
-  filter: saturate(0.4) brightness(0.75);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  opacity: 0.55;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .xp-anchor.lit {
-  filter: none;
-  transform: scale(1.06);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .xp-anchor-box {
   width: 170px;
   height: 150px;
   margin: 0 auto;
-  border-radius: 26px;
-  border: 2px dashed rgba(127, 231, 242, 0.45);
-  background: linear-gradient(160deg, rgba(20, 58, 102, 0.55), rgba(6, 24, 43, 0.7));
+  border-radius: 24px;
+  border: 2.5px dashed var(--xp-line);
+  background: #ffffff;
+  box-shadow: var(--shadow-1);
   display: grid;
   place-items: center;
-  color: var(--c-aqua);
+  color: var(--xp-teal);
   transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .xp-anchor.lit .xp-anchor-box {
-  border-color: var(--c-aqua);
+  border-color: var(--xp-deep);
   border-style: solid;
-  box-shadow: 0 0 34px rgba(43, 199, 220, 0.45), inset 0 0 26px rgba(43, 199, 220, 0.12);
+  box-shadow: 0 12px 34px rgba(13, 115, 119, 0.25);
 }
 
 .xp-anchor-box .icon {
-  width: 76px;
-  height: 76px;
+  width: 74px;
+  height: 74px;
 }
 
 .xp-anchor-label {
   margin-top: 12px;
-  font-family: var(--font-hebrew);
   font-size: 22px;
   font-weight: 800;
-  color: #eaf6fa;
+  color: var(--xp-ink);
 }
 
 .xp-anchor-sub {
   margin-top: 4px;
   font-size: 14.5px;
-  color: var(--c-dark-muted);
+  color: var(--xp-gray);
 }
 
 /* --- סוגר קיבוץ עם שם השכבה --- */
@@ -203,7 +217,7 @@
 
 .xp-bracket-line {
   height: 16px;
-  border: 2px solid rgba(127, 231, 242, 0.35);
+  border: 2.5px solid var(--xp-line);
   border-top: none;
   border-radius: 0 0 18px 18px;
 }
@@ -211,27 +225,93 @@
 .xp-bracket-label {
   margin-top: 10px;
   text-align: center;
-  font-family: var(--font-hebrew);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: 0.02em;
-  color: rgba(127, 231, 242, 0.85);
+  color: var(--xp-teal);
 }
 
-/* --- כרטיס מידע אנושי (בלי קוד) --- */
+/* --- צינורות וחבילות --- */
+
+.xp-pipe-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.xp-pipe {
+  fill: none;
+  stroke: rgba(57, 110, 131, 0.28);
+  stroke-width: 3.5;
+  stroke-dasharray: 3 14;
+  stroke-linecap: round;
+  transition: stroke 0.5s ease;
+}
+
+.xp-pipe.lit {
+  stroke: var(--xp-deep);
+  animation: xpDashFlow 1.1s linear infinite;
+}
+
+@keyframes xpDashFlow {
+  to { stroke-dashoffset: -34; }
+}
+
+/* חבילת מידע שנוסעת לאורך הצינור */
+.xp-packet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--pk, var(--xp-deep));
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
+  z-index: 5;
+  offset-rotate: 0deg;
+  animation: xpTravel 1.7s cubic-bezier(0.45, 0, 0.3, 1) forwards;
+}
+
+@keyframes xpTravel {
+  from { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  to { offset-distance: 100%; opacity: 1; }
+}
+
+.xp-packet-label {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--xp-ink);
+  background: #ffffff;
+  border: 1.5px solid var(--xp-line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  box-shadow: var(--shadow-1);
+}
+
+/* --- כרטיס מידע אנושי: כרטיס לבן כמו כרטיסי הדק --- */
 
 .xp-info {
   position: absolute;
   z-index: 7;
   direction: rtl;
   font-size: 17px;
-  line-height: 1.55;
-  color: #f2fbfd;
-  background: linear-gradient(160deg, rgba(20, 58, 102, 0.92), rgba(6, 24, 43, 0.94));
-  border: 1px solid rgba(127, 231, 242, 0.4);
+  line-height: 1.6;
+  color: var(--xp-ink);
+  background: #ffffff;
+  border: 1.5px solid rgba(57, 110, 131, 0.25);
   border-radius: 16px;
   padding: 16px 20px;
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-2);
   opacity: 0;
   transform: translateY(16px) scale(0.96);
   transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
@@ -243,8 +323,10 @@
 .xp-info-title {
   font-weight: 800;
   font-size: 16px;
-  color: var(--c-aqua);
-  margin-bottom: 8px;
+  color: var(--xp-deep);
+  border-bottom: 1.5px solid rgba(57, 110, 131, 0.15);
+  padding-bottom: 7px;
+  margin-bottom: 9px;
 }
 
 .xp-info-line {
@@ -278,7 +360,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--c-teal);
+  background: var(--xp-deep);
   color: #fff;
   font-size: 14px;
   font-weight: 800;
@@ -295,7 +377,6 @@
   to { opacity: 1; transform: none; }
 }
 
-/* חותמת: נוחתת מגדול לקטן עם נקישה */
 @keyframes xpStamp {
   0% { transform: scale(2.6) rotate(-14deg); opacity: 0; }
   60% { transform: scale(0.9) rotate(2deg); opacity: 1; }
@@ -313,7 +394,7 @@
   position: absolute;
   inset: 0;
   width: 34%;
-  background: linear-gradient(100deg, transparent, rgba(127, 231, 242, 0.35), transparent);
+  background: linear-gradient(100deg, transparent, rgba(57, 110, 131, 0.16), transparent);
   animation: xpScanSweep 1.6s ease-in-out infinite;
 }
 
@@ -325,10 +406,10 @@
 /* התפרצות ניצוצות לשלב הסיום */
 .xp-spark {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: var(--c-aqua);
+  background: var(--xp-deep);
   opacity: 0;
   z-index: 6;
 }
@@ -343,139 +424,19 @@
   100% { transform: translate(var(--dx), var(--dy)) scale(1.1); opacity: 0; }
 }
 
-/* --- צינורות וחבילות --- */
-
-.xp-pipe-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  z-index: 1;
-}
-
-.xp-pipe {
-  fill: none;
-  stroke: rgba(127, 231, 242, 0.18);
-  stroke-width: 3;
-  stroke-dasharray: 10 12;
-  transition: stroke 0.5s ease;
-}
-
-.xp-pipe.lit {
-  stroke: rgba(127, 231, 242, 0.75);
-  filter: drop-shadow(0 0 8px rgba(43, 199, 220, 0.7));
-  animation: xpDashFlow 1.2s linear infinite;
-}
-
-@keyframes xpDashFlow {
-  to { stroke-dashoffset: -44; }
-}
-
-/* חבילת מידע שנוסעת לאורך הצינור */
-.xp-packet {
-  position: absolute;
-  top: 0; /* offset-path ממקם לאורך הנתיב בקואורדינטות הסצנה */
-  left: 0;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--pk, var(--c-aqua));
-  box-shadow: 0 0 18px var(--pk, var(--c-aqua)), 0 0 40px rgba(43, 199, 220, 0.5);
-  z-index: 5;
-  offset-rotate: 0deg;
-  animation: xpTravel 1.4s cubic-bezier(0.45, 0, 0.3, 1) forwards;
-}
-
-@keyframes xpTravel {
-  from { offset-distance: 0%; opacity: 0; }
-  12% { opacity: 1; }
-  to { offset-distance: 100%; opacity: 1; }
-}
-
-.xp-packet-label {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-family: 'Consolas', 'Fira Code', monospace;
-  font-size: 15px;
-  font-weight: 600;
-  color: #dffbff;
-  background: rgba(6, 24, 43, 0.85);
-  border: 1px solid rgba(127, 231, 242, 0.4);
-  border-radius: 8px;
-  padding: 4px 10px;
-}
-
-/* --- כרטיסי קוד/טרמינל --- */
-
-.xp-code {
-  position: absolute;
-  z-index: 7;
-  font-family: 'Consolas', 'Fira Code', monospace;
-  font-size: 15.5px;
-  line-height: 1.55;
-  background: rgba(5, 15, 30, 0.92);
-  border: 1px solid rgba(127, 231, 242, 0.35);
-  border-radius: 12px;
-  padding: 14px 18px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(16px) scale(0.96);
-  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
-  pointer-events: none;
-}
-
-.xp-code.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.xp-code-title {
-  font-size: 12.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(127, 231, 242, 0.65);
-  border-bottom: 1px solid rgba(127, 231, 242, 0.18);
-  padding-bottom: 6px;
-  margin-bottom: 8px;
-}
-
-.xp-code-line {
-  color: #c9ecf4;
-  white-space: pre;
-  overflow: hidden;
-  opacity: 0;
-}
-
-.xp-code.show .xp-code-line {
-  animation: xpLineIn 0.35s ease forwards;
-  animation-delay: calc(var(--i) * 0.28s + 0.2s);
-}
-
-@keyframes xpLineIn {
-  from { opacity: 0; transform: translateX(-8px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.xp-tone-terminal .xp-code-line { color: #9fe8b8; }
-.xp-tone-json .xp-code-line { color: #ffd98a; }
-
 /* --- תגי הסבר --- */
 
 .xp-callout {
   position: absolute;
   z-index: 7;
   font-size: 16.5px;
-  line-height: 1.5;
-  color: #eaf6fa;
-  background: linear-gradient(150deg, rgba(15, 163, 184, 0.25), rgba(11, 37, 69, 0.75));
-  border: 1px solid rgba(127, 231, 242, 0.45);
-  border-radius: 12px;
+  line-height: 1.55;
+  color: var(--xp-ink);
+  background: rgba(57, 110, 131, 0.07);
+  border: 1.5px solid rgba(57, 110, 131, 0.35);
+  border-radius: 14px;
   padding: 12px 16px;
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-1);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.45s ease 0.15s, transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1) 0.15s;
@@ -484,17 +445,17 @@
 
 .xp-callout.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-.xp-callout strong { color: var(--c-aqua); }
+.xp-callout strong { color: var(--xp-deep); }
 
 /* --- פוטר: נקודות + קריינות --- */
 
 .xp-footer {
   position: absolute;
   bottom: 34px;
-  inset-inline: 70px;
+  inset-inline: 80px;
   z-index: 8;
   display: flex;
   flex-direction: column;
@@ -511,41 +472,45 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(127, 231, 242, 0.18);
-  border: 1px solid rgba(127, 231, 242, 0.3);
+  background: rgba(57, 110, 131, 0.18);
+  border: 1.5px solid rgba(57, 110, 131, 0.35);
   transition: all 0.3s ease;
 }
 
-.xp-dot.past { background: rgba(15, 163, 184, 0.65); }
+.xp-dot.past { background: rgba(57, 110, 131, 0.55); }
 
 .xp-dot.on {
-  background: var(--c-aqua);
-  box-shadow: 0 0 12px rgba(127, 231, 242, 0.9);
+  background: var(--xp-deep);
+  box-shadow: 0 0 0 4px rgba(13, 115, 119, 0.18);
   transform: scale(1.25);
 }
 
 .xp-narration {
-  font-family: var(--font-hebrew);
-  font-size: 24px;
-  font-weight: 600;
-  color: #f2fbfd;
+  font-family: 'Open Sans', 'Heebo Variable', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--xp-ink);
   text-align: center;
-  max-width: 1450px;
+  max-width: 1500px;
   animation: xpNarrIn 0.45s cubic-bezier(0.22, 0.9, 0.3, 1) both;
 }
 
 .xp-narration em {
   font-style: normal;
-  color: var(--c-aqua);
+  color: var(--xp-deep);
 }
 
 @keyframes xpNarrIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: none; }
 }
 
 .xp-hint {
   font-size: 13.5px;
   letter-spacing: 0.04em;
-  color: rgba(143, 169, 192, 0.75);
+  color: var(--xp-gray);
 }
+
+/* --- כרטיסי קוד (לא בשימוש — נשמר לתאימות) --- */
+
+.xp-code { display: none; }

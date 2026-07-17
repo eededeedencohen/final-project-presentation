@@ -12,7 +12,7 @@ export function ExplainerStage({ kicker, title, step, captions, children }) {
   const total = captions.length - 1
   return (
     <section className="xp-stage" dir="ltr">
-      <CircuitBackground tone="dark" />
+      <CircuitBackground tone="light" />
       <header className="xp-head">
         <div className="xp-kicker">{kicker}</div>
         <h2 className="xp-title">{title}</h2>
@@ -57,7 +57,7 @@ export function HexStation({ x, y, size = 150, logo, icon, label, sub, state = '
 
 /* צינור בין תחנות: קו SVG מקווקו שנדלק, עם חבילת מידע שנוסעת עליו.
    packet מוצג רק כשהוא lit; הכיוון נקבע ע"י הנתיב עצמו. */
-export function Pipe({ path, lit = false, done = false, packetColor = 'var(--c-aqua)', packetLabel }) {
+export function Pipe({ path, lit = false, done = false, packetColor = 'var(--xp-deep)', packetLabel }) {
   return (
     <>
       <svg className="xp-pipe-svg" viewBox="0 0 1920 700" preserveAspectRatio="none" aria-hidden="true">

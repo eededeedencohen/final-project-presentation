@@ -57,11 +57,11 @@ export default function ServerFlowExplainer({ step = 0 }) {
       <Pipe path={P.reqManagerToData} lit={step === 4} done={step > 4} packetLabel="בקשה לנתונים" />
 
       {/* קשת התשובה (ענבר) — מהנתונים חזרה החוצה */}
-      <Pipe path={P.resDataToManager} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="ממצאים" />
-      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="תשובה מוכנה" />
-      <Pipe path={P.resDeskToGuard} lit={step === 5} done={step > 5} packetColor="#ffd98a" />
-      <Pipe path={P.resGuardToEngine} lit={step === 5} done={step > 5} packetColor="#ffd98a" />
-      <Pipe path={P.resEngineToClient} lit={step === 6} done={step > 6} packetColor="#ffd98a" packetLabel="תשובה" />
+      <Pipe path={P.resDataToManager} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="ממצאים" />
+      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="תשובה מוכנה" />
+      <Pipe path={P.resDeskToGuard} lit={step === 5} done={step > 5} packetColor="#e8a33d" />
+      <Pipe path={P.resGuardToEngine} lit={step === 5} done={step > 5} packetColor="#e8a33d" />
+      <Pipe path={P.resEngineToClient} lit={step === 6} done={step > 6} packetColor="#e8a33d" packetLabel="תשובה" />
 
       {/* עוגני השכבות השכנות — כלליים, בלי פירוט פנימי */}
       <LayerAnchor x={40} y={110} icon={<Icon name="database" />} label="שכבת הנתונים" sub="המחסן שראינו קודם" lit={step === 0 || step === 4 || step === 5} />

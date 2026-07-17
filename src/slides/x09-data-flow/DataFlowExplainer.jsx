@@ -41,9 +41,9 @@ export default function DataFlowExplainer({ step = 0 }) {
       <Pipe path={P.reqServerToModel} lit={step === 1} done={step > 1} packetLabel="בקשה" />
       <Pipe path={P.reqModelToMoose} lit={step === 2} done={step > 2} packetLabel="בקשה מאושרת" />
       <Pipe path={P.reqMooseToMongo} lit={step === 3} done={step > 3} packetLabel="בשפת המחסן" />
-      <Pipe path={P.resMongoToMoose} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="ממצאים" />
-      <Pipe path={P.resMooseToModel} lit={step === 5} done={step > 5} packetColor="#ffd98a" packetLabel="מאומתים" />
-      <Pipe path={P.resModelToServer} lit={step === 6} done={step > 6} packetColor="#ffd98a" packetLabel="תשובה" />
+      <Pipe path={P.resMongoToMoose} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="ממצאים" />
+      <Pipe path={P.resMooseToModel} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="מאומתים" />
+      <Pipe path={P.resModelToServer} lit={step === 6} done={step > 6} packetColor="#e8a33d" packetLabel="תשובה" />
 
       {/* עוגן שכבת השרת — כללי, בלי פירוט */}
       <LayerAnchor x={1610} y={110} icon={<Icon name="server" />} label="שכבת השרת" sub="משם מגיעות הבקשות" lit={step === 1 || step >= 6} />

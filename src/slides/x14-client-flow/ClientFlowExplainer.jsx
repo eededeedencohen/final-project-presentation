@@ -46,9 +46,9 @@ const P = {
 export default function ClientFlowExplainer({ step = 0 }) {
   return (
     <ExplainerStage kicker="BEHIND THE SCENES · 03" title="שכבת הקליינט — מה שרואים על המסך" step={step} captions={CAPTIONS}>
-      <Pipe path={P.serverToMessenger} lit={step === 1} done={step > 1} packetColor="#ffd98a" packetLabel="תשובה" />
-      <Pipe path={P.messengerToSecretary} lit={step === 2} done={step > 2} packetColor="#ffd98a" packetLabel="חומר גולמי" />
-      <Pipe path={P.secretaryToBoard} lit={step === 3} done={step > 3} packetColor="#ffd98a" packetLabel="מידע מסודר" />
+      <Pipe path={P.serverToMessenger} lit={step === 1} done={step > 1} packetColor="#e8a33d" packetLabel="תשובה" />
+      <Pipe path={P.messengerToSecretary} lit={step === 2} done={step > 2} packetColor="#e8a33d" packetLabel="חומר גולמי" />
+      <Pipe path={P.secretaryToBoard} lit={step === 3} done={step > 3} packetColor="#e8a33d" packetLabel="מידע מסודר" />
       <Pipe path={P.boardToExpert} lit={step === 4} done={step > 4} packetLabel="עדכון" />
       <Pipe path={P.expertToBlocks} lit={step === 5} done={step > 5} packetLabel="בדיוק מה שצריך" />
       <Pipe path={P.blocksToPage} lit={step === 6} done={step > 6} packetLabel="תצוגה" />
