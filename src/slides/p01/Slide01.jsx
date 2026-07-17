@@ -15,8 +15,8 @@ export default function Slide01() {
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p01-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p01-e3 pel">
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p01-e2 pel" viewBox="0 0 1157125 221031" preserveAspectRatio="none"><path d="M 203200 0 L 1157125 0 L 953925 221031 L 0 221031 L 203200 0 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p01-e3 pel">
         <div className="p01-e3-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '91.13px' }}>{'\u00A0'}</p>
         </div>
