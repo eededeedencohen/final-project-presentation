@@ -165,10 +165,11 @@ img.pel {
 }
 
 /* בשקפים המשוחזרים הכול מופיע כמקשה אחת — המשושה, האייקון והטקסט
-   יחד, בלי הרכבה מדורגת. אנימציות מעבר עשירות יותר — בהמשך. */
+   יחד, בלי הרכבה מדורגת — אבל עם תנועת עלייה משותפת שנותנת חיים. */
 .pslide .fx {
+  animation-name: fxRise !important;
   animation-delay: 0ms !important;
-  animation-duration: 0.5s;
+  animation-duration: 0.65s;
 }
 
 /* פסקה בתוך תיבת טקסט משוחזרת.
