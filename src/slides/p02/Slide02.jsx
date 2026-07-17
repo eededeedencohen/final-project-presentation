@@ -44,23 +44,23 @@ export default function Slide02() {
       <svg style={{ '--d': 0, '--sx': '-942px' }} className="fx fx-title p02-e10 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
       <svg style={{ '--d': 0, '--sx': '-942px' }} className="fx fx-title p02-e11 pel" viewBox="0 0 101.78 176.29" preserveAspectRatio="none"><line x1="0" y1="0" x2="101.78" y2="176.29" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
       <svg style={{ '--d': 0, '--sx': '-942px' }} className="fx fx-title p02-e12 pel" viewBox="0 0 102.21 180.28" preserveAspectRatio="none"><line x1="0" y1="0" x2="102.21" y2="180.28" stroke="#ffffff" strokeWidth="5" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e13 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e14 pel">
+      <svg style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p02-e13 pel" viewBox="0 0 812800 698500" preserveAspectRatio="none"><path d="M 812800 349250 L 609600 698500 L 203200 698500 L 0 349250 L 203200 0 L 609600 0 L 812800 349250 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p02-e14 pel">
         <div className="p02-e14-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '73.34px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e15 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
-      <div style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e16 pel">
+      <svg style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e15 pel" viewBox="0 0 2727227 1451547" preserveAspectRatio="none"><path d="M 0 0 L 2727227 0 L 2727227 1451547 L 0 1451547 Z" fill="#396e83" /></svg>
+      <div style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e16 pel">
         <div className="p02-e16-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center', fontSize: '29.38px' }}>{'\u00A0'}</p>
         </div>
       </div>
-      <svg style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e17 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
-      <div style={{ '--d': 290, '--sx': '0px' }} className="fx fx-pop p02-e18 pel"><img src={img0} alt="" /></div>
-      <svg style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e19 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
-      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p02-e20 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
-      <div style={{ '--d': 150, '--sx': '0px' }} className="fx fx-pop p02-e21 pel">
+      <svg style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p02-e17 pel" viewBox="0 0 6350000 5532120" preserveAspectRatio="none"><path d="M 4762500 0 L 1587500 0 L 0 2766060 L 1587500 5532120 L 4762500 5532120 L 6350000 2766060 L 4762500 0 Z M 4676140 5382260 L 1673860 5382260 L 172720 2766060 L 1673860 149860 L 4676140 149860 L 6177280 2766060 L 4676140 5382260 Z" fill="#ffffff" /></svg>
+      <div style={{ '--d': 940, '--sx': '0px' }} className="fx fx-dom p02-e18 pel"><img src={img0} alt="" /></div>
+      <svg style={{ '--d': 400, '--sx': '0px' }} className="fx fx-dom p02-e19 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
+      <svg style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p02-e20 pel" viewBox="0 0 112.28 0.01" preserveAspectRatio="none"><line x1="0" y1="0" x2="112.28" y2="0.01" stroke="#ffffff" strokeWidth="4" vectorEffect="non-scaling-stroke" /></svg>
+      <div style={{ '--d': 220, '--sx': '0px' }} className="fx fx-dom p02-e21 pel">
         <div className="p02-e21-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t0">Smart</span></p>
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t0"> Cart</span></p>
@@ -102,7 +102,7 @@ export default function Slide02() {
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t1">הפתעת הקופה</span></p>
         </div>
       </div>
-      <div style={{ '--d': 580, '--sx': '0px' }} className="fx fx-dom p02-e34 pel">
+      <div style={{ '--d': 760, '--sx': '0px' }} className="fx fx-dom p02-e34 pel">
         <div className="p02-e34-tx">
           <p className="pp" dir="auto" style={{ textAlign: 'center' }}><span className="p02-t3">יוקר המחיה</span></p>
         </div>
