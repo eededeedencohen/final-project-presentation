@@ -192,7 +192,11 @@ img.pel {
 
 .pslide .fx { animation-duration: 0.55s; }
 
-.pslide .fx-title { animation-name: fxTitleSide !important; }
+.pslide .fx-title {
+  animation-name: fxTitleSide !important;
+  animation-duration: 0.85s;
+  animation-timing-function: cubic-bezier(0.16, 0.8, 0.3, 1);
+}
 
 .pslide .fx-pop {
   animation-name: fxPop !important;
