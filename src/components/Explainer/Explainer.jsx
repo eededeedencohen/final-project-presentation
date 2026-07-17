@@ -57,14 +57,17 @@ export function HexStation({ x, y, size = 150, logo, icon, label, sub, state = '
 
 /* צינור בין תחנות: קו SVG מקווקו שנדלק, עם חבילת מידע שנוסעת עליו.
    packet מוצג רק כשהוא lit; הכיוון נקבע ע"י הנתיב עצמו. */
-export function Pipe({ path, lit = false, done = false, packetColor = 'var(--xp-deep)', packetLabel }) {
+export function Pipe({ path, lit = false, done = false, packetColor = 'var(--xp-deep)', packetLabel, delay = 0 }) {
   return (
     <>
       <svg className="xp-pipe-svg" viewBox="0 0 1920 700" preserveAspectRatio="none" aria-hidden="true">
         <path className={`xp-pipe ${lit || done ? 'lit' : ''}`} d={path} />
       </svg>
       {lit && (
-        <div className="xp-packet" style={{ offsetPath: `path('${path}')`, '--pk': packetColor }}>
+        <div
+          className="xp-packet"
+          style={{ offsetPath: `path('${path}')`, '--pk': packetColor, animationDelay: `${delay}ms` }}
+        >
           {packetLabel && <span className="xp-packet-label" dir="ltr">{packetLabel}</span>}
         </div>
       )}

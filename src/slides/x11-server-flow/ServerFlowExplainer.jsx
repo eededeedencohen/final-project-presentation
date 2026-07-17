@@ -54,13 +54,13 @@ export default function ServerFlowExplainer({ step = 0 }) {
       <Pipe path={P.reqEngineToGuard} lit={step === 2} done={step > 2} packetLabel="לבדיקה בכניסה" />
       <Pipe path={P.reqGuardToDesk} lit={step === 3} done={step > 3} packetLabel="אושרה להיכנס" />
       <Pipe path={P.reqDeskToManager} lit={step === 4} done={step > 4} packetLabel="אל דלפק ההשוואות" />
-      <Pipe path={P.reqManagerToData} lit={step === 4} done={step > 4} packetLabel="בקשה לנתונים" />
+      <Pipe path={P.reqManagerToData} lit={step === 4} done={step > 4} packetLabel="בקשה לנתונים" delay={1500} />
 
       {/* קשת התשובה (ענבר) — מהנתונים חזרה החוצה */}
       <Pipe path={P.resDataToManager} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="ממצאים" />
-      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="תשובה מוכנה" />
-      <Pipe path={P.resDeskToGuard} lit={step === 5} done={step > 5} packetColor="#e8a33d" />
-      <Pipe path={P.resGuardToEngine} lit={step === 5} done={step > 5} packetColor="#e8a33d" />
+      <Pipe path={P.resManagerToDesk} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="תשובה מוכנה" delay={1400} />
+      <Pipe path={P.resDeskToGuard} lit={step === 5} done={step > 5} packetColor="#e8a33d" delay={2800} />
+      <Pipe path={P.resGuardToEngine} lit={step === 5} done={step > 5} packetColor="#e8a33d" delay={4200} />
       <Pipe path={P.resEngineToClient} lit={step === 6} done={step > 6} packetColor="#e8a33d" packetLabel="תשובה" />
 
       {/* עוגני השכבות השכנות — כלליים, בלי פירוט פנימי */}

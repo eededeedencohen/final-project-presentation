@@ -52,7 +52,7 @@ export default function ClientFlowExplainer({ step = 0 }) {
       <Pipe path={P.boardToExpert} lit={step === 4} done={step > 4} packetLabel="עדכון" />
       <Pipe path={P.expertToBlocks} lit={step === 5} done={step > 5} packetLabel="בדיוק מה שצריך" />
       <Pipe path={P.blocksToPage} lit={step === 6} done={step > 6} packetLabel="תצוגה" />
-      <Pipe path={P.pageToApp} lit={step === 6} done={step > 6} packetLabel="" />
+      <Pipe path={P.pageToApp} lit={step === 6} done={step > 6} packetLabel="" delay={1500} />
 
       {/* עוגן שכבת השרת */}
       <LayerAnchor x={40} y={110} icon={<Icon name="server" />} label="שכבת השרת" sub="משם הגיעה התשובה" lit={step === 1} />

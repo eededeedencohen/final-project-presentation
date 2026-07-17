@@ -42,7 +42,7 @@ export default function DataFlowExplainer({ step = 0 }) {
       <Pipe path={P.reqModelToMoose} lit={step === 2} done={step > 2} packetLabel="בקשה מאושרת" />
       <Pipe path={P.reqMooseToMongo} lit={step === 3} done={step > 3} packetLabel="בשפת המחסן" />
       <Pipe path={P.resMongoToMoose} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="ממצאים" />
-      <Pipe path={P.resMooseToModel} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="מאומתים" />
+      <Pipe path={P.resMooseToModel} lit={step === 5} done={step > 5} packetColor="#e8a33d" packetLabel="מאומתים" delay={1500} />
       <Pipe path={P.resModelToServer} lit={step === 6} done={step > 6} packetColor="#e8a33d" packetLabel="תשובה" />
 
       {/* עוגן שכבת השרת — כללי, בלי פירוט */}

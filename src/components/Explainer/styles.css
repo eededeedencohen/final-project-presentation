@@ -273,7 +273,8 @@
   /* מעל התחנות (6) והכרטיסים (7) — שהתווית לעולם לא תוסתר */
   z-index: 9;
   offset-rotate: 0deg;
-  animation: xpTravel 1.7s cubic-bezier(0.45, 0, 0.3, 1) forwards;
+  /* both — כדי שחבילה עם השהיה תהיה שקופה עד שמגיע תורה לצאת */
+  animation: xpTravel 1.7s cubic-bezier(0.45, 0, 0.3, 1) both;
 }
 
 @keyframes xpTravel {
