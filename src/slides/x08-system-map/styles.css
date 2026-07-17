@@ -1,5 +1,5 @@
 /* ============================================================
-   x08 — מפת המערכת: מובייל · שרת · נתונים בתמונה אחת חיה
+   x08 — מפת המערכת: מובייל · שרת · נתונים — גדול, מלא וברור
    ============================================================ */
 
 .smap {
@@ -24,21 +24,21 @@
 
 .smap-head {
   position: absolute;
-  top: 42px;
+  top: 40px;
   inset-inline: 80px;
   z-index: 3;
   text-align: right;
 }
 
 .smap-title {
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 800;
   color: var(--sm-teal);
 }
 
 .smap-kicker {
   margin-top: 6px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.28em;
   color: rgba(57, 110, 131, 0.55);
@@ -50,54 +50,54 @@
 
 .smap-zone {
   position: absolute;
-  top: 330px;
-  width: 420px;
+  top: 320px;
+  width: 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 4;
 }
 
-.smap-client { right: 60px; }
-.smap-server { left: 750px; }
-.smap-data { left: 90px; }
+.smap-client { right: 20px; }
+.smap-server { left: 720px; }
+.smap-data { left: 30px; }
 
 .smap-zone-name {
-  margin-top: 22px;
-  font-size: 30px;
+  margin-top: 26px;
+  font-size: 40px;
   font-weight: 800;
   color: var(--sm-ink);
 }
 
 .smap-zone-sub {
-  margin-top: 4px;
-  font-size: 17px;
+  margin-top: 6px;
+  font-size: 22px;
   color: var(--sm-gray);
 }
 
 .smap-chips {
   display: flex;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 14px;
+  margin-top: 18px;
 }
 
 .smap-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   direction: ltr;
-  font-size: 14.5px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--sm-ink);
   background: #ffffff;
-  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  border: 2px solid rgba(57, 110, 131, 0.3);
   border-radius: 999px;
-  padding: 6px 14px;
+  padding: 10px 22px;
   box-shadow: var(--shadow-1);
 }
 
 .smap-chip img {
-  height: 20px;
+  height: 30px;
   width: auto;
   object-fit: contain;
 }
@@ -106,23 +106,23 @@
 
 .smap-phone {
   position: relative;
-  width: 220px;
-  height: 300px;
-  border-radius: 30px;
-  border: 7px solid var(--sm-teal);
+  width: 310px;
+  height: 420px;
+  border-radius: 38px;
+  border: 9px solid var(--sm-teal);
   background: #ffffff;
-  box-shadow: 0 20px 44px rgba(36, 64, 78, 0.22);
+  box-shadow: 0 24px 54px rgba(36, 64, 78, 0.24);
   overflow: hidden;
   animation: smapFloat 5s ease-in-out infinite;
 }
 
 .smap-phone-notch {
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 66px;
-  height: 8px;
+  width: 92px;
+  height: 11px;
   border-radius: 999px;
   background: rgba(57, 110, 131, 0.35);
   z-index: 2;
@@ -130,20 +130,20 @@
 
 .smap-phone-screen {
   position: absolute;
-  inset: 20px 10px 24px;
+  inset: 28px 14px 30px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 9px;
 }
 
 .smap-ui-head {
   background: linear-gradient(120deg, var(--sm-deep), var(--sm-teal));
   color: #fff;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
-  border-radius: 8px;
-  padding: 6px 0;
+  border-radius: 11px;
+  padding: 9px 0;
   direction: ltr;
 }
 
@@ -151,10 +151,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12.5px;
+  font-size: 18px;
   background: rgba(57, 110, 131, 0.06);
-  border-radius: 7px;
-  padding: 6px 9px;
+  border-radius: 10px;
+  padding: 10px 13px;
 }
 
 .smap-ui-row b { color: var(--sm-teal); }
@@ -163,21 +163,21 @@
   margin-top: auto;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 800;
   background: rgba(232, 163, 61, 0.16);
-  border: 1.5px solid rgba(232, 163, 61, 0.5);
-  border-radius: 8px;
-  padding: 7px 9px;
+  border: 2px solid rgba(232, 163, 61, 0.5);
+  border-radius: 11px;
+  padding: 11px 13px;
 }
 
 .smap-phone-home {
   position: absolute;
-  bottom: 7px;
+  bottom: 9px;
   left: 50%;
   transform: translateX(-50%);
-  width: 56px;
-  height: 5px;
+  width: 76px;
+  height: 6px;
   border-radius: 999px;
   background: rgba(57, 110, 131, 0.3);
 }
@@ -187,26 +187,26 @@
 .smap-rack {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   animation: smapFloat 5s ease-in-out infinite 0.6s;
 }
 
 .smap-rack-unit {
-  width: 300px;
-  height: 82px;
-  border-radius: 16px;
-  border: 5px solid var(--sm-teal);
+  width: 400px;
+  height: 112px;
+  border-radius: 20px;
+  border: 6px solid var(--sm-teal);
   background: #ffffff;
-  box-shadow: 0 14px 34px rgba(36, 64, 78, 0.18);
+  box-shadow: 0 16px 38px rgba(36, 64, 78, 0.18);
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 0 22px;
+  gap: 18px;
+  padding: 0 28px;
 }
 
 .smap-led {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--sm-deep);
   animation: smapBlink 2.2s ease-in-out infinite;
@@ -224,39 +224,39 @@
 
 .smap-slot {
   flex: 1;
-  height: 14px;
+  height: 20px;
   border-radius: 999px;
   background: rgba(57, 110, 131, 0.18);
 }
 
 .smap-dots {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 800;
   color: rgba(57, 110, 131, 0.5);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* --- המסד --- */
 
 .smap-db {
-  width: 250px;
+  width: 330px;
   animation: smapFloat 5s ease-in-out infinite 1.2s;
-  filter: drop-shadow(0 16px 30px rgba(36, 64, 78, 0.2));
+  filter: drop-shadow(0 18px 34px rgba(36, 64, 78, 0.2));
 }
 
 .smap-db-top {
-  height: 56px;
+  height: 74px;
   border-radius: 50%;
   background: #ffffff;
-  border: 5px solid var(--sm-teal);
+  border: 6px solid var(--sm-teal);
   position: relative;
   z-index: 2;
 }
 
 .smap-db-band {
-  height: 62px;
-  margin-top: -26px;
-  border: 5px solid var(--sm-teal);
+  height: 84px;
+  margin-top: -36px;
+  border: 6px solid var(--sm-teal);
   border-top: none;
   background: #ffffff;
   border-radius: 0 0 50% 50% / 0 0 45% 45%;
@@ -275,34 +275,36 @@
 
 .smap-ai {
   position: absolute;
-  left: 812px;
-  top: 175px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 120px;
   z-index: 4;
   text-align: center;
 }
 
 .smap-ai-box {
   display: flex;
-  gap: 16px;
+  gap: 26px;
   align-items: center;
+  justify-content: center;
   background: #ffffff;
-  border: 2.5px dashed rgba(57, 110, 131, 0.45);
-  border-radius: 20px;
-  padding: 14px 22px;
+  border: 3px dashed rgba(57, 110, 131, 0.45);
+  border-radius: 24px;
+  padding: 20px 34px;
   box-shadow: var(--shadow-1);
 }
 
 .smap-ai-box img {
-  height: 30px;
+  height: 46px;
   width: auto;
   object-fit: contain;
 }
 
 .smap-ai-label {
-  margin-top: 8px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--sm-gray);
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--sm-teal);
 }
 
 .smap-ai-link {
@@ -317,8 +319,8 @@
 .smap-ai-link path {
   fill: none;
   stroke: rgba(57, 110, 131, 0.4);
-  stroke-width: 3;
-  stroke-dasharray: 2 10;
+  stroke-width: 4;
+  stroke-dasharray: 2 12;
   stroke-linecap: round;
 }
 
@@ -336,9 +338,9 @@
 
 .smap-lane {
   fill: none;
-  stroke-width: 4;
+  stroke-width: 6;
   stroke-linecap: round;
-  stroke-dasharray: 3 15;
+  stroke-dasharray: 4 20;
 }
 
 .smap-lane.req {
@@ -352,7 +354,7 @@
 }
 
 @keyframes smapDash {
-  to { stroke-dashoffset: -36; }
+  to { stroke-dashoffset: -48; }
 }
 
 /* חבילות בלולאה מתמדת */
@@ -360,24 +362,23 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 26px;
-  height: 26px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 3px solid #ffffff;
-  box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
-  /* מעל אזורי השכבות — שתוויות בקשה/תשובה לא יוסתרו */
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(36, 64, 78, 0.4);
   z-index: 8;
   offset-rotate: 0deg;
 }
 
 .smap-pk-req {
   background: var(--sm-deep);
-  animation: smapTravel 4.5s ease-in-out infinite;
+  animation: smapTravel 5s ease-in-out infinite;
 }
 
 .smap-pk-res {
   background: var(--sm-amber);
-  animation: smapTravel 4.5s ease-in-out infinite 2.25s;
+  animation: smapTravel 5s ease-in-out infinite 2.5s;
 }
 
 @keyframes smapTravel {
@@ -389,17 +390,17 @@
 
 .smap-pk-label {
   position: absolute;
-  bottom: 30px;
+  bottom: 42px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 800;
   color: var(--sm-ink);
   background: #ffffff;
-  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  border: 2px solid rgba(57, 110, 131, 0.35);
   border-radius: 999px;
-  padding: 3px 11px;
+  padding: 6px 18px;
   box-shadow: var(--shadow-1);
 }
 
@@ -407,24 +408,25 @@
 .smap-pill {
   position: absolute;
   z-index: 4;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 19px;
+  font-weight: 800;
   color: var(--sm-teal);
-  background: rgba(57, 110, 131, 0.08);
-  border: 1.5px solid rgba(57, 110, 131, 0.3);
+  background: #ffffff;
+  border: 2px solid rgba(57, 110, 131, 0.35);
   border-radius: 999px;
-  padding: 5px 14px;
+  padding: 9px 20px;
+  box-shadow: var(--shadow-1);
 }
 
 /* --- שורת הגשר התחתונה --- */
 
 .smap-footer {
   position: absolute;
-  bottom: 52px;
+  bottom: 48px;
   inset-inline: 100px;
   z-index: 4;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 700;
   color: var(--sm-ink);
 }

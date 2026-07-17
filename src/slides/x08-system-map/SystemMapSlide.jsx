@@ -17,8 +17,8 @@ import './styles.css'
    ============================================================ */
 
 /* נתיבי הנסיעה (במת 1920x1080): בקשה למעלה (ימין⟵שמאל), תשובה למטה */
-const REQ_PATH = 'M 1395 520 C 1250 455, 1210 455, 1085 515 L 1082 515 C 940 455, 620 455, 480 515'
-const RES_PATH = 'M 480 600 C 620 665, 940 665, 1082 605 L 1085 605 C 1210 665, 1250 665, 1395 600'
+const REQ_PATH = 'M 1400 520 C 1280 440, 1230 440, 1110 515 L 810 515 C 690 440, 640 440, 520 515'
+const RES_PATH = 'M 520 635 C 640 715, 690 715, 810 640 L 1110 640 C 1230 715, 1280 715, 1400 638'
 
 export default function SystemMapSlide() {
   return (
@@ -97,7 +97,7 @@ export default function SystemMapSlide() {
         <div className="smap-ai-label">שירותי AI חיצוניים</div>
       </div>
       <svg className="smap-ai-link fx fx-fade" style={{ '--d': 700 }} viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M 960 315 L 960 405" />
+        <path d="M 960 278 L 960 322" />
       </svg>
 
       {/* ---- נתיבי בקשה/תשובה עם חבילות בלולאה ---- */}
@@ -113,8 +113,8 @@ export default function SystemMapSlide() {
       </div>
 
       {/* תגיות פרוטוקול על הקווים */}
-      <span className="smap-pill fx fx-fade" style={{ '--d': 800, left: 1130, top: 420 }} dir="ltr">REST API</span>
-      <span className="smap-pill fx fx-fade" style={{ '--d': 880, left: 640, top: 420 }} dir="ltr">Mongoose ODM</span>
+      <span className="smap-pill fx fx-fade" style={{ '--d': 800, left: 1165, top: 395 }} dir="ltr">REST API</span>
+      <span className="smap-pill fx fx-fade" style={{ '--d': 880, left: 545, top: 395 }} dir="ltr">Mongoose ODM</span>
 
       {/* שורת גשר לשקפים הבאים */}
       <div className="smap-footer fx fx-rise" style={{ '--d': 1000 }}>
