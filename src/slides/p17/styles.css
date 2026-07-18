@@ -50,15 +50,17 @@
   padding: 5.33px 5.33px 5.33px 5.33px;
 }
 
+/* e4/e5 ו-e8/e9 הוזזו שמאלה — הרווחים בין חלקי הדומינו העליון
+   הושוו לתחתון: ~7.4px סימטרי (היו 21.2/6.6) */
 .p17-e4 {
-  left: 260.27px;
+  left: 246.47px;
   top: -19.89px;
   width: 279.73px;
   height: 127.89px;
 }
 
 .p17-e5 {
-  left: 319.05px;
+  left: 305.25px;
   top: -41.94px;
   width: 162.15px;
   height: 149.94px;
@@ -97,14 +99,14 @@
 }
 
 .p17-e8 {
-  left: 429.34px;
+  left: 416.34px;
   top: -19.89px;
   width: 279.73px;
   height: 127.89px;
 }
 
 .p17-e9 {
-  left: 488.12px;
+  left: 475.12px;
   top: -41.94px;
   width: 162.15px;
   height: 149.94px;

@@ -171,23 +171,30 @@ img.pel {
    כל אשכול (צורה + תוכן) הוא יחידה אחת עם אותה השהיה ואותו אפקט.
    translate/scale הם מאפיינים נפרדים שלא דורסים סיבובי transform. */
 
+/* בכל האנימציות: היעד הוא var(--o,1) ולא 1 — fill-mode:both משאיר את
+   ערך הפריים האחרון לתמיד, ואסור שידרוס אלמנטים עם שקיפות סטטית
+   (כמו טבעות האפור במשושי הטכנולוגיות, opacity 0.78) */
+
 /* מצולע כותרת: נכנס מהצד שאליו הוא צמוד (--sx נקבע לפי הצד) */
 @keyframes fxTitleSide {
   from { opacity: 0; translate: var(--sx, 90px) 0; }
-  to { opacity: 1; translate: 0 0; }
+  to { opacity: var(--o, 1); translate: 0 0; }
 }
 
-/* מצולע סעיף: POP — קופץ פנימה */
+/* מצולע סעיף: POP — קופץ פנימה. השקיפות מתמלאת מוקדם (25%) כדי
+   ששכבות מוערמות (צל+מסגרת+מילוי) לא ייראו כמריחה שקופה באמצע */
 @keyframes fxPop {
   0% { opacity: 0; scale: 0.55; }
-  70% { opacity: 1; scale: 1.07; }
-  100% { opacity: 1; scale: 1; }
+  25% { opacity: var(--o, 1); }
+  70% { scale: 1.07; }
+  100% { opacity: var(--o, 1); scale: 1; }
 }
 
-/* מקביליות תחתונות: דומינו — עולות ברצף מהיר */
+/* מקביליות בשוליים: דומינו — נכנסות ברצף מהיר מכיוון הקצה שלהן.
+   --dy חיובי = נכנס מלמטה (ברירת מחדל), שלילי = נכנס מלמעלה. */
 @keyframes fxDomino {
-  from { opacity: 0; translate: 0 44px; }
-  to { opacity: 1; translate: 0 0; }
+  from { opacity: 0; translate: 0 var(--dy, 44px); }
+  to { opacity: var(--o, 1); translate: 0 0; }
 }
 
 .pslide .fx { animation-duration: 0.55s; }
@@ -200,6 +207,22 @@ img.pel {
 
 .pslide .fx-pop {
   animation-name: fxPop !important;
+  animation-timing-function: cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+/* פופ לאלמנטים מסובבים: אסור להזיז להם את transform-origin (זה מזיז
+   את ציר הסיבוב), אז הם מוקטנים סביב מרכז עצמם + פיצוי תזוזה מונפש
+   שמסונכרן עם הסקייל — שווה-ערך מתמטית לסקייל סביב מרכז היחידה.
+   --tx/--ty = וקטור ממרכז האלמנט למרכז היחידה. */
+@keyframes fxPopRot {
+  0% { opacity: 0; scale: 0.55; translate: calc(var(--tx, 0px) * 0.45) calc(var(--ty, 0px) * 0.45); }
+  25% { opacity: var(--o, 1); }
+  70% { scale: 1.07; translate: calc(var(--tx, 0px) * -0.07) calc(var(--ty, 0px) * -0.07); }
+  100% { opacity: var(--o, 1); scale: 1; translate: 0 0; }
+}
+
+.pslide .fx-pop-rot {
+  animation-name: fxPopRot !important;
   animation-timing-function: cubic-bezier(0.34, 1.4, 0.5, 1);
 }
 

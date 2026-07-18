@@ -651,3 +651,8 @@
   font-weight: 700;
   color: #ffffff;
 }
+
+/* משושה AXIOS הוסר — Axios שייך לצד הלקוח בלבד (נמצא בשקף Client/SPA) */
+.p10-e10, .p10-e11, .p10-e12 {
+  display: none;
+}

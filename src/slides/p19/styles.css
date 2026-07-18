@@ -297,11 +297,15 @@
   line-height: 1.2;
 }
 
+/* "המטרה הושגה": בקאנבה לטקסט יש קו מתאר כחול שאבד בייצוא ל-PPTX —
+   בלעדיו לבן-על-לבן מעל טבעת המטרה. משוחזר בכחול של החץ */
 .p19-t4 {
   font-family: 'Heebo Variable', 'Heebo', sans-serif;
   font-size: 98.67px;
   font-weight: 700;
   color: #fdfefd;
+  -webkit-text-stroke: 3.5px #1976d2;
+  paint-order: stroke fill;
 }
 
 .p19-e23 {
