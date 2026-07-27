@@ -1,5 +1,5 @@
 /* ============================================================
-   s14 — Client SPA Flow: רשת נחש 4+4 עם עמוד שדרה מונפש
+   s14 - Client SPA Flow: רשת נחש 4+4 עם עמוד שדרה מונפש
    ============================================================ */
 
 .cflow-diagram {
@@ -29,7 +29,7 @@
   opacity: 0.5;
 }
 
-/* מקפים נודדים לאורך המסלול — תנועה מתמשכת עדינה */
+/* מקפים נודדים לאורך המסלול - תנועה מתמשכת עדינה */
 .cflow-march {
   fill: none;
   stroke: var(--c-cyan);
@@ -42,7 +42,9 @@
 }
 
 @keyframes cflowMarch {
-  to { stroke-dashoffset: -36; }
+  to {
+    stroke-dashoffset: -36;
+  }
 }
 
 .cflow-arrow {
@@ -104,7 +106,7 @@
   height: 24px;
 }
 
-/* תיבת לוגו ל-Axios — לוגו כהה על כרטיס בהיר */
+/* תיבת לוגו ל-Axios - לוגו כהה על כרטיס בהיר */
 .cflow-logo-box {
   height: 46px;
   padding: 0 14px;
@@ -158,8 +160,13 @@
 }
 
 @keyframes cflowSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cflow-react-text {

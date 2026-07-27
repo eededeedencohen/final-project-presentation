@@ -1,11 +1,11 @@
 /* ============================================================
-   Explainer — שקפי "מאחורי הקלעים" בשפה הוויזואלית של המצגת:
+   Explainer - שקפי "מאחורי הקלעים" בשפה הוויזואלית של המצגת:
    רקע בהיר זהה לשאר השקפים, פלטת V2 (טורקיז-צפחה 396e83),
    פונטים Open Sans / Heebo, ותחנות בסגנון סיכות-המפה של הדק.
    ============================================================ */
 
 .xp-stage {
-  /* פלטת השקף — נגזרת מצבעי המצגת המקורית */
+  /* פלטת השקף - נגזרת מצבעי המצגת המקורית */
   --xp-teal: #396e83;
   --xp-deep: #0d7377;
   --xp-ink: #24404e;
@@ -18,14 +18,14 @@
   overflow: hidden;
   color: var(--xp-ink);
   font-family: 'Open Sans', 'Heebo Variable', sans-serif;
-  /* אותו רקע כמו .pslide — עקביות מלאה עם שאר המצגת */
+  /* אותו רקע כמו .pslide - עקביות מלאה עם שאר המצגת */
   background:
     radial-gradient(1300px 750px at 12% -10%, rgba(43, 199, 220, 0.09), transparent 60%),
     radial-gradient(1000px 650px at 95% 110%, rgba(15, 163, 184, 0.08), transparent 55%),
     var(--c-bg);
 }
 
-/* --- כותרת: כמו כותרות הדק — Open Sans כבד, כהה, מיושר לימין --- */
+/* --- כותרת: כמו כותרות הדק - Open Sans כבד, כהה, מיושר לימין --- */
 
 .xp-head {
   position: absolute;
@@ -104,7 +104,7 @@
   object-fit: contain;
 }
 
-/* אייקונים בתוך התחנות — בצבע הדק */
+/* אייקונים בתוך התחנות - בצבע הדק */
 .xp-hex-face svg {
   color: var(--xp-teal);
 }
@@ -149,8 +149,15 @@
 }
 
 @keyframes xpRingPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.35), 0 10px 26px rgba(13, 115, 119, 0.3); }
-  50% { box-shadow: 0 0 0 14px rgba(13, 115, 119, 0), 0 10px 30px rgba(13, 115, 119, 0.45); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.35), 0 10px 26px rgba(13, 115, 119, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(13, 115, 119, 0), 0 10px 30px rgba(13, 115, 119, 0.45);
+  }
 }
 
 /* --- עוגן שכבה שכנה (ישות כללית) --- */
@@ -256,7 +263,9 @@
 }
 
 @keyframes xpDashFlow {
-  to { stroke-dashoffset: -34; }
+  to {
+    stroke-dashoffset: -34;
+  }
 }
 
 /* חבילת מידע שנוסעת לאורך הצינור */
@@ -270,20 +279,30 @@
   background: var(--pk, var(--xp-deep));
   border: 3px solid #ffffff;
   box-shadow: 0 4px 16px rgba(36, 64, 78, 0.35);
-  /* מעל התחנות (6) והכרטיסים (7) — שהתווית לעולם לא תוסתר */
+  /* מעל התחנות (6) והכרטיסים (7) - שהתווית לעולם לא תוסתר */
   z-index: 9;
   offset-rotate: 0deg;
-  /* both — כדי שחבילה עם השהיה תהיה שקופה עד שמגיע תורה לצאת */
+  /* both - כדי שחבילה עם השהיה תהיה שקופה עד שמגיע תורה לצאת */
   animation: xpTravel 1.7s cubic-bezier(0.45, 0, 0.3, 1) both;
 }
 
 @keyframes xpTravel {
-  from { offset-distance: 0%; opacity: 0; }
-  10% { opacity: 1; }
-  to { offset-distance: 100%; opacity: 1; }
+  from {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  to {
+    offset-distance: 100%;
+    opacity: 1;
+  }
 }
 
-/* תווית חבילה: טקסט נקי עם הילה לבנה — בלי קופסאות מעוגלות */
+/* תווית חבילה: טקסט נקי עם הילה לבנה - בלי קופסאות מעוגלות */
 .xp-packet-label {
   position: absolute;
   bottom: 32px;
@@ -319,7 +338,10 @@
   pointer-events: none;
 }
 
-.xp-info.show { opacity: 1; transform: none; }
+.xp-info.show {
+  opacity: 1;
+  transform: none;
+}
 
 .xp-info-title {
   font-weight: 800;
@@ -374,14 +396,32 @@
 }
 
 @keyframes xpCheckIn {
-  from { opacity: 0; transform: translateX(12px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes xpStamp {
-  0% { transform: scale(2.6) rotate(-14deg); opacity: 0; }
-  60% { transform: scale(0.9) rotate(2deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0); opacity: 1; }
+  0% {
+    transform: scale(2.6) rotate(-14deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(0.9) rotate(2deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
 }
 
 /* קרן סריקה שחולפת על כרטיס */
@@ -400,8 +440,13 @@
 }
 
 @keyframes xpScanSweep {
-  from { transform: translateX(-120%); }
-  to { transform: translateX(340%); }
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(340%);
+  }
 }
 
 /* התפרצות ניצוצות לשלב הסיום */
@@ -421,8 +466,15 @@
 }
 
 @keyframes xpSparkFly {
-  0% { transform: translate(0, 0) scale(0.4); opacity: 1; }
-  100% { transform: translate(var(--dx), var(--dy)) scale(1.1); opacity: 0; }
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1.1);
+    opacity: 0;
+  }
 }
 
 /* --- תגי הסבר --- */
@@ -449,7 +501,9 @@
   transform: none;
 }
 
-.xp-callout strong { color: var(--xp-deep); }
+.xp-callout strong {
+  color: var(--xp-deep);
+}
 
 /* --- פוטר: נקודות + קריינות --- */
 
@@ -478,7 +532,9 @@
   transition: all 0.3s ease;
 }
 
-.xp-dot.past { background: rgba(57, 110, 131, 0.55); }
+.xp-dot.past {
+  background: rgba(57, 110, 131, 0.55);
+}
 
 .xp-dot.on {
   background: var(--xp-deep);
@@ -502,8 +558,15 @@
 }
 
 @keyframes xpNarrIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .xp-hint {
@@ -512,6 +575,8 @@
   color: var(--xp-gray);
 }
 
-/* --- כרטיסי קוד (לא בשימוש — נשמר לתאימות) --- */
+/* --- כרטיסי קוד (לא בשימוש - נשמר לתאימות) --- */
 
-.xp-code { display: none; }
+.xp-code {
+  display: none;
+}

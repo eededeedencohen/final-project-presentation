@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Cart - תסריט דובר מלא</title>
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card: #ffffff;
+        --ink: #1c2230;
+        --muted: #5b6472;
+        --accent: #2f6fed;
+        --accent-soft: #eaf1fe;
+        --script-bg: #fbfcfe;
+        --script-border: #2f6fed;
+        --note-bg: #fff8e6;
+        --note-ink: #7a5c00;
+        --step-bg: #eef7f0;
+        --step-ink: #1d6b3f;
+        --line: #e4e7ec;
+        --shadow:
+          0 1px 3px rgba(20, 30, 50, 0.08), 0 8px 24px rgba(20, 30, 50, 0.05);
+        --radius: 14px;
+        --maxw: 860px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          "Segoe UI",
+          "Assistant",
+          "Rubik",
+          "Heebo",
+          system-ui,
+          -apple-system,
+          Arial,
+          sans-serif;
+        line-height: 1.75;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---------- Header ---------- */
+      header.hero {
+        background: linear-gradient(135deg, #1f2a44 0%, #2f6fed 100%);
+        color: #fff;
+        padding: 44px 24px 40px;
+        text-align: center;
+      }
+      header.hero .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin-bottom: 14px;
+      }
+      header.hero .cart {
+        font-size: 22px;
+      }
+      header.hero h1 {
+        margin: 0 0 10px;
+        font-size: clamp(26px, 5vw, 40px);
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      header.hero p.sub {
+        margin: 0 auto;
+        max-width: 620px;
+        opacity: 0.92;
+        font-size: 17px;
+      }
+
+      /* ---------- Layout ---------- */
+      main {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 28px 20px 80px;
+      }
+
+      /* Usage callout */
+      .usage {
+        background: var(--accent-soft);
+        border: 1px solid #cfe0fc;
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        margin: 26px 0 10px;
+        font-size: 17px;
+      }
+      .usage strong {
+        color: var(--accent);
+      }
+
+      /* Slide card */
+      .slide {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 24px 26px 26px;
+        margin: 26px 0;
+        scroll-margin-top: 20px;
+      }
+      .slide h2 {
+        margin: 0 0 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--line);
+        font-size: 22px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .slide h2 .num {
+        flex: 0 0 auto;
+        display: inline-grid;
+        place-items: center;
+        min-width: 38px;
+        height: 38px;
+        padding: 0 10px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .slide h2 .title {
+        font-size: 20px;
+      }
+      .slide h2 .tag {
+        margin-inline-start: auto;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid #cfe0fc;
+        border-radius: 999px;
+        padding: 3px 12px;
+      }
+
+      /* Spoken script block */
+      .script {
+        background: var(--script-bg);
+        border-inline-start: 4px solid var(--script-border);
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin: 14px 0;
+        font-size: 18.5px;
+        color: #232b3a;
+      }
+      .script p {
+        margin: 0 0 10px;
+      }
+      .script p:last-child {
+        margin-bottom: 0;
+      }
+      .script strong {
+        color: #12336e;
+        font-weight: 700;
+      }
+
+      /* Stage directions / notes */
+      .note {
+        background: var(--note-bg);
+        color: var(--note-ink);
+        border: 1px dashed #e6cf80;
+        border-radius: 8px;
+        padding: 9px 14px;
+        margin: 12px 0;
+        font-size: 15.5px;
+        font-style: italic;
+      }
+
+      /* Step label (מצב פתיחה / [לחיצה]) */
+      .step-label {
+        display: inline-block;
+        background: var(--step-bg);
+        color: var(--step-ink);
+        font-weight: 700;
+        font-size: 15px;
+        border-radius: 6px;
+        padding: 4px 12px;
+        margin: 16px 0 2px;
+      }
+
+      /* Appendix list */
+      .appendix ul {
+        padding-inline-start: 22px;
+        margin: 12px 0 0;
+      }
+      .appendix li {
+        margin-bottom: 10px;
+      }
+      .appendix code,
+      .kbd {
+        background: #eceff3;
+        border: 1px solid #d7dce3;
+        border-radius: 5px;
+        padding: 1px 7px;
+        font-family: "Consolas", "SFMono-Regular", monospace;
+        font-size: 14px;
+        direction: ltr;
+        display: inline-block;
+      }
+      .en {
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        padding: 30px 20px 10px;
+      }
+
+      /* ---------- Sticky mini nav ---------- */
+      .toc-toggle {
+        position: fixed;
+        top: 16px;
+        inset-inline-start: 16px;
+        z-index: 30;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 9px 14px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        font-family: inherit;
+      }
+      .toc {
+        position: fixed;
+        top: 0;
+        inset-inline-start: 0;
+        height: 100%;
+        width: 280px;
+        background: #fff;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+        z-index: 40;
+        padding: 60px 0 20px;
+        overflow-y: auto;
+      }
+      html[dir="rtl"] .toc {
+        inset-inline-start: 0;
+        transform: translateX(105%);
+      }
+      .toc.open {
+        transform: translateX(0);
+      }
+      .toc a {
+        display: block;
+        padding: 8px 20px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 14.5px;
+        border-inline-start: 3px solid transparent;
+      }
+      .toc a:hover {
+        background: var(--accent-soft);
+        border-inline-start-color: var(--accent);
+      }
+      .toc .toc-close {
+        position: absolute;
+        top: 14px;
+        inset-inline-end: 16px;
+        background: none;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: var(--muted);
+      }
+      .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 35;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      .backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ---------- Print ---------- */
+      @media print {
+        body {
+          background: #fff;
+          font-size: 12pt;
+        }
+        header.hero {
+          background: #1f2a44 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .toc-toggle,
+        .toc,
+        .backdrop {
+          display: none !important;
+        }
+        .slide {
+          box-shadow: none;
+          border: 1px solid #ccc;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        .script,
+        .note,
+        .usage {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        main {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 16.5px;
+        }
+        .slide {
+          padding: 18px 16px;
+        }
+        .slide h2 .tag {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toc-toggle" id="tocToggle" aria-label="תוכן עניינים">
+      ☰ שקפים
+    </button>
+    <div class="backdrop" id="backdrop"></div>
+    <nav class="toc" id="toc" aria-label="ניווט שקפים">
+      <button class="toc-close" id="tocClose" aria-label="סגור">×</button>
+    </nav>
+
+    <header class="hero">
+      <div class="brand">
+        <span class="cart">🛒</span><span>SMART CART</span>
+      </div>
+      <h1>תסריט דובר מלא</h1>
+      <p class="sub">
+        מותאם למצגת האינטראקטיבית · 21 שקפים · זמן יעד: 13–15 דקות
+      </p>
+    </header>
+
+    <main>
+      <div class="usage">
+        <strong>איך להשתמש:</strong> התסריט בנוי לפי סדר 21 השקפים במצגת. בשקף 8
+        (מפת המערכת) ובשקפים 10, 12, 15 כל <strong>[לחיצה]</strong> מקדמת שלב
+        באנימציה - דבר, ואז לחץ. בשאר השקפים הנפשת הכניסה רצה אוטומטית. זמן יעד
+        כולל: <strong>13–15 דקות</strong> (בלי שאלות). דבר לאט ב-30 השניות
+        הראשונות - זה מכייל את הקצב לכל ההרצאה.
+      </div>
+
+      <!-- שקף 1 -->
+      <section class="slide" id="s1">
+        <h2>
+          <span class="num">1</span
+          ><span class="title">פתיחה (SMART CART)</span>
+        </h2>
+        <div class="script">
+          <p>
+            ערב טוב. תרשו לי לפתוח בשאלה: מתי בפעם האחרונה יצאתם מהסופר עם הרגשה
+            שניצחתם את המערכת? ...כנראה אף פעם. אני עדן כהן, ובחצי השנה האחרונה
+            בניתי את <strong>Smart Cart</strong> - עגלת קניות חכמה: מערכת
+            Full-Stack עם בינה מלאכותית, שהופכת את הקנייה בסופר ממשחק ניחושים -
+            להחלטה מחושבת בזמן אמת.
+          </p>
+        </div>
+        <div class="note">
+          (משפט אחד, נשימה, ממשיכים. אל תקריא את מה שכתוב על המסך.)
+        </div>
+      </section>
+
+      <!-- שקף 2 -->
+      <section class="slide" id="s2">
+        <h2><span class="num">2</span><span class="title">הבעיה</span></h2>
+        <div class="script">
+          <p>
+            נתחיל מהכאב. הוצאה על מזון היא ההוצאה
+            <strong>השנייה בגודלה</strong> של משק בית בישראל, מיד אחרי הדיור.
+            ובתוך ההוצאה הענקית הזאת יש שלוש בעיות שכולנו מכירים:
+          </p>
+          <p>
+            <strong>יוקר המחיה</strong> - המחירים עולים, והצרכן נשאר בלי כלי
+            אמיתי להתגונן.
+          </p>
+          <p>
+            <strong>הפתעת הקופה</strong> - אנחנו ממלאים עגלה מתוך הרגל, מאבדים
+            את החשבון בראש, ופוגשים את המספר האמיתי רק בקופה - בדיוק בשלב שבו אף
+            אחד לא מעז להחזיר מוצרים למדף.
+          </p>
+          <p>
+            <strong>וקושי בהשוואה</strong> - מוח אנושי פשוט לא מסוגל להשוות עגלה
+            של 40 מוצרים, עם משקלים שונים, אריזות שונות ומבצעים כמו "אחד פלוס
+            אחד", בין עשרות סניפים. זו לא עצלנות - זו מגבלה קוגניטיבית.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 3 -->
+      <section class="slide" id="s3">
+        <h2><span class="num">3</span><span class="title">מוטיבציה</span></h2>
+        <div class="script">
+          <p>
+            עכשיו דמיינו רגע עולם שבו שלוש הבעיות האלה פתורות. מה בעצם קורה בו?
+          </p>
+          <p>
+            <strong>וודאות כלכלית מלאה</strong>: הצרכן יודע, על האגורה, כמה הוא
+            עומד לשלם בכל רגע - התקציב נקבע בבית, והקופה מפסיקה להפתיע.
+          </p>
+          <p>
+            <strong>חיסכון מקסימלי במאמץ מינימלי</strong>: הסל המשתלם ביותר,
+            כולל חלופות זולות ואיכותיות, מגיע אל הצרכן מעצמו - בלי מחשבון ובלי
+            סיורי "מחקר שוק" בין סניפים.
+          </p>
+          <p>
+            <strong>פשטות וחיסכון בזמן</strong> - והשורה שמסכמת הכול:
+            <strong>צרכנות רגועה, מבוססת דאטה, בזמן הקנייה עצמה</strong> - לא
+            בדיעבד בקופה.
+          </p>
+          <p>זו התמונה שצריכה לקרות. השאלה היא רק - מי מביא אותה.</p>
+        </div>
+      </section>
+
+      <!-- שקף 4 -->
+      <section class="slide" id="s4">
+        <h2>
+          <span class="num">4</span
+          ><span class="title">פתרונות קיימים בשוק</span>
+        </h2>
+        <div class="script">
+          <p>
+            חשוב לי להגיד - אנחנו לא הראשונים שמזהים את הבעיה. יש שני שחקנים
+            מרכזיים:
+          </p>
+          <p>
+            <strong>Pricez</strong> - הסטנדרט הנוכחי: רשימות קניות ומחירים
+            שמבוססים בעיקר על דיווחי קהילה, עם סריקת ברקוד לבירור מחיר של מוצר
+            בודד.
+          </p>
+          <p>
+            <strong>CHP</strong> - מנוע חיפוש חזק שנשען על מאגרי המחירים הפתוחים
+            של משרד הכלכלה, ומאפשר לבנות סל ולקבל התראות מחיר.
+          </p>
+          <p>
+            שניהם כלים טובים. אז למה בכל זאת אף אחד מהם לא שינה את חוויית
+            הקנייה?
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 5 -->
+      <section class="slide" id="s5">
+        <h2>
+          <span class="num">5</span
+          ><span class="title">הפער בפתרונות הקיימים</span>
+        </h2>
+        <div class="script">
+          <p>כי לכולם יש את אותם ארבעה חורים:</p>
+          <p>
+            <strong>עבודת נמלים ידנית</strong> - הצרכן הופך למחסנאי: סריקה,
+            חיפוש והשוואה לכל פריט בנפרד. איטי מדי לקנייה שבועית אמיתית.
+          </p>
+          <p>
+            <strong>אין אופטימיזציה לעגלה שלמה</strong> - אף מערכת לא יודעת לקחת
+            רשימה של 50 פריטים, להריץ אותה מול כל הסניפים בעיר עם כל המבצעים
+            הצולבים, ולפלוט את הסל הזול ביותר.
+          </p>
+          <p>
+            <strong>חוויה מקוטעת</strong> - הן טובות להכנה בבית, אבל לא מלוות
+            אותך בתוך הסופר, בזמן אמת, כשההחלטות באמת מתקבלות.
+          </p>
+          <p>
+            <strong>ואין שכבת בינה</strong> - המערכות מציגות נתונים יבשים. הן לא
+            לומדות אותך, ולכן לא יכולות להציע לך ביוזמתן חלופה שמתאימה
+            <em>לך</em>.
+          </p>
+          <p>הפער הזה הוא בדיוק ההזדמנות שלנו.</p>
+        </div>
+      </section>
+
+      <!-- שקף 6 -->
+      <section class="slide" id="s6">
+        <h2><span class="num">6</span><span class="title">מטרות היעד</span></h2>
+        <div class="script">
+          <p>
+            ומכאן - המטרות המרכזיות שהצבתי לאפליקציה. אלו הדברים ש-Smart Cart
+            חייבת לעשות כדי להביא את התמונה ההיא לחיים:
+          </p>
+          <p>
+            בניית עגלה <strong>במהירות</strong>;
+            <strong>אלגוריתם בסיבוכיות נמוכה</strong> להשוואת עגלות שלמות - אלפי
+            מוצרים במספר סניפים, בשניות;
+            <strong>תשתית מעקב חי</strong> בסופרמרקט - הסכום מתעדכן בזמן
+            שסורקים; <strong>מערכת OCR</strong> שהופכת צילום של קבלה מקומטת
+            לדאטה דיגיטלי - היסטוריית קניות בלי הקלדה;
+            <strong>למידת צרכי המשתמש</strong> לאורך זמן;
+            <strong>אינטגרציית מודל שפה כעוזר אקטיבי</strong> - לא צ'אט לקישוט,
+            אלא עוזר שמבצע פעולות; <strong>מעקב הוצאות</strong>;
+            <strong>עלות קנייה מינימלית</strong>; והכול עטוף ב<strong
+              >ממשק שנוח להפעיל ביד אחת</strong
+            >, כשהיד השנייה על העגלה.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 7 -->
+      <section class="slide" id="s7">
+        <h2><span class="num">7</span><span class="title">טכנולוגיות</span></h2>
+        <div class="script">
+          <p>
+            כדי לעמוד בדרישות האלה, זה הסטאק: <strong>React</strong> בצד הלקוח,
+            <strong>Node.js ו-Express</strong> בשרת,
+            <strong>MongoDB עם Mongoose</strong> בנתונים, ושלושה שירותי AI -
+            <strong>OpenAI</strong> לשפה,
+            <strong>Google Cloud Vision</strong> לראייה ממוחשבת, ו-<strong
+              >ElevenLabs</strong
+            >
+            לקול.
+          </p>
+          <p>
+            עכשיו - במקום לזרוק עוד רשימת כלים, אני רוצה לקחת אתכם
+            <strong>מאחורי הקלעים</strong>, שכבה-שכבה, ולהראות איך בקשה אחת
+            אמיתית עוברת במערכת.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 8 -->
+      <section class="slide" id="s8">
+        <h2>
+          <span class="num">8</span
+          ><span class="title">מפת המערכת - התמונה המלאה</span>
+        </h2>
+        <div class="note">
+          (שקף בנייה: 14 לחיצות - כל לחיצה מוסיפה רכיב או חיבור אחד, והקריינות
+          על המסך מסבירה אותו. קרא אותה בקול בקצב שלך; העצות: עצור אחרי המובייל,
+          אחרי שהבקשה נוסעת, ואחרי שהתשובה חוזרת - אלו שלושת רגעי ה"אהה".)
+        </div>
+        <div class="script">
+          <p>
+            נבנה יחד את התמונה: המסך של המשתמש והצייר והשליח שלו; הבקשה שנוסעת
+            לשרת; מרכז התיאום עם המנוע ושומר הסף; השאלה שממשיכה למחסן הנתונים;
+            המדפים ובקר האיכות; שלושת עוזרי ה-AI; והתשובה שחוזרת את כל הדרך -
+            בפחות משנייה. בסוף: שלוש שכבות שמדברות ביניהן בלי הפסקה.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 9 חוצץ -->
+      <section class="slide" id="s9a">
+        <h2>
+          <span class="num">9</span
+          ><span class="title">שכבת ה-Data (חוצץ)</span>
+        </h2>
+        <div class="script">
+          <p>
+            נתחיל מהבסיס - שכבת הנתונים. בחרנו <strong>MongoDB</strong> בכוונה:
+            מוצרי סופרמרקט הם דאטה "מבולגן" מטבעו - לחלק יש משקל, לחלק יחידות,
+            לחלק אלרגנים. מסד טבלאי היה נשבר כאן; מסד מסמכים מרגיש בבית. ומעליו
+            <strong>Mongoose</strong>, ששומר על סדר בתוך הגמישות. איך זה עובד
+            בפועל? בואו נראה.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 9 אינטראקטיבי -->
+      <section class="slide" id="s9b">
+        <h2>
+          <span class="num">10</span
+          ><span class="title">שכבת הנתונים - מאחורי הקלעים</span
+          ><span class="tag">אינטראקטיבי</span>
+        </h2>
+        <div class="note">
+          (כל [לחיצה] מקדמת שלב. חכה שהאנימציה תסתיים לפני שממשיכים לדבר.)
+        </div>
+
+        <div class="step-label">מצב פתיחה</div>
+        <div class="script">
+          <p>
+            אלו שלוש התחנות של שכבת הנתונים. ומימין - שכבת השרת, שעוד נגיע אליה.
+            בינתיים תחשבו עליה כקופסה שחורה ששולחת בקשות.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 1 - הבקשה נכנסת</div>
+        <div class="script">
+          <p>משכבת השרת נכנסת בקשה: "כל מחירי החלב, מסודרים מהזול ליקר".</p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 2 - בקר האיכות (Model)</div>
+        <div class="script">
+          <p>
+            ראשון מקבל אותה <strong>בקר האיכות</strong> - ה-Model. הוא הסכמה של
+            Mongoose: כל מוצר חייב שם, מחיר תקין וברקוד. שימו לב לוִוים שנחתמים
+            - נתון פגום פשוט לא ממשיך הלאה. זה מה ששומר על אמינות ההשוואות שלנו.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 3 - המתרגם (Mongoose)</div>
+        <div class="script">
+          <p>
+            <strong>המתרגם</strong> ממיר את הבקשה לשפת השאילתות של MongoDB ומנהל
+            את החיבור. הקוד שלנו מדבר "עברית הנדסית" - Mongoose מדבר "מחסנית".
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 4 - המחסן (MongoDB)</div>
+        <div class="script">
+          <p>
+            וב<strong>מחסן</strong> - מאות אלפי מחירים מכל הרשתות. בזכות
+            אינדקסים, האיתור לוקח שבריר שנייה - בלי לעבור מדף-מדף.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 5 - הדרך חזרה</div>
+        <div class="script">
+          <p>
+            הממצאים חוזרים, וכל פריט עובר שוב את בקר האיכות ומקבל "תעודת
+            תקינות".
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 6 - התשובה יוצאת</div>
+        <div class="script">
+          <p>
+            ותשובה מסודרת ומאומתת יוצאת חזרה לשכבת השרת. מה קורה לה שם? זה בדיוק
+            השקף הבא.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 10 -->
+      <section class="slide" id="s10">
+        <h2>
+          <span class="num">11</span
+          ><span class="title">Server/API (חוצץ)</span>
+        </h2>
+        <div class="script">
+          <p>
+            שכבת השרת היא מרכז התיאום של המערכת - היא יושבת בין הנתונים לבין
+            המסך של המשתמש, ומנהלת את התנועה בין שניהם.
+          </p>
+        </div>
+        <div class="note">
+          (על המסך: Node.js, Express, ולצידם CORS ו-Morgan שמאבטחים ומתעדים כל
+          בקשה. Axios מופיע בשקף הקליינט - הוא שייך לצד ההוא.)
+        </div>
+      </section>
+
+      <!-- שקף 11 -->
+      <section class="slide" id="s11">
+        <h2>
+          <span class="num">12</span
+          ><span class="title">שכבת השרת - מאחורי הקלעים</span
+          ><span class="tag">אינטראקטיבי</span>
+        </h2>
+
+        <div class="step-label">מצב פתיחה</div>
+        <div class="script">
+          <p>
+            משמאל - שכבת הנתונים שהרגע ראינו. מימין - שכבת הקליינט. באמצע: ארבע
+            התחנות של השרת.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 1 - בקשה מהקליינט</div>
+        <div class="script">
+          <p>
+            המשתמש לחץ "השוו לי את העגלה". הבקשה נכנסת אל
+            <strong>המנוע</strong> - Node.js - סביבת ריצה אסינכרונית שמסוגלת
+            להחזיק המון בקשות במקביל בלי להיחנק.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 2 - שומר הסף (Express)</div>
+        <div class="script">
+          <p>
+            בדלת עומד <strong>שומר הסף</strong> - Express עם שרשרת Middleware:
+            הבקשה מגיעה ממקור מוכר? נרשמה ביומן? התוכן קריא? רק אז נכנסים.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 3 - המוקדן (Routes)</div>
+        <div class="script">
+          <p>
+            <strong>המוקדן</strong> מסתכל על הכתובת ומנתב - יש דלפק ייעודי לכל
+            סוג בקשה: מוצרים, עגלות, השוואות.
+          </p>
+        </div>
+
+        <div class="step-label">
+          [לחיצה] שלב 4 - המנהל (Controller) פונה לנתונים
+        </div>
+        <div class="script">
+          <p>
+            וכאן <strong>המנהל</strong> - הלוגיקה העסקית. כדי לענות, הוא שולח
+            בקשה לשכבת הנתונים -
+            <strong>זה בדיוק המסע שראיתם בשקף הקודם</strong>. ככה השכבות נסגרות
+            זו על זו.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 5 - התשובה חוזרת</div>
+        <div class="script">
+          <p>
+            הממצאים חוזרים מהנתונים ועוברים בחזרה בשרשרת - המנהל מרכיב מהם תשובה
+            אחת.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 6 - יוצאים לקליינט</div>
+        <div class="script">
+          <p>
+            והתשובה יוצאת לשכבת הקליינט. מהקליק של המשתמש ועד לכאן - פחות
+            משנייה.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 12 -->
+      <section class="slide" id="s12">
+        <h2>
+          <span class="num">13</span
+          ><span class="title">שירותי ה-AI (חוצץ)</span>
+        </h2>
+        <div class="script">
+          <p>
+            לפני שנגיע לקליינט - שלושת שירותי החוץ שנותנים למערכת את ה"מוח":
+          </p>
+          <p>
+            <strong>OpenAI</strong> - מעבד שפה טבעית: הופך "תוסיף קילו עגבניות"
+            לפעולה מובנית בקוד, באמצעות Function Calling.
+          </p>
+          <p>
+            <strong>Google Cloud Vision</strong> - ה-OCR שלנו: מקבל צילום של
+            קבלה מקומטת מהסופר ומחזיר טקסט שאנחנו מנתחים לשורות מוצרים ומחירים.
+          </p>
+          <p>
+            <strong>ElevenLabs</strong> - נותן לעוזר קול אנושי וטבעי. כשהידיים
+            על העגלה - מדברים, לא מקלידים.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 13 -->
+      <section class="slide" id="s13">
+        <h2>
+          <span class="num">14</span
+          ><span class="title">Client/SPA (חוצץ)</span>
+        </h2>
+        <div class="script">
+          <p>ועכשיו לשכבה שהמשתמש באמת פוגש - הקליינט.</p>
+        </div>
+      </section>
+
+      <!-- שקף 14 -->
+      <section class="slide" id="s14">
+        <h2>
+          <span class="num">15</span
+          ><span class="title">שכבת הקליינט - מאחורי הקלעים</span
+          ><span class="tag">אינטראקטיבי</span>
+        </h2>
+
+        <div class="step-label">מצב פתיחה</div>
+        <div class="script">
+          <p>
+            כל מה שתראו עכשיו חי בתוך <strong>אפליקציית React אחת</strong> -
+            מהכפתור הקטן ועד העמוד השלם. זו אפליקציית Single-Page: הדף נטען פעם
+            אחת, ומשם הכול קורה בלי רענון.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 1 - השליח (Axios)</div>
+        <div class="script">
+          <p>
+            התשובה מהשרת מגיעה אל <strong>השליח</strong> - Axios - נקודת הקשר
+            היחידה של המסך עם העולם שבחוץ.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 2 - המזכירה (Service)</div>
+        <div class="script">
+          <p>
+            <strong>המזכירה</strong> - שכבת ה-Service - הופכת תשובה גולמית למידע
+            מוכן לתצוגה. אף קומפוננטה אצלנו לא מכירה כתובות של שרתים - וזה מה
+            שמאפשר להחליף שרת בלי לגעת במסכים.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 3 - לוח המודעות (Context)</div>
+        <div class="script">
+          <p>
+            <strong>לוח המודעות</strong> - ה-Context - מעדכן את הזיכרון המשותף.
+            ובאפליקציה שלנו יש לוח לכל נושא: עגלה, מחירים, העדפות - כל אחד עם
+            תחום אחריות משלו.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 4 - המומחים (Hooks)</div>
+        <div class="script">
+          <p>
+            <strong>המומחים</strong> - ה-Hooks. מומחה העגלה, למשל, יודע לחשב
+            סה"כ, להוסיף ולהסיר. כותבים אותו פעם אחת - וכל מסך שצריך עגלה פשוט
+            "שואל את המומחה".
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 5 - אבני הבניין (Components)</div>
+        <div class="script">
+          <p>
+            <strong>אבני הבניין</strong> מרכיבות את התצוגה מחדש - אבל שימו לב:
+            רק את מה שהשתנה. כרטיס המוצר ושורת הסה"כ - והשאר לא מצויר מחדש. לכן
+            זה מהיר.
+          </p>
+        </div>
+
+        <div class="step-label">[לחיצה] שלב 6 - העמוד באפליקציה</div>
+        <div class="script">
+          <p>
+            וה-Router בוחר את העמוד - עגלה, השוואה, סטטיסטיקות - והכול מוצג בתוך
+            האפליקציה. <strong>מהמחסן ועד המסך - בלי רענון אחד.</strong> זה כל
+            המסע.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 15 -->
+      <section class="slide" id="s15">
+        <h2>
+          <span class="num">16</span
+          ><span class="title">הפיצ'רים המרכזיים - תפעול קנייה</span>
+        </h2>
+        <div class="script">
+          <p>על התשתית הזאת בנינו את הליבה התפעולית:</p>
+          <p>
+            <strong>סריקת ברקודים ממצלמת המכשיר</strong> - מזהים את המוצר שביד
+            ומוסיפים לסל בשנייה.
+          </p>
+          <p>
+            <strong>פיענוח OCR של קבלות</strong> - מצלמים קבלה ישנה, והמערכת
+            מאכלסת היסטוריית קניות שלמה. ככה בונים פרופיל צרכני בלי להקליד כלום.
+          </p>
+          <p>
+            <strong>ממשק מותאם ליד אחת</strong> - כי בסופר היד השנייה תמיד
+            תפוסה.
+          </p>
+          <p>
+            <strong>ומצב קנייה Live עם התראות תקציב</strong> - הסכום המצטבר רץ
+            מול העיניים, וכשמתקרבים לתקרה שהגדרת - מקבלים התראה. להתראות עם
+            "הפתעת הקופה".
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 16 -->
+      <section class="slide" id="s16">
+        <h2>
+          <span class="num">17</span
+          ><span class="title">הפיצ'רים המרכזיים - בינה מלאכותית</span>
+        </h2>
+        <div class="script">
+          <p>ומעל זה - שכבת ה-AI, הערך שפורץ את הדרך:</p>
+          <p>
+            <strong>מנוע השוואת עגלות שלמה</strong> - פונקציית עלות שמקבלת עגלה
+            ורשימת סניפים, ומחזירה לכל סניף את העגלה בנויה מחדש, עם כל המבצעים
+            משוקללים.
+          </p>
+          <p>
+            <strong>דירוג חלופות מותאם אישית</strong> - המערכת לא תציע חלב סויה
+            למי שקונה רק חלב פרה, גם אם הסויה במבצע עמוק. ההמלצות כפופות לפרופיל
+            של המשתמש.
+          </p>
+          <p>
+            <strong>צ'אטבוט קולי</strong> - שואלים "כמה נשאר לי בתקציב?", המודל
+            מזהה כוונה, מפעיל פונקציה אמיתית בשרת, ועונה בקול. ידיים חופשיות
+            לגמרי.
+          </p>
+          <p>
+            <strong>ופילוח הוצאות חכם</strong> - דשבורד שמראה לאן הכסף באמת
+            הולך.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 17 -->
+      <section class="slide" id="s17">
+        <h2><span class="num">18</span><span class="title">אתגרים</span></h2>
+        <div class="script">
+          <p>אני רוצה להיות כן - היו קשיים, וזה החלק שאני הכי גאה בו:</p>
+          <p>
+            <strong>OCR בעברית</strong> - כיוון RTL, פונטים תרמיים מטושטשים,
+            ולכל רשת פורמט קבלה אחר. נדרשו פילטרים ו-Regex מורכבים רק כדי לנקות
+            את הרעש.
+          </p>
+          <p>
+            <strong>תיוג סמנטי ידני למעל 6,000 מוצרים</strong> - כדי ששמן זית
+            יוחלף בשמן זית ולא בשמן קנולה, היינו חייבים מאגר ידע מסווג. עבודת
+            Data Engineering סיזיפית - אבל בלעדיה ה-AI ממליץ המלצות מביכות.
+          </p>
+          <p>
+            <strong>ביצועים</strong> - השוואת 50 פריטים מול 10 סניפים עם עשרות
+            חלופות לכל פריט זו סיבוכיות מתפוצצת. פתרנו עם אינדוקס חכם, Caching
+            ואלגוריתם חמדן שסוגר את זה בשניות בודדות.
+          </p>
+          <p>
+            <strong>והזיות של מודלי שפה</strong> - LLM שלא בטוח, ממציא מחיר.
+            הכרחנו את העוזר לענות רק מתוך הדאטה שלנו, בגישת RAG עם System
+            Prompts נוקשים - כי המלצה פיננסית שגויה גרועה מאין המלצה.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 18 -->
+      <section class="slide" id="s18">
+        <h2>
+          <span class="num">19</span
+          ><span class="title">שיפורים פוטנציאליים</span>
+        </h2>
+        <div class="script">
+          <p>
+            לאן זה יכול לצמוח? <strong>התראות מבצעים בזמן אמת</strong> לפי
+            הפרופיל שלך; <strong>אפליקציה סלולרית ייעודית</strong>;
+            <strong>שיתופי פעולה עם רשתות ויצרנים</strong>;
+            <strong>פריסה בענן מבוזר</strong> לקנה מידה ארצי; ו<strong
+              >לוח מחוונים אנליטי B2B</strong
+            >
+            - כי הדאטה שנצבר כאן שווה זהב גם לצד העסקי. ובמבט רחוק יותר: תשלום
+            אוטומטי בלי תור לקופה, עגלה משפחתית מסונכרנת בזמן אמת, ואפילו ניווט
+            בתוך הסניף במסלול הקצר ביותר.
+          </p>
+        </div>
+      </section>
+
+      <!-- שקף 19 -->
+      <section class="slide" id="s19">
+        <h2>
+          <span class="num">20</span><span class="title">מסקנות והשפעה</span>
+        </h2>
+        <div class="script">
+          <p>אז מה השגנו? חזרו איתי לשקף השני - לשלוש הבעיות.</p>
+          <p>
+            <strong>הצרכן הפך מפסיבי לפרואקטיבי</strong> - הוא שולט בהוצאה לכל
+            אורך הדרך, לא מגלה אותה בקופה. <strong>העומס המנטלי ירד</strong> -
+            את העבודה השחורה המתמטית עושים המנועים ברקע.
+            <strong>וזו דמוקרטיזציה של AI</strong> - הוכחנו שטכנולוגיות שהיו
+            שמורות לתאגידי ענק, OCR ועוזרים קוליים, יכולות להוריד את יוקר המחיה
+            ברמת משק הבית הבודד.
+          </p>
+          <p><strong>המטרה הושגה.</strong></p>
+        </div>
+      </section>
+
+      <!-- שקף 20 -->
+      <section class="slide" id="s20">
+        <h2><span class="num">21</span><span class="title">תודה</span></h2>
+        <div class="script">
+          <p>תודה רבה שהקשבתם. אשמח לענות על כל שאלה - טכנית או מוצרית.</p>
+        </div>
+        <div class="note">
+          (הלוגו נכנס ראשון, ואז "תודה" ולחיצת היד. עצור. חייך. תן לבוחנים
+          לפתוח.)
+        </div>
+      </section>
+
+      <!-- נספח -->
+      <section class="slide appendix" id="appendix">
+        <h2>
+          <span class="num">＋</span
+          ><span class="title">נספח: טיפים לתפעול המצגת</span>
+        </h2>
+        <ul>
+          <li>
+            <strong>ניווט:</strong> חץ ימינה / רווח / קליק - קדימה (בשקפי
+            האנימציה: שלב הבא). חץ שמאלה - אחורה. <span class="kbd">G</span> -
+            מבט-על. <span class="kbd">F</span> - מסך מלא.
+          </li>
+          <li>
+            <strong>הנפשות כניסה:</strong> בכל שקפי התוכן הרגילים ההנפשה רצה
+            אוטומטית עם כניסת השקף (כ־1.5 שניות: כותרות מהצד ← סעיפים קופצים ←
+            פסי הפינות) - אין צורך בלחיצות, אפשר להתחיל לדבר מיד.
+          </li>
+          <li>
+            בשקפים האינטראקטיביים 8/10/12/15:
+            <strong>דבר קודם, לחץ אחר-כך</strong> - תן לחבילה לסיים לנסוע לפני
+            המשפט הבא.
+          </li>
+          <li>
+            אם בוחן שואל באמצע שקף אנימציה - אפשר לחזור שלב אחורה בחץ שמאלה
+            ולהריץ שוב.
+          </li>
+          <li>
+            חלוקת זמן מוצעת: פתיחה+בעיה+מוטיבציה ~3 דק' · שוק+פער+מטרות ~3 דק' ·
+            ארכיטקטורה (7–15) ~5 דק' · פיצ'רים+אתגרים ~3 דק' · סיום ~1 דק'.
+          </li>
+        </ul>
+      </section>
+
+      <footer>Smart Cart · תסריט דובר · עדן כהן</footer>
+    </main>
+
+    <script>
+      // Build TOC from slide headings
+      (function () {
+        var toc = document.getElementById("toc");
+        var slides = document.querySelectorAll(".slide");
+        slides.forEach(function (s) {
+          var h = s.querySelector("h2");
+          if (!h) return;
+          var num = h.querySelector(".num")
+            ? h.querySelector(".num").textContent
+            : "";
+          var title = h.querySelector(".title")
+            ? h.querySelector(".title").textContent
+            : h.textContent;
+          var a = document.createElement("a");
+          a.href = "#" + s.id;
+          a.textContent = (num ? num + ". " : "") + title;
+          toc.appendChild(a);
+        });
+
+        var toggle = document.getElementById("tocToggle");
+        var closeBtn = document.getElementById("tocClose");
+        var backdrop = document.getElementById("backdrop");
+        function open() {
+          toc.classList.add("open");
+          backdrop.classList.add("show");
+        }
+        function close() {
+          toc.classList.remove("open");
+          backdrop.classList.remove("show");
+        }
+        toggle.addEventListener("click", open);
+        closeBtn.addEventListener("click", close);
+        backdrop.addEventListener("click", close);
+        toc.addEventListener("click", function (e) {
+          if (e.target.tagName === "A") close();
+        });
+      })();
+    </script>
+  </body>
+</html>

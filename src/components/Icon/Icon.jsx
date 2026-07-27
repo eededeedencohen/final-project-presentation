@@ -1,8 +1,8 @@
-import './styles.css'
+import "./styles.css";
 
 /* ============================================================
    ספריית אייקוני קו אחידה (stroke, 24x24).
-   שימוש: <Icon name="cart" />  — הצבע נלקח מ-currentColor.
+   שימוש: <Icon name="cart" />  - הצבע נלקח מ-currentColor.
    ============================================================ */
 
 const PATHS = {
@@ -13,7 +13,7 @@ const PATHS = {
       <circle cx="17.6" cy="20.2" r="1.4" fill="currentColor" stroke="none" />
     </>
   ),
-  'cart-check': (
+  "cart-check": (
     <>
       <path d="M3 4h2.4l2.2 11.2a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.2L21.5 8H6.1" />
       <path d="M10.5 11l2 2 3.5-3.5" />
@@ -70,7 +70,7 @@ const PATHS = {
       <rect x="13" y="13" width="7" height="7" rx="1.5" />
     </>
   ),
-  'eye-off': (
+  "eye-off": (
     <>
       <path d="M4 4l16 16" />
       <path d="M10.6 6.3A9.6 9.6 0 0 1 12 6c5 0 8.6 4 9.5 6-.4.9-1.4 2.3-2.9 3.5M7.2 7.4C5 8.8 3.4 10.9 2.5 12c.9 2 4.5 6 9.5 6 1.2 0 2.4-.2 3.4-.7" />
@@ -109,7 +109,7 @@ const PATHS = {
       <path d="M4.5 20.5c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5" />
     </>
   ),
-  'chart-line': (
+  "chart-line": (
     <>
       <path d="M3.5 4v15.5a1 1 0 0 0 1 1H21" />
       <path d="M7 15l3.5-4 3 2.5L18.5 8" />
@@ -202,7 +202,10 @@ const PATHS = {
   gear: (
     <>
       <circle cx="12" cy="12" r="3.2" />
-      <path d="M12 2.8l1 2.6a7 7 0 0 1 2.4 1l2.6-1 1.6 2.8-1.6 2.2a7 7 0 0 1 0 2.6l1.6 2.2-1.6 2.8-2.6-1a7 7 0 0 1-2.4 1l-1 2.6h-1.9l-1-2.6a7 7 0 0 1-2.4-1l-2.6 1-1.6-2.8 1.6-2.2a7 7 0 0 1 0-2.6L2.5 8.2l1.6-2.8 2.6 1a7 7 0 0 1 2.4-1l1-2.6h1.9z" strokeWidth="1.5" />
+      <path
+        d="M12 2.8l1 2.6a7 7 0 0 1 2.4 1l2.6-1 1.6 2.8-1.6 2.2a7 7 0 0 1 0 2.6l1.6 2.2-1.6 2.8-2.6-1a7 7 0 0 1-2.4 1l-1 2.6h-1.9l-1-2.6a7 7 0 0 1-2.4-1l-2.6 1-1.6-2.8 1.6-2.2a7 7 0 0 1 0-2.6L2.5 8.2l1.6-2.8 2.6 1a7 7 0 0 1 2.4-1l1-2.6h1.9z"
+        strokeWidth="1.5"
+      />
     </>
   ),
   plug: (
@@ -219,7 +222,7 @@ const PATHS = {
       <path d="M6.5 14.5l3.5 4" />
     </>
   ),
-  'data-collect': (
+  "data-collect": (
     <>
       <path d="M12 3v10M12 13l-3.5-3.5M12 13l3.5-3.5" />
       <path d="M4 15v3a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 18v-3" />
@@ -268,7 +271,7 @@ const PATHS = {
       <path d="M12 7.5c0-2 1-3.5 3-4" />
     </>
   ),
-  'trend-up': (
+  "trend-up": (
     <>
       <path d="M3.5 17.5L9.5 11l3.5 3.5 7-7.5" />
       <path d="M20 11V7h-4" />
@@ -313,7 +316,10 @@ const PATHS = {
   ),
   puzzle: (
     <>
-      <path d="M9.5 4a1.8 1.8 0 0 1 3.6 0V5H16a1.5 1.5 0 0 1 1.5 1.5v2.9h1a1.8 1.8 0 0 1 0 3.6h-1v3.5A1.5 1.5 0 0 1 16 18h-2.9v1a1.8 1.8 0 0 1-3.6 0v-1H6.5A1.5 1.5 0 0 1 5 16.5v-3h1a1.8 1.8 0 0 0 0-3.6H5v-3A1.5 1.5 0 0 1 6.5 5.4h3V4z" strokeWidth="1.5" />
+      <path
+        d="M9.5 4a1.8 1.8 0 0 1 3.6 0V5H16a1.5 1.5 0 0 1 1.5 1.5v2.9h1a1.8 1.8 0 0 1 0 3.6h-1v3.5A1.5 1.5 0 0 1 16 18h-2.9v1a1.8 1.8 0 0 1-3.6 0v-1H6.5A1.5 1.5 0 0 1 5 16.5v-3h1a1.8 1.8 0 0 0 0-3.6H5v-3A1.5 1.5 0 0 1 6.5 5.4h3V4z"
+        strokeWidth="1.5"
+      />
     </>
   ),
   hook: (
@@ -330,15 +336,15 @@ const PATHS = {
       <path d="M9 12h6M9 15.5h6M9 8.5h2" />
     </>
   ),
-  'arrow-flow': <path d="M4 12h14M14 7l5 5-5 5" />,
-}
+  "arrow-flow": <path d="M4 12h14M14 7l5 5-5 5" />,
+};
 
-export const ICON_NAMES = Object.keys(PATHS)
+export const ICON_NAMES = Object.keys(PATHS);
 
-export default function Icon({ name, className = '', size }) {
-  const glyph = PATHS[name]
+export default function Icon({ name, className = "", size }) {
+  const glyph = PATHS[name];
   if (!glyph) {
-    console.warn(`Icon "${name}" לא קיים — נפל חזרה ל-sparkles`)
+    console.warn(`Icon "${name}" לא קיים - נפל חזרה ל-sparkles`);
   }
   return (
     <svg
@@ -354,5 +360,5 @@ export default function Icon({ name, className = '', size }) {
     >
       {glyph || PATHS.sparkles}
     </svg>
-  )
+  );
 }

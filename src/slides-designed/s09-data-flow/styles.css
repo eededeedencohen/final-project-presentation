@@ -1,5 +1,5 @@
 /* ============================================================
-   s09 — Data Flow: צינור נתונים אופקי בן ארבע תחנות
+   s09 - Data Flow: צינור נתונים אופקי בן ארבע תחנות
    ============================================================ */
 
 .dflow-title {
@@ -73,7 +73,7 @@
   flex-shrink: 0;
 }
 
-/* לוגואים כהים — תמיד על קלף בהיר */
+/* לוגואים כהים - תמיד על קלף בהיר */
 .dflow-chip-light {
   background: var(--c-paper);
   border: 1px solid rgba(127, 231, 242, 0.35);
@@ -86,7 +86,7 @@
   object-fit: contain;
 }
 
-/* אייקוני קו — צ'יפ זוהר בסגנון החוצצים */
+/* אייקוני קו - צ'יפ זוהר בסגנון החוצצים */
 .dflow-chip-glow {
   background: linear-gradient(150deg, rgba(43, 199, 220, 0.16), rgba(11, 37, 69, 0.4));
   border: 1px solid var(--c-dark-line);
@@ -167,7 +167,7 @@
   border-left: 8px solid var(--c-cyan);
 }
 
-/* פעימת הנתונים — נקודה זוהרת שנוסעת לאורך הקו */
+/* פעימת הנתונים - נקודה זוהרת שנוסעת לאורך הקו */
 .dflow-conn-dot {
   position: absolute;
   top: 50%;
@@ -190,14 +190,17 @@
     opacity: 0;
     transform: scale(0.55);
   }
+
   12% {
     opacity: 1;
     transform: scale(1);
   }
+
   82% {
     opacity: 1;
     transform: scale(1);
   }
+
   100% {
     left: calc(100% - 10px);
     opacity: 0;
