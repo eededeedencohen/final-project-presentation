@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Recorder from "../Recorder/Recorder.jsx";
+import LaserPointer from "../LaserPointer/LaserPointer.jsx";
 import "./styles.css";
 
 const STAGE_W = 1920;
@@ -305,6 +306,9 @@ export default function Deck({ slides }) {
 
       {/* מצלמה + הקלטת המצגת */}
       <Recorder />
+
+      {/* מצביע לייזר עם דיו נעלם — מיתוג בקליק ימני */}
+      <LaserPointer />
 
       <div className="deck-brand" dir="ltr">
         <svg viewBox="0 0 24 24" aria-hidden="true">
