@@ -27,16 +27,33 @@ export default function Deck({ slides }) {
   const [fullscreen, setFullscreen] = useState(false);
   const touchStart = useRef(null);
 
-  /* --- מסך מלא: מעקב מצב + כפתור (בנוסף לקיצור F) --- */
+  /* --- מסך מלא: מעקב מצב + כפתור (בנוסף לקיצור F).
+     כולל קידומות webkit — ספארי באייפד --- */
   useEffect(() => {
-    const onFs = () => setFullscreen(Boolean(document.fullscreenElement));
+    const onFs = () =>
+      setFullscreen(
+        Boolean(document.fullscreenElement || document.webkitFullscreenElement),
+      );
     document.addEventListener("fullscreenchange", onFs);
-    return () => document.removeEventListener("fullscreenchange", onFs);
+    document.addEventListener("webkitfullscreenchange", onFs);
+    return () => {
+      document.removeEventListener("fullscreenchange", onFs);
+      document.removeEventListener("webkitfullscreenchange", onFs);
+    };
   }, []);
 
   const toggleFullscreen = useCallback(() => {
-    if (document.fullscreenElement) document.exitFullscreen();
-    else document.documentElement.requestFullscreen();
+    const doc = document;
+    const el = doc.documentElement;
+    try {
+      if (doc.fullscreenElement || doc.webkitFullscreenElement) {
+        (doc.exitFullscreen || doc.webkitExitFullscreen)?.call(doc);
+      } else {
+        (el.requestFullscreen || el.webkitRequestFullscreen)?.call(el);
+      }
+    } catch {
+      /* דפדפן בלי Fullscreen API (אייפון) — מתעלמים בשקט */
+    }
   }, []);
 
   const go = useCallback(
@@ -62,15 +79,33 @@ export default function Deck({ slides }) {
     else go((i) => i - 1);
   }, [step, go]);
 
-  /* --- התאמת קנה מידה של הבמה לחלון --- */
+  /* --- התאמת קנה מידה של הבמה לחלון ---
+     נמדד מול ה-layout viewport (עמיד לזום-צביטה של iOS), ומחושב מחדש
+     גם אחרי סיבוב מסך, כניסה/יציאה ממסך מלא ושינויי סרגלים בספארי */
   useEffect(() => {
-    const fit = () =>
-      setScale(
-        Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H),
-      );
+    const fit = () => {
+      const w = document.documentElement.clientWidth || window.innerWidth;
+      const h = document.documentElement.clientHeight || window.innerHeight;
+      setScale(Math.min(w / STAGE_W, h / STAGE_H));
+    };
     fit();
-    window.addEventListener("resize", fit);
-    return () => window.removeEventListener("resize", fit);
+    /* ספארי מעדכן מידות באיחור אחרי סיבוב/מסך מלא — מרעננים גם בהשהיה */
+    const fitSoon = () => {
+      fit();
+      setTimeout(fit, 350);
+    };
+    window.addEventListener("resize", fitSoon);
+    window.addEventListener("orientationchange", fitSoon);
+    document.addEventListener("fullscreenchange", fitSoon);
+    document.addEventListener("webkitfullscreenchange", fitSoon);
+    window.visualViewport?.addEventListener("resize", fitSoon);
+    return () => {
+      window.removeEventListener("resize", fitSoon);
+      window.removeEventListener("orientationchange", fitSoon);
+      document.removeEventListener("fullscreenchange", fitSoon);
+      document.removeEventListener("webkitfullscreenchange", fitSoon);
+      window.visualViewport?.removeEventListener("resize", fitSoon);
+    };
   }, []);
 
   /* --- סנכרון hash דו-כיווני --- */
@@ -179,7 +214,7 @@ export default function Deck({ slides }) {
           style={{
             width: STAGE_W,
             height: STAGE_H,
-            transform: `scale(${scale})`,
+            transform: `translate(-50%, -50%) scale(${scale})`,
           }}
         >
           <div className="deck-slide-in" key={index}>
