@@ -66,7 +66,7 @@ export default function ThanksSlide() {
         <div className="thx-chips fx fx-rise" style={{ "--d": 900 }} dir="ltr">
           <span className="thx-chip">EDEN COHEN</span>
           <span className="thx-chip-dot" />
-          <span className="thx-chip">SMART CART · FEB 2026</span>
+          <span className="thx-chip">SMART CART · 2026</span>
         </div>
       </div>
     </section>

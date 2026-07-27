@@ -100,7 +100,7 @@ export default function TitleSlide() {
       <div className="title-meta fx fx-rise" style={{ "--d": 900 }}>
         <span className="title-chip">EDEN COHEN</span>
         <span className="title-dot" />
-        <span className="title-chip">FEB 2026</span>
+        <span className="title-chip">2026</span>
       </div>
     </section>
   );
