@@ -1,5 +1,5 @@
 /* ============================================================
-   x08 — מפת המערכת כשקף בנייה בלחיצות.
+   x08 - מפת המערכת כשקף בנייה בלחיצות.
    בלי גלולות מעוגלות: איורים, עיגולים וטקסט נקי בלבד.
    הקואורדינטות בתוך .xp-scene (1920x700).
    ============================================================ */
@@ -25,7 +25,7 @@
   transform: scale(1.04);
 }
 
-/* שם שכבה — טקסט נקי, בלי קופסה */
+/* שם שכבה - טקסט נקי, בלי קופסה */
 .smap-name {
   margin-top: 18px;
   font-family: 'Open Sans', 'Heebo Variable', sans-serif;
@@ -41,7 +41,8 @@
   position: relative;
   width: 280px;
   height: 360px;
-  border-radius: 34px; /* מכשיר אמיתי — לא קופסת עיצוב */
+  border-radius: 34px;
+  /* מכשיר אמיתי - לא קופסת עיצוב */
   border: 8px solid #396e83;
   background: #ffffff;
   box-shadow: 0 22px 48px rgba(36, 64, 78, 0.22);
@@ -92,7 +93,9 @@
   color: #24404e;
 }
 
-.smap-ui-row b { color: #396e83; }
+.smap-ui-row b {
+  color: #396e83;
+}
 
 .smap-ui-total {
   margin-top: auto;
@@ -144,8 +147,15 @@
 }
 
 @keyframes smapBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .smap-slot {
@@ -221,8 +231,15 @@
 }
 
 @keyframes smapAiPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.3), 0 10px 26px rgba(36, 64, 78, 0.18); }
-  50% { box-shadow: 0 0 0 12px rgba(13, 115, 119, 0), 0 10px 26px rgba(36, 64, 78, 0.18); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 115, 119, 0.3), 0 10px 26px rgba(36, 64, 78, 0.18);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(13, 115, 119, 0), 0 10px 26px rgba(36, 64, 78, 0.18);
+  }
 }
 
 .smap-ai-circle img {
@@ -254,7 +271,9 @@
   transition: opacity 0.6s ease;
 }
 
-.smap-ai-link.on { opacity: 1; }
+.smap-ai-link.on {
+  opacity: 1;
+}
 
 .smap-ai-link path {
   fill: none;

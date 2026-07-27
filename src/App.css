@@ -1,5 +1,5 @@
 /* ============================================================
-   Smart Cart Deck — CSS כללי לאפליקציית המצגת
+   Smart Cart Deck - CSS כללי לאפליקציית המצגת
    אנימציות כניסה משותפות + מחלקות עזר שכל שקף משתמש בהן.
    סגנון ספציפי לשקף יושב ב-styles.css של אותו שקף.
    ============================================================ */
@@ -15,57 +15,131 @@
   animation-delay: calc(var(--d, 0) * 1ms);
 }
 
-.fx-rise { animation-name: fxRise; }
-.fx-fade { animation-name: fxFade; }
-.fx-zoom { animation-name: fxZoom; }
-.fx-slide-start { animation-name: fxSlideStart; }
-.fx-slide-end { animation-name: fxSlideEnd; }
-.fx-draw { animation-name: fxDraw; animation-duration: 1.1s; }
+.fx-rise {
+  animation-name: fxRise;
+}
+
+.fx-fade {
+  animation-name: fxFade;
+}
+
+.fx-zoom {
+  animation-name: fxZoom;
+}
+
+.fx-slide-start {
+  animation-name: fxSlideStart;
+}
+
+.fx-slide-end {
+  animation-name: fxSlideEnd;
+}
+
+.fx-draw {
+  animation-name: fxDraw;
+  animation-duration: 1.1s;
+}
 
 @keyframes fxRise {
-  from { opacity: 0; transform: translateY(34px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* היעד הוא var(--o) כדי שאלמנטים עם שקיפות קבועה (opacity מותאם)
    לא יידרסו על ידי fill-mode של האנימציה */
 @keyframes fxFade {
-  from { opacity: 0; }
-  to { opacity: var(--o, 1); }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--o, 1);
+  }
 }
 
 @keyframes fxZoom {
-  from { opacity: 0; transform: scale(0.82); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* נכנס מכיוון תחילת הקריאה (ימין ב-RTL) */
 @keyframes fxSlideStart {
-  from { opacity: 0; transform: translateX(-46px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-46px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fxSlideEnd {
-  from { opacity: 0; transform: translateX(46px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(46px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* לקווי SVG עם stroke-dasharray */
 @keyframes fxDraw {
-  from { stroke-dashoffset: var(--dash, 300); opacity: 0.2; }
-  to { stroke-dashoffset: 0; opacity: 1; }
+  from {
+    stroke-dashoffset: var(--dash, 300);
+    opacity: 0.2;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }
 
 /* פעימה מתמשכת לנקודות זוהרות */
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.55; filter: drop-shadow(0 0 2px rgba(43, 199, 220, 0.4)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(43, 199, 220, 0.9)); }
+
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 2px rgba(43, 199, 220, 0.4));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(43, 199, 220, 0.9));
+  }
 }
 
 /* ריחוף עדין לאלמנטים דקורטיביים */
 @keyframes floatSoft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 /* ---------- טיפוגרפיה משותפת לשקפים ---------- */
@@ -105,7 +179,10 @@
 }
 
 /* גרסאות לשקף כהה */
-.dark .slide-title { color: var(--c-dark-text); }
+.dark .slide-title {
+  color: var(--c-dark-text);
+}
+
 .dark .slide-title .grad {
   background: var(--grad-text-dark);
   -webkit-background-clip: text;
@@ -165,39 +242,68 @@ img.pel {
 }
 
 /* בשקפים המשוחזרים: כל משושה על חלקיו מופיע כמקשה אחת (ההשהיות
-   מחושבות לפי מיקום — חלקי אותו משושה כמעט זהים), והמשושים נכנסים
+   מחושבות לפי מיקום - חלקי אותו משושה כמעט זהים), והמשושים נכנסים
    בזה אחר זה בסריקה מימין לשמאל. */
-/* ============ הנפשות השקפים המשוחזרים — לפי סוג רכיב ============
+/* ============ הנפשות השקפים המשוחזרים - לפי סוג רכיב ============
    כל אשכול (צורה + תוכן) הוא יחידה אחת עם אותה השהיה ואותו אפקט.
    translate/scale הם מאפיינים נפרדים שלא דורסים סיבובי transform. */
 
-/* בכל האנימציות: היעד הוא var(--o,1) ולא 1 — fill-mode:both משאיר את
+/* בכל האנימציות: היעד הוא var(--o,1) ולא 1 - fill-mode:both משאיר את
    ערך הפריים האחרון לתמיד, ואסור שידרוס אלמנטים עם שקיפות סטטית
    (כמו טבעות האפור במשושי הטכנולוגיות, opacity 0.78) */
 
 /* מצולע כותרת: נכנס מהצד שאליו הוא צמוד (--sx נקבע לפי הצד) */
 @keyframes fxTitleSide {
-  from { opacity: 0; translate: var(--sx, 90px) 0; }
-  to { opacity: var(--o, 1); translate: 0 0; }
+  from {
+    opacity: 0;
+    translate: var(--sx, 90px) 0;
+  }
+
+  to {
+    opacity: var(--o, 1);
+    translate: 0 0;
+  }
 }
 
-/* מצולע סעיף: POP — קופץ פנימה. השקיפות מתמלאת מוקדם (25%) כדי
+/* מצולע סעיף: POP - קופץ פנימה. השקיפות מתמלאת מוקדם (25%) כדי
    ששכבות מוערמות (צל+מסגרת+מילוי) לא ייראו כמריחה שקופה באמצע */
 @keyframes fxPop {
-  0% { opacity: 0; scale: 0.55; }
-  25% { opacity: var(--o, 1); }
-  70% { scale: 1.07; }
-  100% { opacity: var(--o, 1); scale: 1; }
+  0% {
+    opacity: 0;
+    scale: 0.55;
+  }
+
+  25% {
+    opacity: var(--o, 1);
+  }
+
+  70% {
+    scale: 1.07;
+  }
+
+  100% {
+    opacity: var(--o, 1);
+    scale: 1;
+  }
 }
 
-/* מקביליות בשוליים: דומינו — נכנסות ברצף מהיר מכיוון הקצה שלהן.
+/* מקביליות בשוליים: דומינו - נכנסות ברצף מהיר מכיוון הקצה שלהן.
    --dy חיובי = נכנס מלמטה (ברירת מחדל), שלילי = נכנס מלמעלה. */
 @keyframes fxDomino {
-  from { opacity: 0; translate: 0 var(--dy, 44px); }
-  to { opacity: var(--o, 1); translate: 0 0; }
+  from {
+    opacity: 0;
+    translate: 0 var(--dy, 44px);
+  }
+
+  to {
+    opacity: var(--o, 1);
+    translate: 0 0;
+  }
 }
 
-.pslide .fx { animation-duration: 0.55s; }
+.pslide .fx {
+  animation-duration: 0.55s;
+}
 
 .pslide .fx-title {
   animation-name: fxTitleSide !important;
@@ -212,13 +318,29 @@ img.pel {
 
 /* פופ לאלמנטים מסובבים: אסור להזיז להם את transform-origin (זה מזיז
    את ציר הסיבוב), אז הם מוקטנים סביב מרכז עצמם + פיצוי תזוזה מונפש
-   שמסונכרן עם הסקייל — שווה-ערך מתמטית לסקייל סביב מרכז היחידה.
+   שמסונכרן עם הסקייל - שווה-ערך מתמטית לסקייל סביב מרכז היחידה.
    --tx/--ty = וקטור ממרכז האלמנט למרכז היחידה. */
 @keyframes fxPopRot {
-  0% { opacity: 0; scale: 0.55; translate: calc(var(--tx, 0px) * 0.45) calc(var(--ty, 0px) * 0.45); }
-  25% { opacity: var(--o, 1); }
-  70% { scale: 1.07; translate: calc(var(--tx, 0px) * -0.07) calc(var(--ty, 0px) * -0.07); }
-  100% { opacity: var(--o, 1); scale: 1; translate: 0 0; }
+  0% {
+    opacity: 0;
+    scale: 0.55;
+    translate: calc(var(--tx, 0px) * 0.45) calc(var(--ty, 0px) * 0.45);
+  }
+
+  25% {
+    opacity: var(--o, 1);
+  }
+
+  70% {
+    scale: 1.07;
+    translate: calc(var(--tx, 0px) * -0.07) calc(var(--ty, 0px) * -0.07);
+  }
+
+  100% {
+    opacity: var(--o, 1);
+    scale: 1;
+    translate: 0 0;
+  }
 }
 
 .pslide .fx-pop-rot {
@@ -232,7 +354,7 @@ img.pel {
 }
 
 /* פסקה בתוך תיבת טקסט משוחזרת.
-   line-height 1.25 מתאים לריווח-שורה-בודדת של PowerPoint —
+   line-height 1.25 מתאים לריווח-שורה-בודדת של PowerPoint -
    ה-normal של הדפדפן (כ-1.36 ב-Open Sans) פותח את השורות יותר מדי */
 .pp {
   margin: 0;
@@ -240,7 +362,7 @@ img.pel {
   line-height: 1.25;
 }
 
-/* עיגול אייקון מותג — משמש כמעט בכל שקף תוכן */
+/* עיגול אייקון מותג - משמש כמעט בכל שקף תוכן */
 .icon-chip {
   width: 64px;
   height: 64px;

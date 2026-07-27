@@ -1,5 +1,5 @@
 /* ============================================================
-   s15 — אתגרים: חמישה כרטיסים בשורה + קו נרטיב מקווקו
+   s15 - אתגרים: חמישה כרטיסים בשורה + קו נרטיב מקווקו
    ============================================================ */
 
 .chal-wrap {
@@ -19,7 +19,7 @@
   gap: 18px;
 }
 
-/* קו מקווקו העובר בגובה האייקונים — נראה רק בפערים בין הכרטיסים */
+/* קו מקווקו העובר בגובה האייקונים - נראה רק בפערים בין הכרטיסים */
 .chal-line {
   position: absolute;
   top: 49px;
@@ -37,10 +37,21 @@
   pointer-events: none;
 }
 
-.chal-dot-1 { inset-inline-start: calc(19.5% - 5px); }
-.chal-dot-2 { inset-inline-start: calc(39.8% - 5px); }
-.chal-dot-3 { inset-inline-start: calc(60.1% - 5px); }
-.chal-dot-4 { inset-inline-start: calc(80.3% - 5px); }
+.chal-dot-1 {
+  inset-inline-start: calc(19.5% - 5px);
+}
+
+.chal-dot-2 {
+  inset-inline-start: calc(39.8% - 5px);
+}
+
+.chal-dot-3 {
+  inset-inline-start: calc(60.1% - 5px);
+}
+
+.chal-dot-4 {
+  inset-inline-start: calc(80.3% - 5px);
+}
 
 .chal-dot {
   display: block;

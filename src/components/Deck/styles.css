@@ -1,5 +1,5 @@
 /* ============================================================
-   Deck — מנוע המצגת: במה, כרום, מבט-על, עזרה
+   Deck - מנוע המצגת: במה, כרום, מבט-על, עזרה
    ============================================================ */
 
 .deck {
@@ -36,9 +36,22 @@
 
 /* מעבר קולנועי: השקף מגיע מעומק קל, נכנס לפוקוס ומתייצב */
 @keyframes deckSlideIn {
-  0% { opacity: 0; transform: translateY(30px) scale(1.04); filter: blur(12px); }
-  55% { opacity: 1; filter: blur(2px); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(1.04);
+    filter: blur(12px);
+  }
+
+  55% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 /* ---------- סרגל התקדמות ---------- */
@@ -84,7 +97,9 @@
   font-weight: 700;
 }
 
-.deck-counter-sep { opacity: 0.5; }
+.deck-counter-sep {
+  opacity: 0.5;
+}
 
 /* ---------- חיצי ניווט ---------- */
 
@@ -219,7 +234,7 @@
   outline-offset: 3px;
 }
 
-/* בתוך המבט-על אין אנימציות — מצב סופי מיידי */
+/* בתוך המבט-על אין אנימציות - מצב סופי מיידי */
 .deck-mini-stage * {
   animation: none !important;
   transition: none !important;

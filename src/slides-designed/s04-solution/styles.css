@@ -1,5 +1,5 @@
 /* ============================================================
-   s04 — שקף הפתרון: יכולות + חלון אפליקציה מדומה
+   s04 - שקף הפתרון: יכולות + חלון אפליקציה מדומה
    ============================================================ */
 
 .sol-layout {
@@ -92,9 +92,17 @@
   border-radius: 50%;
 }
 
-.sol-dot-a { background: rgba(11, 37, 69, 0.22); }
-.sol-dot-b { background: var(--c-teal); }
-.sol-dot-c { background: var(--c-cyan); }
+.sol-dot-a {
+  background: rgba(11, 37, 69, 0.22);
+}
+
+.sol-dot-b {
+  background: var(--c-teal);
+}
+
+.sol-dot-c {
+  background: var(--c-cyan);
+}
 
 .sol-chrome-title {
   margin-inline-start: auto;
@@ -140,8 +148,15 @@
 }
 
 @keyframes solBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .sol-input-spark {
@@ -216,8 +231,13 @@
 }
 
 @keyframes solBarGrow {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .sol-bar-row.best .sol-bar-fill {
