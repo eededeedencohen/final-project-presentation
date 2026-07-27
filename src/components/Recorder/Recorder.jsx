@@ -8,15 +8,17 @@ import "./styles.css";
    קול מהמיקרופון; חלון הפנים מוצג על המסך ולכן נכלל בהקלטה.
    ============================================================ */
 
-/* פורמט ההקלטה הנתמך הראשון בדפדפן הנוכחי */
+/* פורמט ההקלטה הנתמך הראשון בדפדפן הנוכחי.
+   MP4/H.264 קודם — מתנגן בכל נגן Windows בלי תוספים (בניגוד ל-VP9) */
 function pickMimeType() {
   if (typeof MediaRecorder === "undefined") return "";
   return (
     [
+      "video/mp4;codecs=avc1.42E01E,mp4a.40.2",
+      "video/mp4",
       "video/webm;codecs=vp9,opus",
       "video/webm;codecs=vp8,opus",
       "video/webm",
-      "video/mp4",
     ].find((t) => MediaRecorder.isTypeSupported(t)) || ""
   );
 }
@@ -165,6 +167,9 @@ export default function Recorder() {
       isPausedRef.current = false;
       setSeconds(0);
       setRecState("recording");
+      /* הפוקוס נשאר על הכפתור הממוחזר ו-focus-within היה משאיר את
+         התג גלוי — ואז הוא נצרב בסרטון */
+      document.activeElement?.blur?.();
     } catch {
       display.getTracks().forEach((t) => t.stop());
       displayStreamRef.current = null;
@@ -185,8 +190,20 @@ export default function Recorder() {
       pausedMsRef.current += performance.now() - pauseTsRef.current;
       isPausedRef.current = false;
       setRecState("recording");
+      document.activeElement?.blur?.();
     }
   };
+
+  /* בזמן הקלטה הטיימר מוצג גם בכותרת הטאב — היא לא נלכדת בסרטון,
+     כך שהתג בעמוד יכול להישאר נסתר והסרטון השמור נקי */
+  useEffect(() => {
+    if (recState === "idle") {
+      document.title = "Smart Cart — מצגת";
+      return;
+    }
+    const t = `${two(Math.floor(seconds / 60))}:${two(seconds % 60)}`;
+    document.title = `${recState === "paused" ? "⏸" : "●"} ${t} — הקלטה`;
+  }, [recState, seconds]);
 
   /* טיימר רץ רק בזמן הקלטה פעילה */
   useEffect(() => {
@@ -277,7 +294,7 @@ export default function Recorder() {
         </button>
       ) : (
         <div
-          className="rec-bubble"
+          className={`rec-bubble ${recState}`}
           ref={bubbleRef}
           style={{
             width: SIZES[sizeIdx],

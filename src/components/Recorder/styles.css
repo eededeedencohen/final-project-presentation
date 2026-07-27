@@ -98,6 +98,19 @@
   animation: none;
 }
 
+/* בזמן הקלטה פעילה התג נסתר — כדי שלא ייצרב בסרטון השמור (הלכידה
+   תופסת את כל הטאב). הוא מופיע בריחוף, והטיימר החי רץ בכותרת הטאב.
+   בהשהיה אין הקלטה — אפשר להציג תמיד */
+.rec-bubble.recording .rec-badge {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rec-bubble.recording:hover .rec-badge,
+.rec-bubble.recording:focus-within .rec-badge {
+  opacity: 1;
+}
+
 @keyframes recPulse {
 
   0%,
