@@ -290,7 +290,7 @@ export default function Slide01() {
       >
         <div className="p01-e23-tx">
           <p className="pp" dir="auto" style={{ textAlign: "left" }}>
-            <span className="p01-t2">FEB 2026</span>
+            <span className="p01-t2">2026</span>
           </p>
         </div>
       </div>
