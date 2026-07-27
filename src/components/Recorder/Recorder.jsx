@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import fixWebmDuration from "fix-webm-duration";
 import "./styles.css";
 
 /* ============================================================
@@ -43,6 +44,11 @@ export default function Recorder() {
   const chunksRef = useRef([]);
   const dragRef = useRef(null);
   const openingRef = useRef(false);
+  /* מדידת משך מדויקת — נדרשת לתיקון כותרת ה-WebM (בלעדיה אין דילוג בנגן) */
+  const startTsRef = useRef(0);
+  const pausedMsRef = useRef(0);
+  const pauseTsRef = useRef(0);
+  const isPausedRef = useRef(false);
 
   /* --- מצלמה + מיקרופון --- */
   const openCamera = async () => {
@@ -116,10 +122,27 @@ export default function Recorder() {
       rec.ondataavailable = (e) => {
         if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
       };
-      rec.onstop = () => {
+      rec.onstop = async () => {
         const type = mime || "video/webm";
-        const blob = new Blob(chunksRef.current, { type });
+        let blob = new Blob(chunksRef.current, { type });
         chunksRef.current = [];
+        /* אם נעצר בזמן השהיה — לסגור את חלון ההשהיה האחרון */
+        if (isPausedRef.current) {
+          pausedMsRef.current += performance.now() - pauseTsRef.current;
+          isPausedRef.current = false;
+        }
+        const durationMs = Math.max(
+          0,
+          performance.now() - startTsRef.current - pausedMsRef.current,
+        );
+        /* כרום כותב WebM בלי משך — בלעדיו הנגן לא מאפשר דילוג בזמן */
+        if (type.includes("webm") && durationMs > 0) {
+          try {
+            blob = await fixWebmDuration(blob, durationMs, { logger: false });
+          } catch {
+            /* אם התיקון נכשל — שומרים את המקור */
+          }
+        }
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         const d = new Date();
@@ -137,6 +160,9 @@ export default function Recorder() {
       display.getVideoTracks()[0]?.addEventListener("ended", stopRecording);
       rec.start(1000);
       recorderRef.current = rec;
+      startTsRef.current = performance.now();
+      pausedMsRef.current = 0;
+      isPausedRef.current = false;
       setSeconds(0);
       setRecState("recording");
     } catch {
@@ -151,9 +177,13 @@ export default function Recorder() {
     if (!rec) return;
     if (rec.state === "recording") {
       rec.pause();
+      pauseTsRef.current = performance.now();
+      isPausedRef.current = true;
       setRecState("paused");
     } else if (rec.state === "paused") {
       rec.resume();
+      pausedMsRef.current += performance.now() - pauseTsRef.current;
+      isPausedRef.current = false;
       setRecState("recording");
     }
   };
