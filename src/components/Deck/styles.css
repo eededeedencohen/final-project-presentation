@@ -9,6 +9,8 @@
     radial-gradient(1200px 700px at 70% -10%, rgba(15, 163, 184, 0.12), transparent 60%),
     var(--c-dark-bg);
   overflow: hidden;
+  /* מבטל זום בהקשה-כפולה ומחוות דפדפן על המצגת (iOS/iPad) */
+  touch-action: manipulation;
 }
 
 .deck-viewport {
@@ -19,7 +21,11 @@
 }
 
 .deck-stage {
-  position: relative;
+  /* מרכוז מפורש: grid עם place-items:center לא ממרכז אלמנט שגדול
+     מהמכל ב-RTL (כרום מיישר ל-start) — left/top 50% + translate תמיד עובד */
+  position: absolute;
+  left: 50%;
+  top: 50%;
   transform-origin: center center;
   background: var(--c-bg);
   border-radius: 6px;
