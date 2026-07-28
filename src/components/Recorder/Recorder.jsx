@@ -9,16 +9,20 @@ import "./styles.css";
    ============================================================ */
 
 /* פורמט ההקלטה הנתמך הראשון בדפדפן הנוכחי.
-   MP4/H.264 קודם — מתנגן בכל נגן Windows בלי תוספים (בניגוד ל-VP9) */
+   WebM/VP8 קודם — אותו פורמט בדיוק שממירי וידאו מייצרים והוכח שמתנגן
+   חלק אצל המשתמש; אחרי העצירה הקובץ נארז מחדש עם משך ואינדקס דילוגים.
+   MP4/H.264 נשאר כגיבוי לדפדפנים בלי הקלטת WebM */
 function pickMimeType() {
   if (typeof MediaRecorder === "undefined") return "";
   return (
     [
-      "video/mp4;codecs=avc1.42E01E,mp4a.40.2",
-      "video/mp4",
-      "video/webm;codecs=vp9,opus",
       "video/webm;codecs=vp8,opus",
+      "video/webm;codecs=vp9,opus",
       "video/webm",
+      "video/mp4;codecs=avc1.64002A,mp4a.40.2",
+      "video/mp4;codecs=avc1.4D402A,mp4a.40.2",
+      "video/mp4;codecs=avc1.42E02A,mp4a.40.2",
+      "video/mp4",
     ].find((t) => MediaRecorder.isTypeSupported(t)) || ""
   );
 }
@@ -137,12 +141,23 @@ export default function Recorder() {
           0,
           performance.now() - startTsRef.current - pausedMsRef.current,
         );
-        /* כרום כותב WebM בלי משך — בלעדיו הנגן לא מאפשר דילוג בזמן */
-        if (type.includes("webm") && durationMs > 0) {
-          try {
-            blob = await fixWebmDuration(blob, durationMs, { logger: false });
-          } catch {
-            /* אם התיקון נכשל — שומרים את המקור */
+        /* כרום שומר קבצים "לא גמורים" (WebM בלי משך ו-Cues, MP4 מפורק) —
+           אריזה מחדש הופכת אותם לקובץ תקני שנפתח בכל נגן, בלי קידוד
+           מחדש. המודול נטען עצל — צופים במצגת לא מורידים אותו בכלל */
+        const kind = type.includes("mp4") ? "mp4" : "webm";
+        try {
+          const { default: normalizeRecording } = await import(
+            "./normalizeRecording.js"
+          );
+          blob = await normalizeRecording(blob, kind);
+        } catch {
+          /* אם האריזה נכשלה — לפחות מטביעים משך ב-WebM כדי לאפשר דילוג */
+          if (kind === "webm" && durationMs > 0) {
+            try {
+              blob = await fixWebmDuration(blob, durationMs, { logger: false });
+            } catch {
+              /* שומרים את המקור */
+            }
           }
         }
         const url = URL.createObjectURL(blob);
