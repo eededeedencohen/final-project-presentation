@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Recorder from "../Recorder/Recorder.jsx";
 import LaserPointer from "../LaserPointer/LaserPointer.jsx";
+import NotesOverlay from "../NotesOverlay/NotesOverlay.jsx";
 import "./styles.css";
 
 const STAGE_W = 1920;
@@ -209,6 +210,9 @@ export default function Deck({ slides }) {
 
   return (
     <div className="deck" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      {/* אזור הלכידה: בזמן הקלטה נלכד רק מה שבתוכו (Element Capture),
+          כך שפתקי הדובר שמחוצה לו לא נכנסים לסרטון */}
+      <div className="deck-capture" id="deck-capture-root">
       <div className="deck-viewport" onClick={next}>
         <div
           className="deck-stage"
@@ -373,12 +377,20 @@ export default function Deck({ slides }) {
               <dd>מסך מלא</dd>
               <dt>Home / End</dt>
               <dd>קפיצה להתחלה / סוף</dd>
+              <dt>A / D</dt>
+              <dd>פתקי הדובר — הבא / הקודם (לא נראים בהקלטה)</dd>
+              <dt>לחיצת גלגלת</dt>
+              <dd>מיקום וגודל של הפתק המוצג</dd>
               <dt>?</dt>
               <dd>החלון הזה</dd>
             </dl>
           </div>
         </div>
       )}
+      </div>
+
+      {/* פתקי הדובר — מחוץ לאזור הלכידה, לכן לא נכנסים להקלטה */}
+      <NotesOverlay />
     </div>
   );
 }

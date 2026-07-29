@@ -13,6 +13,21 @@
   touch-action: manipulation;
 }
 
+/* אזור הלכידה של ההקלטה: isolation יוצר stacking context — תנאי
+   ל-Element Capture, וגם גורם לפתקים (אח עם z-index) לצוף מעל הכול.
+   הרקע משוכפל מ-.deck כדי שההקלטה המוגבלת תכלול אותו ולא שחור */
+.deck-capture {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  /* תנאי כשירות נוסף של Element Capture: האלמנט חייב להיות שטוח
+     תלת-ממדית; הרקע האטום שלמטה מונע פיקסלים שחורים (אין ערוץ אלפא) */
+  transform-style: flat;
+  background:
+    radial-gradient(1200px 700px at 70% -10%, rgba(15, 163, 184, 0.12), transparent 60%),
+    var(--c-dark-bg);
+}
+
 .deck-viewport {
   position: absolute;
   inset: 0;
