@@ -40,16 +40,27 @@ function withStore(mode, fn) {
     open.onerror = () => reject(open.error);
     open.onsuccess = () => {
       const db = open.result;
-      const tx = db.transaction("images", mode);
-      const req = fn(tx.objectStore("images"));
-      tx.oncomplete = () => {
+      /* try/catch + onabort: בלעדיהם שגיאת מכסה (quota) או מסד פגום
+         משאירות promise תלוי לנצח וחיבור מסד דולף */
+      try {
+        const tx = db.transaction("images", mode);
+        const req = fn(tx.objectStore("images"));
+        tx.oncomplete = () => {
+          db.close();
+          resolve(req?.result);
+        };
+        tx.onerror = () => {
+          db.close();
+          reject(tx.error);
+        };
+        tx.onabort = () => {
+          db.close();
+          reject(tx.error || new Error("transaction aborted"));
+        };
+      } catch (e) {
         db.close();
-        resolve(req?.result);
-      };
-      tx.onerror = () => {
-        db.close();
-        reject(tx.error);
-      };
+        reject(e);
+      }
     };
   });
 }
@@ -57,8 +68,17 @@ const idbAll = () => withStore("readonly", (s) => s.getAll());
 const idbPut = (rec) => withStore("readwrite", (s) => s.put(rec));
 const idbDel = (id) => withStore("readwrite", (s) => s.delete(id));
 
+/* הפתקים המובנים זמינים סינכרונית — נטענים מיד, בלי לחכות למסד */
+const builtinNotes = () => {
+  const deleted = new Set(readJson(DELETED_KEY, []));
+  return Object.keys(builtinModules)
+    .sort()
+    .map((p) => ({ name: p.split("/").pop(), url: builtinModules[p], builtin: true }))
+    .filter((n) => !deleted.has(n.name));
+};
+
 export default function NotesOverlay() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(builtinNotes);
   const [idx, setIdx] = useState(-1); /* ‎-1 = מוסתר */
   const [edit, setEdit] = useState(false);
   const [layouts, setLayouts] = useState(() => readJson(STORE_KEY, {}));
@@ -69,15 +89,13 @@ export default function NotesOverlay() {
   idxRef.current = idx;
   const editRef = useRef(edit);
   editRef.current = edit;
+  const unsafeRef = useRef(unsafeRec);
+  unsafeRef.current = unsafeRec;
 
-  /* טעינה: מובנים (מלבד מה שנמחק) + מודבקים מ-IndexedDB */
+  /* השלמה אסינכרונית: פתקים מודבקים מ-IndexedDB. מיזוג פונקציונלי
+     עם סינון כפילויות — הדבקה שקרתה בזמן הטעינה לא נדרסת */
   useEffect(() => {
     let dead = false;
-    const deleted = new Set(readJson(DELETED_KEY, []));
-    const builtin = Object.keys(builtinModules)
-      .sort()
-      .map((p) => ({ name: p.split("/").pop(), url: builtinModules[p], builtin: true }))
-      .filter((n) => !deleted.has(n.name));
     idbAll()
       .then((recs) => {
         if (dead) return;
@@ -88,10 +106,13 @@ export default function NotesOverlay() {
             url: URL.createObjectURL(r.blob),
             builtin: false,
           }));
-        setNotes([...builtin, ...pasted]);
+        setNotes((cur) => [
+          ...cur,
+          ...pasted.filter((p) => !cur.some((n) => n.name === p.name)),
+        ]);
       })
       .catch(() => {
-        if (!dead) setNotes(builtin);
+        /* מסד לא זמין — נשארים עם המובנים שכבר על המסך */
       });
     return () => {
       dead = true;
@@ -109,8 +130,13 @@ export default function NotesOverlay() {
   /* כשההקלטה לוכדת את כל הטאב (דפדפן בלי הגבלת אלמנט, או שנבחר
      מסך/חלון במקום הטאב) — הפתקים מוסתרים כדי שלא ייכנסו לסרטון */
   useEffect(() => {
-    const onCap = (e) =>
-      setUnsafeRec(Boolean(e.detail.recording && !e.detail.restricted));
+    const onCap = (e) => {
+      const unsafe = Boolean(e.detail.recording && !e.detail.restricted);
+      setUnsafeRec(unsafe);
+      /* כשהפתקים נעלמים — סוגרים גם את מצב העריכה, שלא יישאר חמוש
+         בלתי-נראה (Delete היה מוחק פתק בלי שום משוב על המסך) */
+      if (unsafe) setEdit(false);
+    };
     window.addEventListener("rec:capture-state", onCap);
     return () => window.removeEventListener("rec:capture-state", onCap);
   }, []);
@@ -118,6 +144,7 @@ export default function NotesOverlay() {
   /* מקשים פיזיים A/D — עובדים גם כשפריסת המקלדת בעברית */
   useEffect(() => {
     const onKey = (e) => {
+      if (unsafeRef.current) return; /* פתקים מוסתרים בהקלטה — מקשים כבויים */
       if (e.ctrlKey || e.altKey || e.metaKey) return;
       if (e.code !== "KeyA" && e.code !== "KeyD") return;
       const len = notesRef.current.length;
@@ -135,7 +162,7 @@ export default function NotesOverlay() {
      האזנה בשלב הלכידה + preventDefault — מבטל גם autoscroll */
   useEffect(() => {
     const onMid = (e) => {
-      if (e.button !== 1) return;
+      if (e.button !== 1 || unsafeRef.current) return;
       e.preventDefault();
       if (idxRef.current >= 0) setEdit((v) => !v);
     };
@@ -147,6 +174,7 @@ export default function NotesOverlay() {
      (וגם כשאין אף פתק — כדי שתמיד תהיה דרך להוסיף) */
   useEffect(() => {
     const onPaste = (e) => {
+      if (unsafeRef.current) return;
       if (!editRef.current && notesRef.current.length > 0) return;
       const item = [...(e.clipboardData?.items || [])].find((i) =>
         i.type.startsWith("image/"),
@@ -171,9 +199,13 @@ export default function NotesOverlay() {
 
   /* מחיקת הפתק הנוכחי: מודבק — נמחק מהאחסון; מובנה — מוסתר לצמיתות */
   const deleteCurrent = () => {
+    if (unsafeRef.current) return;
     const i = idxRef.current;
     const note = notesRef.current[i];
     if (!note) return;
+    /* כפתור ה-✕ נשאר ממוקד אחרי לחיצה — בלי blur, רווח/Enter הבאים
+       היו מפעילים אותו שוב ומוחקים פתק נוסף במקום להתקדם בשקפים */
+    document.activeElement?.blur?.();
     if (note.builtin) {
       try {
         const del = new Set(readJson(DELETED_KEY, []));
