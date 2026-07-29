@@ -54,6 +54,46 @@
   left: 0;
 }
 
+/* סליידר שקיפות — מעל הפתק, מצד ימין */
+.notes-opacity {
+  top: -34px;
+  bottom: auto;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notes-opacity input[type="range"] {
+  width: 110px;
+  accent-color: var(--c-aqua, #2bc7dc);
+  cursor: pointer;
+}
+
+/* כפתור מחיקה בפינה העליונה */
+.notes-delete {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(150, 25, 35, 0.92);
+  color: #ffe9ea;
+  border: 2px solid rgba(2, 10, 18, 0.7);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.notes-delete:hover {
+  background: rgba(200, 35, 48, 1);
+  transform: scale(1.12);
+}
+
 /* ידית שינוי גודל בפינה */
 .notes-handle {
   position: absolute;
