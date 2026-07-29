@@ -134,6 +134,14 @@ export default function Deck({ slides }) {
       ) {
         return;
       }
+      /* פקד קלט ממוקד (למשל סליידר השקיפות של הפתקים) — החיצים שלו
+         מכווננים את הערך, לא מנווטים בין שקפים */
+      if (
+        e.target instanceof Element &&
+        e.target.closest("input, select, textarea")
+      ) {
+        return;
+      }
       if (
         ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", " "].includes(e.key)
       ) {
