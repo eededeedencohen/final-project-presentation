@@ -1,0 +1,68 @@
+/* ============================================================
+   NotesOverlay — פתקי הדובר הצפים
+   ============================================================ */
+
+.notes-overlay {
+  position: fixed;
+  /* מעל אזור הלכידה: האזור הוא stacking context אחד, ולכן כל
+     z-index שאינו שלילי כאן מצייר מעל כל מה שבתוכו */
+  z-index: 5;
+  /* שקוף ללחיצות — לא מפריע לניווט ולציור בלייזר */
+  pointer-events: none;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+}
+
+.notes-overlay img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* מצב הגדרות — נפתח/נסגר בלחיצת גלגלת */
+.notes-overlay.edit {
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.notes-overlay.edit:active {
+  cursor: grabbing;
+}
+
+.notes-overlay.edit img {
+  outline: 2px dashed var(--c-aqua, #2bc7dc);
+  outline-offset: 3px;
+}
+
+.notes-chip {
+  position: absolute;
+  bottom: -34px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(2, 10, 18, 0.8);
+  color: #eaf7fa;
+  font-size: 12px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.notes-hint {
+  right: 0;
+}
+
+.notes-count {
+  left: 0;
+}
+
+/* ידית שינוי גודל בפינה */
+.notes-handle {
+  position: absolute;
+  right: -9px;
+  bottom: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--c-aqua, #2bc7dc);
+  border: 2px solid rgba(2, 10, 18, 0.7);
+  cursor: nwse-resize;
+}

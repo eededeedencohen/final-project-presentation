@@ -113,6 +113,29 @@ export default function Recorder() {
       setError("ההקלטה לא התחילה - יש לבחור מסך או טאב בחלון השיתוף");
       return;
     }
+    /* הגבלת הלכידה לאזור המצגת (Element Capture) — פתקי הדובר שמחוץ
+       לאזור לא נכנסים לסרטון. אם ההגבלה לא זמינה (דפדפן ישן, או
+       שנבחר מסך/חלון במקום הטאב) — הפתקים יוסתרו בזמן ההקלטה */
+    let restricted = false;
+    try {
+      const el = document.getElementById("deck-capture-root");
+      const track = display.getVideoTracks()[0];
+      if (el && window.RestrictionTarget?.fromElement && track?.restrictTo) {
+        const target = await window.RestrictionTarget.fromElement(el);
+        await track.restrictTo(target);
+        restricted = true;
+      }
+    } catch {
+      restricted = false;
+    }
+    window.dispatchEvent(
+      new CustomEvent("rec:capture-state", {
+        detail: { recording: true, restricted },
+      }),
+    );
+    document.documentElement.dataset.recCapture = restricted
+      ? "restricted"
+      : "full";
     try {
       displayStreamRef.current = display;
       const mixed = new MediaStream([
@@ -172,6 +195,13 @@ export default function Recorder() {
         displayStreamRef.current = null;
         recorderRef.current = null;
         setRecState("idle");
+        /* ההקלטה נגמרה — הפתקים חופשיים להופיע שוב */
+        window.dispatchEvent(
+          new CustomEvent("rec:capture-state", {
+            detail: { recording: false, restricted: false },
+          }),
+        );
+        delete document.documentElement.dataset.recCapture;
       };
       /* המשתמש עצר את השיתוף מסרגל הדפדפן - מסיימים ושומרים */
       display.getVideoTracks()[0]?.addEventListener("ended", stopRecording);
@@ -189,6 +219,12 @@ export default function Recorder() {
       display.getTracks().forEach((t) => t.stop());
       displayStreamRef.current = null;
       setError("הדפדפן לא תומך בהקלטה בפורמט הנדרש");
+      window.dispatchEvent(
+        new CustomEvent("rec:capture-state", {
+          detail: { recording: false, restricted: false },
+        }),
+      );
+      delete document.documentElement.dataset.recCapture;
     }
   };
 
