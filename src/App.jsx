@@ -1,6 +1,13 @@
 import Deck from './components/Deck/Deck.jsx'
+import Preloader from './components/Preloader/Preloader.jsx'
 import { SLIDES } from './slides/index.jsx'
 
 export default function App() {
-  return <Deck slides={SLIDES} />
+  /* המצגת נטענת מתחת למסך הטעינה — כשהוא נעלם הכול כבר מפוענח */
+  return (
+    <>
+      <Deck slides={SLIDES} />
+      <Preloader />
+    </>
+  )
 }

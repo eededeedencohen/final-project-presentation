@@ -1,0 +1,76 @@
+/* ============================================================
+   Preloader — מסך הטעינה של המצגת
+   ============================================================ */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background:
+    radial-gradient(1200px 700px at 70% -10%, rgba(15, 163, 184, 0.16), transparent 60%),
+    var(--c-dark-bg, #071723);
+  color: var(--c-aqua, #7fe7f2);
+  transition: opacity 0.55s ease;
+}
+
+.preloader.out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-cart {
+  width: 64px;
+  height: 64px;
+  animation: preloaderFloat 1.6s ease-in-out infinite;
+}
+
+@keyframes preloaderFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.preloader-title {
+  font-family: var(--font-display, 'Open Sans', sans-serif);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  margin-inline-start: 0.32em;
+}
+
+.preloader-text {
+  font-size: 16px;
+  color: rgba(234, 247, 250, 0.75);
+}
+
+.preloader-bar {
+  width: 300px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(127, 231, 242, 0.15);
+  overflow: hidden;
+}
+
+.preloader-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0fa3b8, #7fe7f2);
+  transition: width 0.25s ease;
+}
+
+.preloader-pct {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(234, 247, 250, 0.6);
+}

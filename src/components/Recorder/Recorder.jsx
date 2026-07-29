@@ -70,6 +70,9 @@ export default function Recorder() {
       });
       camStreamRef.current = stream;
       setCamOn(true);
+      /* פתיחת מצלמה = כוונה להקליט — מחממים את מנוע האריזה מראש,
+         כדי שהשמירה בסוף ההקלטה לא תחכה להורדת הקוד */
+      import("./normalizeRecording.js").catch(() => {});
     } catch {
       setError("אין גישה למצלמה או למיקרופון - אשר הרשאות בדפדפן ונסה שוב");
     } finally {

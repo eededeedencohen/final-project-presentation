@@ -115,17 +115,17 @@
 }
 
 /* פעימה מתמשכת לנקודות זוהרות */
+/* opacity בלבד — הנפשת drop-shadow על עשרות צמתים גררה ציור-מחדש
+   מתמיד שמתחרה במקודד הווידאו בזמן הקלטה */
 @keyframes pulseGlow {
 
   0%,
   100% {
-    opacity: 0.55;
-    filter: drop-shadow(0 0 2px rgba(43, 199, 220, 0.4));
+    opacity: 0.4;
   }
 
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 10px rgba(43, 199, 220, 0.9));
   }
 }
 
