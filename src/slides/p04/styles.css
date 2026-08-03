@@ -189,7 +189,7 @@
 }
 
 .p04-e16 {
-  left: 901.28px;
+  left: 958.28px; /* שלישיית Pricez +57 — סגירת הרווח בין הצבירים */
   top: 598.75px;
   width: 310.52px;
   height: 296.73px;
@@ -253,7 +253,7 @@
 }
 
 .p04-e21 {
-  left: 589.73px;
+  left: 646.73px;
   top: 620.46px;
   width: 333.89px;
   height: 286.95px;
@@ -284,7 +284,7 @@
 }
 
 .p04-e24 {
-  left: 637.58px;
+  left: 694.58px;
   top: 610.62px;
   width: 238.2px;
   height: 238.2px;
@@ -292,7 +292,7 @@
 }
 
 .p04-e25 {
-  left: 662.91px;
+  left: 719.91px;
   top: 836.8px;
   width: 187.53px;
   height: 36.21px;
@@ -426,7 +426,7 @@
 }
 
 .p04-e35 {
-  left: 1604.7px;
+  left: 1559.7px;
   top: 605.85px;
   width: 302.91px;
   height: 260.32px;
@@ -457,7 +457,7 @@
 }
 
 .p04-e38 {
-  left: 1669.83px;
+  left: 1624.83px;
   top: 797.67px;
   width: 170.13px;
   height: 68.38px;
@@ -480,7 +480,7 @@
 }
 
 .p04-e39 {
-  left: 1669.83px;
+  left: 1624.83px;
   top: 634.87px;
   width: 172.67px;
   height: 172.67px;
@@ -488,7 +488,7 @@
 }
 
 .p04-e40 {
-  left: 1296.22px;
+  left: 1251.22px;
   top: 606.61px;
   width: 322.4px;
   height: 277.06px;
@@ -519,9 +519,9 @@
 }
 
 .p04-e43 {
-  left: 1366.88px;
+  left: 1312.42px;
   top: 795.02px;
-  width: 181.08px;
+  width: 200px; /* הורחב סימטרית סביב אותו מרכז עבור הטקסט הארוך */
   height: 73.33px;
 }
 
@@ -536,13 +536,13 @@
 
 .p04-t4 {
   font-family: 'Inter', 'Heebo Variable', sans-serif;
-  font-size: 20.45px;
+  font-size: 18px; /* הוקטן מ-20.45 — "מבוסס מאגר מחירי משרד הכלכלה" ארוך מהמקור */
   font-weight: 700;
   color: #ffffff;
 }
 
 .p04-e44 {
-  left: 1355.9px;
+  left: 1310.9px;
   top: 595.73px;
   width: 203.04px;
   height: 203.04px;
@@ -645,14 +645,14 @@
 }
 
 .p04-e53 {
-  left: 1414.4px;
+  left: 1369.4px; /* שלישיית CHP -45 — סגירת הרווח בין הצבירים */
   top: 215.83px;
   width: 372.08px;
   height: 432.97px;
 }
 
 .p04-e54 {
-  left: 1414.4px;
+  left: 1369.4px;
   top: 269.95px;
   width: 372.08px;
   height: 304.43px;
@@ -668,7 +668,7 @@
 }
 
 .p04-e55 {
-  left: 1433.83px;
+  left: 1388.83px;
   top: 238.44px;
   width: 333.22px;
   height: 387.74px;
@@ -685,14 +685,14 @@
 }
 
 .p04-e56 {
-  left: 721.56px;
+  left: 778.56px;
   top: 215.83px;
   width: 381.97px;
   height: 444.47px;
 }
 
 .p04-e57 {
-  left: 721.56px;
+  left: 778.56px;
   top: 271.39px;
   width: 381.97px;
   height: 312.52px;
@@ -708,7 +708,7 @@
 }
 
 .p04-e58 {
-  left: 741.5px;
+  left: 798.5px;
   top: 238.4px;
   width: 342.07px;
   height: 398.05px;
