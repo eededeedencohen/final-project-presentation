@@ -410,10 +410,10 @@ export default function Slide04() {
       >
         <div className="p04-e38-tx">
           <p className="pp" dir="auto" style={{ textAlign: "center" }}>
-            <span className="p04-t3">משווה מחירי </span>
+            <span className="p04-t3">משווה מחירי</span>
           </p>
           <p className="pp" dir="auto" style={{ textAlign: "center" }}>
-            <span className="p04-t3">עגלות</span>
+            <span className="p04-t3">מוצרים בסריקה</span>
           </p>
         </div>
       </div>
@@ -455,10 +455,10 @@ export default function Slide04() {
       >
         <div className="p04-e43-tx">
           <p className="pp" dir="auto" style={{ textAlign: "center" }}>
-            <span className="p04-t4">משווה מחירי </span>
+            <span className="p04-t4">מבוסס מאגר מחירי</span>
           </p>
           <p className="pp" dir="auto" style={{ textAlign: "center" }}>
-            <span className="p04-t4">עגלות</span>
+            <span className="p04-t4">משרד הכלכלה</span>
           </p>
         </div>
       </div>

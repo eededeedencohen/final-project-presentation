@@ -375,8 +375,10 @@ export default function Deck({ slides }) {
           <div className="deck-help-panel" dir="rtl">
             <h3>קיצורי מקלדת</h3>
             <dl>
-              <dt>→ / רווח</dt>
+              <dt>→</dt>
               <dd>השקף הבא</dd>
+              <dt>רווח</dt>
+              <dd>השקף הבא + הפתק הבא (כמו → ו-D ביחד)</dd>
               <dt>←</dt>
               <dd>השקף הקודם</dd>
               <dt>G / Esc</dt>
@@ -385,7 +387,7 @@ export default function Deck({ slides }) {
               <dd>מסך מלא</dd>
               <dt>Home / End</dt>
               <dd>קפיצה להתחלה / סוף</dd>
-              <dt>A / D</dt>
+              <dt>D / A</dt>
               <dd>פתקי הדובר — הבא / הקודם (לא נראים בהקלטה)</dd>
               <dt>לחיצת גלגלת</dt>
               <dd>מיקום וגודל של הפתק המוצג</dd>
@@ -398,7 +400,7 @@ export default function Deck({ slides }) {
       </div>
 
       {/* פתקי הדובר — מחוץ לאזור הלכידה, לכן לא נכנסים להקלטה */}
-      <NotesOverlay />
+      <NotesOverlay slides={slides} current={index} />
     </div>
   );
 }

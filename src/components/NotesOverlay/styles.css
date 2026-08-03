@@ -52,16 +52,71 @@
 
 .notes-count {
   left: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
-/* סליידר שקיפות — מעל הפתק, מצד ימין */
-.notes-opacity {
-  top: -34px;
-  bottom: auto;
-  right: 0;
+/* כפתורי שינוי סדר בתוך מונה הפתקים */
+.notes-ord {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(127, 231, 242, 0.14);
+  border: 1px solid rgba(127, 231, 242, 0.35);
+  color: #eaf7fa;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.notes-ord:hover {
+  background: rgba(15, 163, 184, 0.55);
+  transform: scale(1.12);
+}
+
+/* פס הכלים העליון — בתוך גבולות הפתק, נגיש גם כשהפתק בקצה המסך */
+.notes-toolbar {
+  position: absolute;
+  top: 8px;
+  inset-inline: 8px;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.notes-toolbar .notes-chip {
+  position: static;
+}
+
+/* בורר שקף לפתק הנוכחי */
+.notes-slide-pick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notes-slide-pick select {
+  max-width: 150px;
+  background: rgba(2, 10, 18, 0.85);
+  color: #eaf7fa;
+  border: 1px solid rgba(127, 231, 242, 0.35);
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+/* סליידר שקיפות */
+.notes-opacity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-start: auto;
 }
 
 .notes-opacity input[type="range"] {
@@ -70,13 +125,11 @@
   cursor: pointer;
 }
 
-/* כפתור מחיקה בפינה העליונה */
+/* כפתור מחיקה — בתוך פס הכלים */
 .notes-delete {
-  position: absolute;
-  top: -12px;
-  left: -12px;
   width: 26px;
   height: 26px;
+  flex: none;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -92,6 +145,203 @@
 .notes-delete:hover {
   background: rgba(200, 35, 48, 1);
   transform: scale(1.12);
+}
+
+/* כפתור פתיחת פאנל הסידור */
+.notes-organize-btn {
+  cursor: pointer;
+  border: 1px solid rgba(127, 231, 242, 0.35);
+  transition: background 0.15s ease;
+}
+
+.notes-organize-btn:hover {
+  background: rgba(15, 163, 184, 0.55);
+}
+
+/* --- פאנל סידור התמונות --- */
+.notes-organizer {
+  position: fixed;
+  inset: 56px 90px;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  background: rgba(3, 14, 24, 0.94);
+  border: 1px solid rgba(127, 231, 242, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+}
+
+.notes-organizer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  color: #eaf7fa;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(127, 231, 242, 0.15);
+}
+
+.notes-organizer-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(150, 25, 35, 0.9);
+  color: #ffe9ea;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+}
+
+.notes-organizer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* מקטע של שקף — אזור שחרור לשיוך */
+.notes-section {
+  border: 1.5px solid rgba(127, 231, 242, 0.14);
+  border-radius: 12px;
+  padding: 10px 14px 14px;
+  background: rgba(127, 231, 242, 0.03);
+}
+
+.notes-section.on-slide {
+  border-color: rgba(43, 199, 220, 0.55);
+  background: rgba(43, 199, 220, 0.07);
+}
+
+.notes-section.empty {
+  padding-bottom: 10px;
+}
+
+.notes-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #bfe9f0;
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.notes-section-count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(127, 231, 242, 0.14);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.notes-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+
+.notes-section-drop {
+  grid-column: 1 / -1;
+  border: 1.5px dashed rgba(127, 231, 242, 0.25);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  color: rgba(191, 233, 240, 0.5);
+  font-size: 13px;
+}
+
+.notes-tile {
+  position: relative;
+  border-radius: 10px;
+  background: #0a1f30;
+  border: 2px solid rgba(127, 231, 242, 0.18);
+  padding: 6px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.notes-tile:hover {
+  border-color: rgba(127, 231, 242, 0.5);
+}
+
+.notes-tile.current {
+  border-color: var(--c-aqua, #2bc7dc);
+}
+
+/* המשבצת שממנה הורמה התמונה — חריץ ריק מקווקו */
+.notes-tile.dragging {
+  border-style: dashed;
+  border-color: rgba(127, 231, 242, 0.55);
+  background: rgba(127, 231, 242, 0.06);
+  cursor: grabbing;
+}
+
+.notes-tile.dragging img,
+.notes-tile.dragging .notes-tile-num {
+  opacity: 0.12;
+}
+
+/* התמונה הנגררת — צמודה לסמן, מורמת מעל הכול */
+.notes-drag-ghost {
+  position: fixed;
+  z-index: 12;
+  pointer-events: none;
+  padding: 6px;
+  border-radius: 10px;
+  background: #0a1f30;
+  border: 2px solid var(--c-aqua, #2bc7dc);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 24px rgba(43, 199, 220, 0.35);
+  transform: scale(1.06) rotate(1.5deg);
+  opacity: 0.97;
+}
+
+.notes-drag-ghost img {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.notes-tile img {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  pointer-events: none;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.notes-tile-num {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 1;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--c-aqua, #2bc7dc);
+  color: #04121e;
+  font-size: 12.5px;
+  font-weight: 800;
 }
 
 /* ידית שינוי גודל בפינה */
